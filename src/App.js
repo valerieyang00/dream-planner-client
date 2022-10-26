@@ -12,15 +12,16 @@ import Expenses from './components/pages/Expenses'
 import Home from './components/pages/Home'
 import NewDestination from './components/pages/NewDestination'
 import NewExpense from './components/pages/NewExpense'
+import Navbar from './components/partials/NavBar';
 
 export default function App() {
   return (
     <Router>
-      <Header>
-        <Navbar>
-
-        </Navbar>
-      </Header>
+      <header>
+        <Navbar
+        
+        />
+      </header>
       <div className='App'>
         <Routes>
           <Route
