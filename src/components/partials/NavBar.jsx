@@ -9,7 +9,7 @@ export default function Navbar({ currentUser, handleLogout }) {
           Destinations
         </Link>{" | "}
 
-        <Link to='/destination/new' className=''>
+        <Link to='/destinations/new' className=''>
           Plan my Trip
         </Link>{" | "}
 
