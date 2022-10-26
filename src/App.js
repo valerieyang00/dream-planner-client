@@ -96,17 +96,17 @@ export default function App() {
     
           <Route 
             path='/destinations'
-            element={<Destinations />}          
+            element={<Destinations currentUser={currentUser}/>}          
           />
 
           <Route 
             path='/destinations/:id'
-            element={<Destination />}          
+            element={<Destination currentUser={currentUser}/>}          
           />
 
           <Route
             path='/destinations/new'
-            element={<NewDestination />}                    
+            element={<NewDestination currentUser={currentUser}/>}                    
           />
 
           <Route 
