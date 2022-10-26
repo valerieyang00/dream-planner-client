@@ -5,7 +5,7 @@ import { useState } from 'react'
 
 export default function NewExpense() {
     const [msg, setMsg] = useState("")
-    const [form, setForm] = useState({
+    const [form, setForm] = useState({        
 
     })
 
