@@ -3,11 +3,10 @@ import { useNavigate } from 'react-router-dom'
 import { useState } from 'react'
 
 
-export default function NewDestination() { //pass currentUser as prop when it's set up
+export default function NewDestination({currentUser}) { //pass currentUser as prop when it's set up
     const [msg, setMsg] = useState("")
     const [form, setForm] = useState({
-        // user: currentUser.id, *change to this when currentUser is set up*
-        user: 1,
+        user: currentUser.id,
         name: '',
         budget: 0,
         photo: '',
