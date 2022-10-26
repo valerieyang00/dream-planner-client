@@ -43,9 +43,9 @@ export default function NewExpense() {
             <div className="w-full max-w-xs object-center">
                 <form onSubmit={handleCreate} className="bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4">
                     <div className="mb-4">
-                        <label htmlFor="date" class="block text-gray-700 text-sm font-bold mb-2">Date:</label>
+                        <label htmlFor="date" className="block text-gray-700 text-sm font-bold mb-2">Date:</label>
                         <input 
-                        class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+                        className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
                         type="date"
                         name="date"
                         id="date"
@@ -57,9 +57,9 @@ export default function NewExpense() {
                     </div>
                     
                     <div className="mb-4">
-                        <label htmlFor="category" class="block text-gray-700 text-sm font-bold mb-2">Category:</label>
+                        <label htmlFor="category" className="block text-gray-700 text-sm font-bold mb-2">Category:</label>
                         <input 
-                        class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+                        className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
                         type="select"
                         name="category"
                         id="category"
@@ -71,9 +71,9 @@ export default function NewExpense() {
                     </div>
 
                     <div className="mb-4">
-                        <label htmlFor="merchant" class="block text-gray-700 text-sm font-bold mb-2">Merchant:</label>
+                        <label htmlFor="merchant" className="block text-gray-700 text-sm font-bold mb-2">Merchant:</label>
                         <input 
-                        class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+                        className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
                         type="text"
                         name="merchant"
                         id="merchant"
@@ -85,9 +85,9 @@ export default function NewExpense() {
                     </div>
 
                     <div className="mb-4">
-                        <label htmlFor="amount" class="block text-gray-700 text-sm font-bold mb-2">Amount:</label>
+                        <label htmlFor="amount" className="block text-gray-700 text-sm font-bold mb-2">Amount:</label>
                         <input 
-                        class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+                        className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
                         type="number"
                         name="amount"
                         id="amount"
@@ -99,9 +99,9 @@ export default function NewExpense() {
                     </div>
 
                     <div className="mb-6">
-                        <label htmlFor="details" class="block text-gray-700 text-sm font-bold mb-2">Details:</label>
+                        <label htmlFor="details" className="block text-gray-700 text-sm font-bold mb-2">Details:</label>
                         <input 
-                        class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+                        className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
                         type="text"
                         name="details"
                         id="details"
@@ -112,7 +112,7 @@ export default function NewExpense() {
                         />
                     </div>
 
-                    <button type="submit" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline">Submit</button>
+                    <button type="submit" className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline">Submit</button>
                 </form>
             </div>
         </div>
