@@ -1,5 +1,4 @@
 import { Link } from 'react-router-dom'
-import Hamburger from './partials/Hamburger'
 
 export default function Navbar({ currentUser, handleLogout }) {
 	const loggedIn = () => {
@@ -54,11 +53,6 @@ export default function Navbar({ currentUser, handleLogout }) {
 
                 </div>
             </div>
-
-        <Hamburger
-            currentUser={currentUser}
-            handleLogout={handleLogout}
-        />
 
         {currentUser ? loggedIn() : loggedOut()}
 
