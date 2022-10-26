@@ -5,7 +5,6 @@ import { useState } from 'react'
 
 export default function NewExpense() {
     const [msg, setMsg] = useState("")
-
     const [form, setForm] = useState({
         user: 1,
         destination: 1,
@@ -41,64 +40,81 @@ export default function NewExpense() {
     return (
         <div>
             <h1>Add expenses for your dream destination</h1>
-            <form onSubmit={handleCreate}>
-                <label htmlFor="date">Date:</label>
-                <input
-                type="date"
-                name="date"
-                id="date"
-                placeholder="Expense date..."
-                value={form.date}
-                onChange={handleChange}
-                required
+            <div className="w-full max-w-xs object-center">
+                <form onSubmit={handleCreate} className="bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4">
+                    <div className="mb-4">
+                        <label htmlFor="date" class="block text-gray-700 text-sm font-bold mb-2">Date:</label>
+                        <input 
+                        class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+                        type="date"
+                        name="date"
+                        id="date"
+                        placeholder="Expense date..."
+                        value={form.date}
+                        onChange={handleChange}
+                        required
+                        />
+                    </div>
+                    
+                    <div className="mb-4">
+                        <label htmlFor="category" class="block text-gray-700 text-sm font-bold mb-2">Category:</label>
+                        <input 
+                        class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+                        type="select"
+                        name="category"
+                        id="category"
+                        placeholder="Select category..."
+                        value={form.category}
+                        onChange={handleChange}
+                        required
+                        />
+                    </div>
 
-                />
-                
-                <label htmlFor="category">Category:</label>
-                <input
-                type=""
-                name="category"
-                id="category"
-                placeholder="Select category..."
-                value={form.category}
-                onChange={handleChange}
-                required
-                />
+                    <div className="mb-4">
+                        <label htmlFor="merchant" class="block text-gray-700 text-sm font-bold mb-2">Merchant:</label>
+                        <input 
+                        class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+                        type="text"
+                        name="merchant"
+                        id="merchant"
+                        placeholder="Enter merchant..."
+                        value={form.merchant}
+                        onChange={handleChange}
+                        required
+                        />
+                    </div>
 
-                <label htmlFor="merchant">Merchant:</label>
-                <input
-                type="text"
-                name="merchant"
-                id="merchant"
-                placeholder="Enter merchant..."
-                value={form.merchant}
-                onChange={handleChange}
-                required
-                />
+                    <div className="mb-4">
+                        <label htmlFor="amount" class="block text-gray-700 text-sm font-bold mb-2">Amount:</label>
+                        <input 
+                        class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+                        type="number"
+                        name="amount"
+                        id="amount"
+                        placeholder="Enter amount..."
+                        value={form.amount}
+                        onChange={handleChange}
+                        required
+                        />
+                    </div>
 
-                <label htmlFor="amount">Amount:</label>
-                <input
-                type="number"
-                name="amount"
-                id="amount"
-                placeholder="Enter amount..."
-                value={form.amount}
-                onChange={handleChange}
-                required
-                />
+                    <div className="mb-6">
+                        <label htmlFor="details" class="block text-gray-700 text-sm font-bold mb-2">Details:</label>
+                        <input 
+                        class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+                        type="text"
+                        name="details"
+                        id="details"
+                        placeholder="Enter details..."
+                        value={form.details}
+                        onChange={handleChange}
+                        required
+                        />
+                    </div>
 
-                <label htmlFor="details">Details:</label>
-                <input
-                type="text"
-                name="details"
-                id="details"
-                placeholder="Enter details..."
-                value={form.details}
-                onChange={handleChange}
-                required
-                />
-
-            </form>
+                    <button type="submit" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline">Submit</button>
+                </form>
+            </div>
         </div>
     )
 }
