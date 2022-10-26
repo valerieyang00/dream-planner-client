@@ -6,7 +6,13 @@ import { useState } from 'react'
 export default function NewExpense() {
     const [msg, setMsg] = useState("")
     const [form, setForm] = useState({
-
+        user: 1,
+        destination: 1,
+        date: '',
+        category: '',
+        merchant: '',
+        amount: 0,
+        details: ''
     })
 
     const navigate = useNavigate()
@@ -45,35 +51,46 @@ export default function NewExpense() {
 
                 />
                 
-                <label htmlFor=""></label>
+                <label htmlFor="category">Category:</label>
                 <input
                 type=""
-                name=""
-                id=""
-                placeholder=""
-                value={form.}
+                name="category"
+                id="category"
+                placeholder="Select category..."
+                value={form.category}
                 onChange={handleChange}
                 required
                 />
 
-                <label htmlFor=""></label>
+                <label htmlFor="merchant">Merchant:</label>
                 <input
-                type=""
-                name=""
-                id=""
-                placeholder=""
-                value={form.}
+                type="text"
+                name="merchant"
+                id="merchant"
+                placeholder="Enter merchant..."
+                value={form.merchant}
                 onChange={handleChange}
                 required
                 />
 
-                <label htmlFor=""></label>
+                <label htmlFor="amount">Amount:</label>
                 <input
-                type=""
-                name=""
-                id=""
-                placeholder=""
-                value={form.}
+                type="number"
+                name="amount"
+                id="amount"
+                placeholder="Enter amount..."
+                value={form.amount}
+                onChange={handleChange}
+                required
+                />
+
+                <label htmlFor="details">Details:</label>
+                <input
+                type="text"
+                name="details"
+                id="details"
+                placeholder="Enter details..."
+                value={form.details}
                 onChange={handleChange}
                 required
                 />
