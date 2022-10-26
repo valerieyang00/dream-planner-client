@@ -59,7 +59,7 @@ export default function App() {
           />
 
           <Route 
-            path='/expenses/new'
+            path='/destinations/:id/expenses/new'
             element={<NewExpense />}          
           />
 
