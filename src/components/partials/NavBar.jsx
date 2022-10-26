@@ -44,10 +44,10 @@ export default function Navbar({ currentUser, handleLogout }) {
 		<nav className="">
                 {/* user always sees this section */}
             <div className="flex items-end gap-3">
-                <Link to="/">Home</Link>
+                <Link to="/">Home</Link>{" | "}
 
                 <div className=''>
-                <Link to='/destinations' className=''>Browse</Link>{" | "}
+                <Link to='/destinations' className=''>Browse Destinations</Link>{" | "}
 
                 <Link to='/about' className=''>About</Link>
 
