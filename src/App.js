@@ -28,6 +28,12 @@ export default function App() {
       </header>
       <div className='App'>
         <Routes>
+
+          <Route 
+          path='/'
+          element={<Home />}          
+          />
+
           <Route
             path='/register'
             element={<Register />}
@@ -48,31 +54,7 @@ export default function App() {
             element={<EditProfile />}
           />
 
-          <Route
-            path='/expenses'
-            element={<Expenses />}
-          />
-
-          <Route
-            path='/expenses/:id'
-            element={<Expense />}          
-          />
-
-          <Route 
-            path='/destinations/:id/expenses/new'
-            element={<NewExpense />}          
-          />
-
-          <Route 
-            path='/expenses/:id/edit'
-            element={<EditExpense />}          
-          />
-
-          <Route 
-            path='/'
-            element={<Home />}          
-          />
-
+    
           <Route 
             path='/destinations'
             element={<Destinations />}          
@@ -91,6 +73,21 @@ export default function App() {
           <Route 
             path='/destinations/:id/edit'
             element={<EditDestination />}          
+          />
+
+          <Route
+            path='/destinations/:id/expenses'
+            element={<Expenses />}
+          />
+
+          <Route 
+            path='/destinations/:id/expenses/new'
+            element={<NewExpense />}          
+          />
+
+          <Route 
+            path='/destinations/:destinationid/expenses/:expenseid/edit'
+            element={<EditExpense />}          
           />
 
           <Route 
