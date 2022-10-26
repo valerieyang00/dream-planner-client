@@ -5,6 +5,7 @@ import { useState } from 'react'
 
 export default function NewExpense() {
     const [msg, setMsg] = useState("")
+
     const [form, setForm] = useState({
         user: 1,
         destination: 1,
@@ -13,6 +14,8 @@ export default function NewExpense() {
         merchant: '',
         amount: 0,
         details: ''
+
+
     })
 
     const navigate = useNavigate()
