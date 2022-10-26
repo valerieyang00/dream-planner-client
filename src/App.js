@@ -54,7 +54,7 @@ export default function App() {
           />
 
           <Route
-            path='/expense/:id'
+            path='/expenses/:id'
             element={<Expense />}          
           />
 
@@ -64,7 +64,7 @@ export default function App() {
           />
 
           <Route 
-            path='/expense/:id/edit'
+            path='/expenses/:id/edit'
             element={<EditExpense />}          
           />
 
@@ -79,17 +79,17 @@ export default function App() {
           />
 
           <Route 
-            path='/destination/:id'
+            path='/destinations/:id'
             element={<Destination />}          
           />
 
           <Route
-            path='/destination/new'
+            path='/destinations/new'
             element={<NewDestination />}                    
           />
 
           <Route 
-            path='/destination/:id/edit'
+            path='/destinations/:id/edit'
             element={<EditDestination />}          
           />
 
