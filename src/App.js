@@ -12,6 +12,10 @@ import Expenses from './components/pages/Expenses'
 import Home from './components/pages/Home'
 import NewDestination from './components/pages/NewDestination'
 import NewExpense from './components/pages/NewExpense'
+import Register from './components/pages/Register';
+import Login from './components/pages/Login';
+import Profile from './components/pages/Profile';
+import EditProfile from './components/pages/EditProfile';
 import Navbar from './components/partials/NavBar';
 
 export default function App() {
@@ -25,7 +29,7 @@ export default function App() {
       <div className='App'>
         <Routes>
           <Route
-            path='/expense'
+            path='/expenses'
             element={<Expenses />}
           />
 
@@ -35,7 +39,7 @@ export default function App() {
           />
 
           <Route 
-            path='/expense/new'
+            path='/expenses/new'
             element={<NewExpense />}          
           />
 
@@ -50,7 +54,7 @@ export default function App() {
           />
 
           <Route 
-            path='/destination'
+            path='/destinations'
             element={<Destinations />}          
           />
 
