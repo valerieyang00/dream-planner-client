@@ -22,7 +22,7 @@ export default function NewExpense() {
             await axios.post(`${process.env.REACT_APP_SERVER_URL}/api/expenses/`, form)
             navigate('/destination/:id')
         }catch(err){
-            consolewarn(err)
+            console.warn(err)
             if(err.response) {
                 setMsg(err.response.data.msg)
             }
