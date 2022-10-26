@@ -31,6 +31,7 @@ export default function Destination() {
             <h1>{destination.name}</h1>
             <h3>{destination.budget}</h3>
             <img src={destination.photo} alt={destination.name}/>
+            <h4>{destination.description}</h4>
             {/* import budget/expense tracker dashboard here */}
             <h4>All expenses:</h4>
             <Expenses destinationid ={destination.id}/>
