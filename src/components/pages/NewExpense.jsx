@@ -31,7 +31,54 @@ export default function NewExpense() {
 
     return (
         <div>
-            New Expense  
+            <h1>Add expenses for your dream destination</h1>
+            <form onSubmit={handleCreate}>
+                <label htmlFor="date">Date:</label>
+                <input
+                type="date"
+                name="date"
+                id="date"
+                placeholder="Expense date..."
+                value={form.date}
+                onChange={handleChange}
+                required
+
+                />
+                
+                <label htmlFor=""></label>
+                <input
+                type=""
+                name=""
+                id=""
+                placeholder=""
+                value={form.}
+                onChange={handleChange}
+                required
+                />
+
+                <label htmlFor=""></label>
+                <input
+                type=""
+                name=""
+                id=""
+                placeholder=""
+                value={form.}
+                onChange={handleChange}
+                required
+                />
+
+                <label htmlFor=""></label>
+                <input
+                type=""
+                name=""
+                id=""
+                placeholder=""
+                value={form.}
+                onChange={handleChange}
+                required
+                />
+
+            </form>
         </div>
     )
 }
