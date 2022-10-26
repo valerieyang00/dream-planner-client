@@ -12,7 +12,7 @@ export default function Destinations() {
         const getDestinations = async () => {
             try {
                 const response = await axios.get(`${process.env.REACT_APP_SERVER_URL}/api/destinations/`)
-                setDestinations(response.data)
+                setDestinations(response.data)                
 
 
             }catch(err) {
@@ -26,9 +26,10 @@ export default function Destinations() {
     },[])
 
     const renderPage = destinations.map((destination) => {
-        return (
+        console.log(destination.id)
+          return (
             <ul key={destination.id}>
-                <Link to={`/destinations/${destination.id}}`}><h2>{destination.name}</h2></Link>
+                <Link to={`/destinations/${destination.id}`}><h2>{destination.name}</h2></Link>
                 <small>{destination.user}</small>
                 <img src={destination.photo} alt={destination.name} />
             </ul>
