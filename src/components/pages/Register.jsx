@@ -1,14 +1,15 @@
 import { useState } from 'react'
 import axios from 'axios'
-import jwt_decode from 'jwt-decode'
-import { Navigate } from 'react-router-dom'
+import { useNavigate } from 'react-router-dom'
 
-export default function Register({ currentUser, setCurrentUser }) {
+export default function Register() {
 	// state for the controlled form
-	const [name, setName] = useState('')
+	const [username, setUsername] = useState('')
 	const [email, setEmail] = useState('')
 	const [password, setPassword] = useState('')
 	const [msg, setMsg] = useState('')
+
+    const navigate = useNavigate()
 
 	// submit event handler
 	const handleSubmit = async e => {
@@ -16,21 +17,12 @@ export default function Register({ currentUser, setCurrentUser }) {
 		try {
 			// post fortm data to the backend
 			const reqBody = {
-				name,
+				username,
 				email, 
 				password
 			}
-			const response = await axios.post(`${process.env.REACT_APP_SERVER_URL}/api-v1/users/register`, reqBody)
-
-			// save the token in localstorage
-			const { token } = response.data
-			localStorage.setItem('jwt', token)
-
-			// decode the token
-			const decoded = jwt_decode(token)
-
-			// set the user in App's state to be the decoded token
-			setCurrentUser(decoded)
+			await axios.post(`${process.env.REACT_APP_SERVER_URL}/api/users/`, reqBody)
+            navigate('/login')
 
 		} catch (err) {
 			console.warn(err)
@@ -42,10 +34,6 @@ export default function Register({ currentUser, setCurrentUser }) {
 		}
  	}
 
-	// conditionally render a navigate component
-	if (currentUser) {
-		return <Navigate to="/profile" />
-	}
 
 	return (
 		<div className='md:flex md:justify-center m-10 mt-20'>
@@ -57,17 +45,17 @@ export default function Register({ currentUser, setCurrentUser }) {
 						<p className='text-3xl font-bold mb-10'> Create your account </p>
 						<label  
 							className="block text-gray-700 text-sm font-bold mb-2" 
-							htmlFor='name'
+							htmlFor='username'
 						>
-							Name:
+							Username:
 						</label>
 						<input 
 							className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
 							type="text"
-							id="name"
+							id="username"
 							placeholder='your username...'
-							onChange={e => setName(e.target.value)}
-							value={name}
+							onChange={e => setUsername(e.target.value)}
+							value={username}
 						/>
 					</div>
 

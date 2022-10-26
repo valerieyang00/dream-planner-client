@@ -1,19 +1,21 @@
 import { Link } from 'react-router-dom'
 
 export default function Navbar({ currentUser, handleLogout }) {
-	const loggedIn = () => {
-    return (
-      <div className="hidden lg:flex gap-0 absolute opacity-0 lg:gap-3 lg:relative lg:opacity-100">
+  let user_id = ''
+
+	if(currentUser){
+		user_id = currentUser.id
+	}
+
+	const loggedIn = (
+      <div className="">
         {/* if the user is logged in... */}
-        <Link to='/destinations' className=''>
-          Destinations
-        </Link>{" | "}
 
         <Link to='/destinations/new' className=''>
           Plan my Trip
         </Link>{" | "}
 
-        <Link to={`/users/${currentUser.id}`} className=''>
+        <Link to={`/users/${user_id}`} className=''>
           Profile
         </Link>{" | "}
 
@@ -23,11 +25,11 @@ export default function Navbar({ currentUser, handleLogout }) {
 
       </div>
     )
-  }
+
 		
-	const loggedOut = () => {
-    return (
-      <div className="">
+	const loggedOut = (
+
+       <div className="">
         {/* if the user is not logged in... */}
         <Link to="/register" className=''>
           Register
@@ -38,7 +40,7 @@ export default function Navbar({ currentUser, handleLogout }) {
         </Link>
       </div>
     )
-  }
+
 
 	return (
 		<nav className="relative top-0 flex justify-between items-end w-screen h-20 max-w-[90%] bg-slate-300 text-xl font-light text-stone-50 px-0 py-2">
@@ -53,8 +55,8 @@ export default function Navbar({ currentUser, handleLogout }) {
 
                 </div>
             </div>
+        {currentUser ? loggedIn : loggedOut}
 
-        {currentUser ? loggedIn() : loggedOut()}
 
 		</nav>
 	)
