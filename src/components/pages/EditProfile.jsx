@@ -3,11 +3,11 @@ import axios from 'axios'
 import { useNavigate } from 'react-router-dom'
 import jwt_decode from 'jwt-decode'
 
-export default function EditProfile({currentUser, setCurrentUser}) {
+export default function EditProfile({currentUser, setCurrentUser, handleLogout}) {
     const decodedToken = jwt_decode(localStorage.getItem('jwt'))
-    const [username, setUsername] = useState(token.username)
-    const [email, setEmail] = useState(token.email)
-    const [password, setPassword] = useState(token.password)
+    const [username, setUsername] = useState(decodedToken.username)
+    const [email, setEmail] = useState(decodedToken.email)
+    const [password, setPassword] = useState(decodedToken.password)
     const [newPassword, setNewPassword] = useState('')
     const [errorMessage, setErrorMessage] = useState('')
 
