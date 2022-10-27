@@ -17,6 +17,8 @@ export default function Destination({currentUser}) {
         const getDestination = async () => {
             try {
                 const response = await axios.get(`${process.env.REACT_APP_SERVER_URL}/api/destinations/${destinationId}/`)
+                const user = await axios.get(`${process.env.REACT_APP_SERVER_URL}/api/users/${response.data.user}/`)
+                response.data['username'] = user.data.username
                 setDestination(response.data)
             }catch(err) {
                 console.warn(err)
@@ -41,6 +43,7 @@ export default function Destination({currentUser}) {
     return (
         <div>
             {msg}
+            <h1>{destination.username}'s Dream Vacation</h1>
             <h1>{destination.name}</h1>
             <h3>{destination.budget}</h3>
             <img src={destination.photo} alt={destination.name}/>
