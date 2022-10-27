@@ -17,7 +17,7 @@ export default function EditExpense() {
 
     })
 
-    const { expenseId } = useParams()
+    // const { expenseId } = useParams()
     const navigate = useNavigate()
 
     const handleChange = (e) => {
