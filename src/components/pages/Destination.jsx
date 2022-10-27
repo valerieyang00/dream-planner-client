@@ -32,7 +32,7 @@ export default function Destination({currentUser}) {
         <div>
             <h4>All expenses:</h4>
             <Link to={`/destinations/${destinationId}/expenses/new`}><h4>Add New Expense</h4></Link>
-            <Expenses destinationId ={destination.id}/>
+            <Expenses destinationId ={destination.id} budget = {destination.budget}/>
         </div>
     )
     
