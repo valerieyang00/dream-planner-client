@@ -24,7 +24,6 @@ export default function NewExpense() {
         console.log(form)
     }
 
-    
 
     const handleCreate = async (e) => {
         e.preventDefault()
