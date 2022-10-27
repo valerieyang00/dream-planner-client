@@ -7,8 +7,8 @@ export default function EditExpense(currentUser) {
     const [msg, setMsg] = useState("")
     const { expenseId, destinationId } = useParams()
     const [form, setForm] = useState({
-        user: currentUser.userId,
-        destination: destinationId,
+        // user: currentUser.userId,
+        // destination: destinationId,
         date: '',
         category: '',
         merchant: '',
