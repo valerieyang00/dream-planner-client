@@ -14,8 +14,8 @@ export default function MyDestinations({currentUser}) {
         const getDestinations = async () => {
             try {  
                 const response = await axios.get(`${process.env.REACT_APP_SERVER_URL}/api/users/${currentUser}/`)
-                // console.log(response.data)
-                setDestinations(response.data)
+
+                setDestinations(response.data.destinations)
             } catch(err) {
                 console.warn(err)
                 if (err.response) {
@@ -27,20 +27,26 @@ export default function MyDestinations({currentUser}) {
     }, []) // 
     
     
-    // const myDestinations = destinations.map(destination => {
-    //     return (
-    //         <div key={destination.id}>
-    //             <Link to={`/users/${userId}/destinations/${destinationId}`}>{destination.name}</Link>
-    //         </div>
-    //     )
-    // })
+    const destinationsToDisplay = destinations.map((destination,idx) => {
+        return (
+            <div key={destination.id}>
+            <ul>
+                <li>{destination.name}</li>
+                <li>{destination.budget}</li>
+                <li>{destination.photo}</li>
+                <li>{destination.description}</li>
+                <li>{destination.date}</li>
+            </ul>
+            </div>
+        )
+    })
 
 
     return (
         <div>
             <h1>My Destinations:</h1>
             
-            {/*   {myDestinations} */}
+              {destinationsToDisplay}
             
             <p>{errorMessage}</p>
         </div>
