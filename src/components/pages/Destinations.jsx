@@ -36,7 +36,7 @@ export default function Destinations() {
             <ul key={`${destination.id}-${idx}`}>
                 <Link to={`/destinations/${destination.id}`}><h2>{destination.name}</h2></Link>
                 <small>{destination.username}</small>
-                <img src={destination.photo} alt={destination.name} />
+                <Link to={`/destinations/${destination.id}`}><img src={destination.photo} alt={destination.name} /></Link>
             </ul>
         )
 
