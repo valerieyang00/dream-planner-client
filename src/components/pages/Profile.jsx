@@ -23,7 +23,7 @@ export default function Profile({ currentUser, handleLogout }) {
                 // get the token from local storage
                 
 
-                const userResponse = await axios.get(`${process.env.REACT_APP_SERVER_URL}/api/users/${userId}`)
+                const userResponse = await axios.get(`${process.env.REACT_APP_SERVER_URL}/api/users/${userId}/`)
                             // example POST with auth headers (options are always last argument)
                             // await axios.post(url, requestBody (form data), options)
                             // set the secret user message in state
@@ -46,7 +46,7 @@ export default function Profile({ currentUser, handleLogout }) {
     const deleteUser = async () => {
         try {
           // Deletes User
-          await axios.delete(`${process.env.REACT_APP_SERVER_URL}/api/users/${userId}`)
+          await axios.delete(`${process.env.REACT_APP_SERVER_URL}/api/users/${userId}/`)
           // Logout user from deleted account
           handleLogout()
           // Return Home

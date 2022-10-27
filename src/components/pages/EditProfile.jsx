@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react'
 import axios from 'axios'
 import { useNavigate, useParams } from 'react-router-dom'
-import jwt_decode from 'jwt-decode'
+
 
 export default function EditProfile({currentUser, setCurrentUser, handleLogout}) {
     const [username, setUsername] = useState('')
@@ -14,26 +14,29 @@ export default function EditProfile({currentUser, setCurrentUser, handleLogout})
 
     console.log(currentUser)
 
-    // useEffect(() => {
-    //     const getUser = async () => {
-    //         try {
-    //             // e.preventDefault()
-    //             const response = await axios.get(`${process.env.REACT_APP_SERVER_URL}/api/users/${userId}`)
-    //             console.log(response.data)
-    //         }catch(err) {
-    //             console.warn(err)
-    //             if (err.response) {
-    //                 setErrorMessage(err.response.data.message)               
-    //             }               
-    //         }
-    //     }
-    //     getUser()
-    // })
+    useEffect(() => {
+        const getUser = async () => {
+            try {
+                // e.preventDefault()
+                const response = await axios.get(`${process.env.REACT_APP_SERVER_URL}/api/users/${userId}/`)
+                const user = response.data
+                console.log(user)
+                setEmail(user.email)
+                setUsername(user.username)
+            }catch(err) {
+                console.warn(err)
+                if (err.response) {
+                    setErrorMessage(err.response.data.message)               
+                }               
+            }
+        }
+        getUser()
+    }, [])
 
     const deleteAccount = async e => {
         try {
             e.preventDefault()
-            await axios.delete(`${process.env.REACT_APP_SERVER_URL}/api/users/${userId}`)
+            await axios.delete(`${process.env.REACT_APP_SERVER_URL}/api/users/${userId}/`)
             handleLogout()
             navigate('/register')
         }catch(err) {
@@ -46,14 +49,15 @@ export default function EditProfile({currentUser, setCurrentUser, handleLogout})
 
     const updateAccount = async e => {
         try {
+            e.preventDefault()
             const reqBody = {
                 username,
                 email,
                 password
             }
-            const response = await axios.put(`${process.env.REACT_APP_SERVER_URL}/api/users/${userId}`, reqBody)
-            console.log(response)
-            // setCurrentUser()
+            const response = await axios.put(`${process.env.REACT_APP_SERVER_URL}/api/users/${userId}/`, reqBody)
+            navigate(`/users/${userId}`)
+            
         }catch(err) {
 			console.warn(err)
 			if (err.response) {
@@ -102,7 +106,7 @@ export default function EditProfile({currentUser, setCurrentUser, handleLogout})
                         required
                     /> */}
 
-                    <label htmlFor="password">New Password:</label>
+                    <label htmlFor="password">Password:</label>
                     <input
                         className=""
                         type="password"
