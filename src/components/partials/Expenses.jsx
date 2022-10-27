@@ -41,7 +41,7 @@ export default function Expenses({destinationId, budget}) {
 
     const expensesToDisplay = expenses.map((expense, idx) => {
             return(
-            <div key={expense.id-idx}>        
+            <div key={`${expense.id}-${idx}`}>        
             <ul>
                 <li>{expense.date}</li>
                 <li>Merchant: {expense.merchant}</li>
