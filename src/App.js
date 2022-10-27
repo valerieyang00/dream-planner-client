@@ -6,7 +6,7 @@ import axios from 'axios'
 import { Chart as ChartJS, ArcElement, Tooltip, Legend } from 'chart.js';
 import { Doughnut } from 'react-chartjs-2';
 
-
+// pages
 import About from './components/pages/About'
 import Destination from './components/pages/Destination'
 import Destinations from './components/pages/Destinations'
@@ -20,8 +20,11 @@ import Register from './components/pages/Register';
 import Login from './components/pages/Login';
 import Profile from './components/pages/Profile';
 import EditProfile from './components/pages/EditProfile';
+
+// partials
 import Navbar from './components/partials/NavBar';
 import MyDashboard from './components/partials/MyDashboard';
+import Hotels from './components/partials/Hotels';
 
 export default function App() {
   // the currently logged in user will be stored up here in state
@@ -134,6 +137,10 @@ export default function App() {
             element={<MyDashboard />}          
           />
 
+          <Route 
+            path='/hotels'
+            element={<Hotels />}          
+          />
         </Routes>
       </div>
 
