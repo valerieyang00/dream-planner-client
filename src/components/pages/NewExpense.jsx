@@ -21,8 +21,10 @@ export default function NewExpense() {
 
     const handleChange = (e) => {
         setForm({...form, [e.target.name] : e.target.value})
-
+        console.log(form)
     }
+
+    
 
     const handleCreate = async (e) => {
         e.preventDefault()
@@ -57,11 +59,12 @@ export default function NewExpense() {
                     </div>
                     
 
-                    <div>
+                    <div className="mb-4">
                         <label htmlFor='category'>Select Category:</label>
                         <select value={form.category} onChange={handleChange}>
-                                <option value="transportation">Transportation</option>
+                                <option defaultValue>Select Category:</option>
                                 <option value="lodging">Lodging</option>
+                                <option value="transportation">Transportation</option>
                                 <option value="food">Food</option>
                                 <option value="activities">Activities</option>
                                 <option value="misc">Misc</option>
