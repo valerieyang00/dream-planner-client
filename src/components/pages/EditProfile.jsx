@@ -1,20 +1,34 @@
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import axios from 'axios'
 import { useNavigate, useParams } from 'react-router-dom'
 import jwt_decode from 'jwt-decode'
 
 export default function EditProfile({currentUser, setCurrentUser, handleLogout}) {
-    const decodedToken = jwt_decode(localStorage.getItem('jwt'))
-    const [username, setUsername] = useState(decodedToken.username)
-    const [email, setEmail] = useState(decodedToken.email)
-    const [password, setPassword] = useState(decodedToken.password)
-    const [newPassword, setNewPassword] = useState('')
+    const [username, setUsername] = useState('')
+    const [email, setEmail] = useState('')
+    const [password, setPassword] = useState('')
     const [errorMessage, setErrorMessage] = useState('')
     const { userId } = useParams()
 
     const navigate = useNavigate()
 
     console.log(currentUser)
+
+    // useEffect(() => {
+    //     const getUser = async () => {
+    //         try {
+    //             // e.preventDefault()
+    //             const response = await axios.get(`${process.env.REACT_APP_SERVER_URL}/api/users/${userId}`)
+    //             console.log(response.data)
+    //         }catch(err) {
+    //             console.warn(err)
+    //             if (err.response) {
+    //                 setErrorMessage(err.response.data.message)               
+    //             }               
+    //         }
+    //     }
+    //     getUser()
+    // })
 
     const deleteAccount = async e => {
         try {
@@ -35,19 +49,11 @@ export default function EditProfile({currentUser, setCurrentUser, handleLogout})
             const reqBody = {
                 username,
                 email,
-                password,
-                newPassword
+                password
             }
             const response = await axios.put(`${process.env.REACT_APP_SERVER_URL}/api/users/${userId}`, reqBody)
-
-            const { token } = response.data
-            localStorage.setItem('jwt', token)
-
-            // decode the token
-            const decoded = jwt_decode(token)
-
-            // set the user in App's state to be the decoded token
-            setCurrentUser(decoded)
+            console.log(response)
+            // setCurrentUser()
         }catch(err) {
 			console.warn(err)
 			if (err.response) {
@@ -85,7 +91,7 @@ export default function EditProfile({currentUser, setCurrentUser, handleLogout})
                         required
                     />
 
-                    <label htmlFor="password">Current Password:</label>
+                    {/* <label htmlFor="password">Current Password:</label>
                     <input
                         className=""
                         type="password"
@@ -94,16 +100,16 @@ export default function EditProfile({currentUser, setCurrentUser, handleLogout})
                         onChange={e => setPassword(e.target.value)}
                         value={password}
                         required
-                    />
+                    /> */}
 
-                    <label htmlFor="newPassword">New Password:</label>
+                    <label htmlFor="password">New Password:</label>
                     <input
                         className=""
                         type="password"
-                        id="newPassword"
+                        id="password"
                         placeholder='******'
-                        onChange={e => setNewPassword(e.target.value)}
-                        value={newPassword}
+                        onChange={e => setPassword(e.target.value)}
+                        value={password}
                         required
                     />
 
