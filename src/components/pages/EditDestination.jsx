@@ -6,6 +6,7 @@ export default function EditDestination() {
     const [msg, setMsg] = useState("")
     const { destinationId } = useParams()
     const [form, setForm] = useState({})
+    const [user, setUser] = useState({})
 
     const navigate = useNavigate()
 
@@ -16,7 +17,8 @@ export default function EditDestination() {
                 const response = await axios.get(`${process.env.REACT_APP_SERVER_URL}/api/destinations/${destinationId}/`)                
                 const data = response.data
                 delete data["expenses"]
-                setForm(data)               
+                setForm(data)
+                setUser(data.user)                               
                 
             }catch(err) {
                 console.warn(err)
@@ -38,6 +40,19 @@ export default function EditDestination() {
         try {
             await axios.put(`${process.env.REACT_APP_SERVER_URL}/api/destinations/${destinationId}/`, form)
             navigate(`/destinations/${destinationId}`)
+        }catch(err){
+            console.warn(err)
+            if(err.response) {
+                setMsg(err.response.data.msg)
+            }
+        }
+    }
+
+    const handleDelete = async (e) => {
+        e.preventDefault()
+        try {
+            await axios.delete(`${process.env.REACT_APP_SERVER_URL}/api/destinations/${destinationId}/`)
+            navigate(`/users/${user}`)
         }catch(err){
             console.warn(err)
             if(err.response) {
@@ -93,6 +108,8 @@ export default function EditDestination() {
                 <button type="submit">Submit Changes</button>
 
             </form>
+
+            <button onClick={handleDelete}>Delete Destination</button>
         </div>
     )
 }
