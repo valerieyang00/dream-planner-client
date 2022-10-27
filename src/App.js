@@ -9,7 +9,6 @@ import Destination from './components/pages/Destination'
 import Destinations from './components/pages/Destinations'
 import EditDestination from './components/pages/EditDestination'
 import EditExpense from './components/pages/EditExpense'
-import Expense from './components/partials/Expense'
 import Expenses from './components/partials/Expenses'
 import Home from './components/pages/Home'
 import NewDestination from './components/pages/NewDestination'
@@ -76,49 +75,49 @@ export default function App() {
           />
 
           <Route
-            path='/profile'
-            element={<Profile />}
+            path='/users/:userId'
+            element={<Profile currentUser={currentUser} setCurrentUser={setCurrentUser}/>}
           />
 
           <Route
-            path='/profile/edit'
-            element={<EditProfile />}
+            path='/users/:userId/edit'
+            element={<EditProfile currentUser={currentUser} setCurrentUser={setCurrentUser} handleLogout={handleLogout}/>}
           />
 
     
           <Route 
             path='/destinations'
-            element={<Destinations currentUser={currentUser}/>}          
+            element={<Destinations currentUser={currentUser} setCurrentUser={setCurrentUser}/>}          
           />
 
           <Route 
-            path='/destinations/:id'
-            element={<Destination currentUser={currentUser}/>}          
+            path='/destinations/:destinationId'
+            element={<Destination currentUser={currentUser} setCurrentUser={setCurrentUser}/>}          
           />
 
           <Route
             path='/destinations/new'
-            element={<NewDestination currentUser={currentUser}/>}                    
+            element={<NewDestination currentUser={currentUser} setCurrentUser={setCurrentUser}/>}                    
           />
 
           <Route 
-            path='/destinations/:id/edit'
-            element={<EditDestination />}          
+            path='/destinations/:destinationId/edit'
+            element={<EditDestination currentUser={currentUser} setCurrentUser={setCurrentUser}/>}          
           />
 
           <Route
-            path='/destinations/:id/expenses'
-            element={<Expenses />}
+            path='/destinations/:destinationId/expenses'
+            element={<Expenses currentUser={currentUser} setCurrentUser={setCurrentUser}/>}
           />
 
           <Route 
-            path='/destinations/:id/expenses/new'
-            element={<NewExpense />}          
+            path='/destinations/:destinationId/expenses/new'
+            element={<NewExpense currentUser={currentUser} setCurrentUser={setCurrentUser}/>}          
           />
 
           <Route 
-            path='/destinations/:destinationid/expenses/:expenseid/edit'
-            element={<EditExpense />}          
+            path='/destinations/:destinationId/expenses/:expenseId/edit'
+            element={<EditExpense currentUser={currentUser} setCurrentUser={setCurrentUser}/>}          
           />
 
           <Route 

@@ -27,12 +27,9 @@ export default function Login({ currentUser, setCurrentUser }) {
 
 			// decode the token
 			const decoded = jwt_decode(token)
-			console.log(decoded.user_id)
-
-			const user = await axios.get(`${process.env.REACT_APP_SERVER_URL}/api/users/${decoded.user_id}/`)
 
 			// set the user in App's state to be the decoded token
-			setCurrentUser(user)
+			setCurrentUser({userId: decoded.user_id})
 
 		} catch (err) {
 			console.warn(err)
@@ -44,7 +41,7 @@ export default function Login({ currentUser, setCurrentUser }) {
 
 	// conditionally render a navigate component
 	if (currentUser) {
-		return <Navigate to={`/users/${currentUser.id}`} />
+		return <Navigate to={`/users/${currentUser.userId}`} />
 	}
 
 	return (
