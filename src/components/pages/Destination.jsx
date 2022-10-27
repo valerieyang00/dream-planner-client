@@ -8,7 +8,9 @@ export default function Destination({currentUser}) {
     const [msg, setMsg] = useState("")
     const { destinationId } = useParams()
     const [destination, setDestination] = useState([])
-
+    if (!currentUser) {
+        currentUser = {userId: ''}
+    }
 
     useEffect (() => {
 
