@@ -3,6 +3,9 @@ import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-d
 import { useState, useEffect } from 'react'
 import jwt_decode from 'jwt-decode'
 import axios from 'axios'
+import { Chart as ChartJS, ArcElement, Tooltip, Legend } from 'chart.js';
+import { Doughnut } from 'react-chartjs-2';
+
 
 import About from './components/pages/About'
 import Destination from './components/pages/Destination'
