@@ -3,7 +3,7 @@ import axios from "axios"
 import { Link } from 'react-router-dom'
 import MyDashboard from "./MyDashboard"
 
-export default function Expenses({destinationId}) {
+export default function Expenses({destinationId, budget}) {
 
     const [msg, setMsg] = useState("")
     const [expenses, setExpenses] = useState([])
@@ -32,10 +32,10 @@ export default function Expenses({destinationId}) {
             <div key={expense.id-idx}>        
             <ul>Expenses Details:
                 <li>{expense.date}</li>
-                <li>{expense.merchant}</li>
-                <li>{expense.category}</li>
-                <li>{expense.amount}</li>
-                <li>{expense.description}</li>
+                <li>Merchant: {expense.merchant}</li>
+                <li>Type: {expense.category}</li>
+                <li>Total: ${expense.amount}</li>
+                <li>Details: {expense.details}</li>
             </ul>
             </div>
             )
@@ -44,7 +44,7 @@ export default function Expenses({destinationId}) {
     return (
         <div>
             {msg}
-            <MyDashboard expenses={expenses} destinationId={destinationId}/>
+            <MyDashboard expenses={expenses} budget={budget}/>
             {expensesToDisplay}
         </div>
     )
