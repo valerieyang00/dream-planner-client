@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react"
 import axios from "axios"
 import { Link } from 'react-router-dom'
+import MyDashboard from "./MyDashboard"
 
 export default function Expenses({destinationId}) {
 
@@ -26,15 +27,18 @@ export default function Expenses({destinationId}) {
 
     },[destinationId])
 
-    const expensesToDisplay = expenses.map(expense => {
+    const expensesToDisplay = expenses.map((expense, idx) => {
             return(
-            <ul key={expense.id}>
+            <div key={expense.id-idx}>
+            <MyDashboard expenses={expenses} destinationId={destinationId}/>
+            <ul>Expenses Details:
                 <li>{expense.date}</li>
                 <li>{expense.merchant}</li>
                 <li>{expense.category}</li>
                 <li>{expense.amount}</li>
                 <li>{expense.description}</li>
             </ul>
+            </div>
             )
     })
 

@@ -2,6 +2,7 @@ import { useState, useEffect } from "react"
 import axios from "axios"
 import { Link, useParams } from 'react-router-dom'
 import Expenses from '../partials/Expenses'
+import MyDashboard from '../partials/MyDashboard'
 
 export default function Destination({currentUser}) {
     const [msg, setMsg] = useState("")
@@ -29,7 +30,6 @@ export default function Destination({currentUser}) {
 
     const userDestination = (
         <div>
-            {/* import budget/expense tracker dashboard here */}
             <h4>All expenses:</h4>
             <Link to={`/destinations/${destinationId}/expenses/new`}><h4>Add New Expense</h4></Link>
             <Expenses destinationId ={destination.id}/>
