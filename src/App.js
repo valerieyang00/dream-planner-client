@@ -28,23 +28,15 @@ export default function App() {
   // useEffect -- if the user navigates away form the page, we will log them back in
   useEffect(() => {
     // check to see if token is in storage
-    const getUser = async () => {
-      try {
         const token = localStorage.getItem('jwt')
         if (token) {
           const decoded = jwt_decode(token)
           // if so, we will decode it and set the user in app state
-          const user = await axios.get(`${process.env.REACT_APP_SERVER_URL}/api/users/${decoded.user_id}/`)
-          setCurrentUser(user)
+          setCurrentUser({userId: decoded.user_id})
         } else {
           setCurrentUser(null)
         }
-      }catch(err) {
-        console.warn(err)
-      }
-    }
-    getUser()
-  }, []) // happen only once
+    }, []) // happen only once
 
   // event handler to log the user out when needed
   const handleLogout = () => {

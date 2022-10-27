@@ -6,7 +6,7 @@ import { useState } from 'react'
 export default function NewDestination({currentUser}) { //pass currentUser as prop when it's set up
     const [msg, setMsg] = useState("")
     const [form, setForm] = useState({
-        user: currentUser.id,
+        user: currentUser.userId,
         name: '',
         budget: 0,
         photo: '',
@@ -17,6 +17,7 @@ export default function NewDestination({currentUser}) { //pass currentUser as pr
 
     const handleChange = (e) => {
         setForm({...form, [e.target.name] : e.target.value})
+        console.log(form)
 
     }
 
