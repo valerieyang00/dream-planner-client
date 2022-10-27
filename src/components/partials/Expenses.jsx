@@ -13,8 +13,9 @@ export default function Expenses({destinationId}) {
             try {
                 const response = await axios.get(`${process.env.REACT_APP_SERVER_URL}/api/expenses/`)
                 const filterExpenses = response.data.filter(expense => expense.destination == destinationId)
-                 setExpenses(filterExpenses)
-            }catch(err) {
+                setExpenses(filterExpenses)
+                
+              }catch(err) {
                 console.warn(err)
                 if(err.response) {
                     setMsg(err.response.data.msg)
@@ -25,9 +26,7 @@ export default function Expenses({destinationId}) {
 
     },[destinationId])
 
-    const renderExpenses = () => {
-        console.log(expenses)
-        expenses.map(expense => {
+    const expensesToDisplay = expenses.map(expense => {
             return(
             <ul key={expense.id}>
                 <li>{expense.date}</li>
@@ -37,12 +36,12 @@ export default function Expenses({destinationId}) {
                 <li>{expense.description}</li>
             </ul>
             )
-        })
-    }
+    })
+
     return (
         <div>
             {msg}
-            {renderExpenses}
+            {expensesToDisplay}
         </div>
     )
 }
