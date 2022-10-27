@@ -13,8 +13,10 @@ export default function EditDestination() {
 
         const getDestination = async () => {
             try {
-                const response = await axios.get(`${process.env.REACT_APP_SERVER_URL}/api/destinations/${destinationId}/`)
-                setForm(response.data)
+                const response = await axios.get(`${process.env.REACT_APP_SERVER_URL}/api/destinations/${destinationId}/`)                
+                const data = response.data
+                delete data["expenses"]
+                setForm(data)               
                 
             }catch(err) {
                 console.warn(err)
@@ -53,7 +55,6 @@ export default function EditDestination() {
                 type="text"
                 name="name"
                 id="name"
-                placeholder="Name of your dream destination..."
                 value={form.name}
                 onChange={handleChange}
                 required           
@@ -64,7 +65,6 @@ export default function EditDestination() {
                 type="text"
                 name="photo"
                 id="photo"
-                placeholder="Photo URL..."
                 value={form.photo}
                 onChange={handleChange}
                 required           
@@ -75,7 +75,6 @@ export default function EditDestination() {
                 type="number"
                 name="budget"
                 id="budget"
-                placeholder="Set budget for your trip..."
                 value={form.budget}
                 onChange={handleChange}
                 required           
@@ -86,7 +85,6 @@ export default function EditDestination() {
                 type="text"
                 name="description"
                 id="description"
-                placeholder="Description of this trip"
                 value={form.description}
                 onChange={handleChange}
                 required           
