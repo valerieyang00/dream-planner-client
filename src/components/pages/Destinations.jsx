@@ -33,7 +33,7 @@ export default function Destinations() {
 
     const renderPage = destinations.map((destination, idx) => {
           return (
-            <ul key={destination.id-idx}>
+            <ul key={`${destination.id}-${idx}`}>
                 <Link to={`/destinations/${destination.id}`}><h2>{destination.name}</h2></Link>
                 <small>{destination.username}</small>
                 <img src={destination.photo} alt={destination.name} />
