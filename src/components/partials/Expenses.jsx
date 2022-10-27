@@ -33,10 +33,10 @@ export default function Expenses({destinationId}) {
             <MyDashboard expenses={expenses} destinationId={destinationId}/>
             <ul>Expenses Details:
                 <li>{expense.date}</li>
-                <li>{expense.merchant}</li>
-                <li>{expense.category}</li>
-                <li>{expense.amount}</li>
-                <li>{expense.description}</li>
+                <li>Merchant: {expense.merchant}</li>
+                <li>Type: {expense.category}</li>
+                <li>Total: ${expense.amount}</li>
+                <li>Details: {expense.details}</li>
             </ul>
             </div>
             )
