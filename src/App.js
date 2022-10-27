@@ -152,7 +152,7 @@ export default function App() {
 
           <Route 
             path='/mydestinations'
-            element={<MyDestinations />}          
+            element={<MyDestinations currentUser={currentUser}  />}          
           />
         </Routes>
       </div>

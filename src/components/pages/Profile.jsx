@@ -2,7 +2,7 @@
 import { useState, useEffect } from 'react'
 import { Link, useParams, useNavigate } from 'react-router-dom'
 import axios from 'axios'
-
+import MyDestinations from '../partials/MyDestinations'
 
 
 export default function Profile({ currentUser, handleLogout }) {
@@ -81,7 +81,8 @@ export default function Profile({ currentUser, handleLogout }) {
             </div>
 
             <div>
-                <h1>My Destinations Area</h1>
+                <h1>My Destinations ():</h1>
+                <h1><MyDestinations currentUser={userId}/></h1>
             </div>
         </div>
 	)
