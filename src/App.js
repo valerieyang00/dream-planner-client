@@ -132,6 +132,7 @@ export default function App() {
             element={<About />}          
           />
 
+          {/* --------PARTIALS----------- */}
           <Route 
             path='/mydashboard'
             element={<MyDashboard />}          
@@ -140,6 +141,16 @@ export default function App() {
           <Route 
             path='/hotels'
             element={<Hotels />}          
+          />
+
+          <Route 
+            path='/completed'
+            element={<Completed />}          
+          />
+
+          <Route 
+            path='/mydestinations'
+            element={<MyDestinations />}          
           />
         </Routes>
       </div>
