@@ -11,7 +11,7 @@ export default function Profile({ currentUser, handleLogout }) {
     const { userId } = useParams()
     const [msg, setMsg] = useState('')
     const [userDetails, setUserDetails] = useState({
-        name: currentUser.name,
+        username: currentUser.username,
         email: currentUser.email,
         password: ''
     })
@@ -21,26 +21,13 @@ export default function Profile({ currentUser, handleLogout }) {
 		const fetchData = async () => {
             try {
                 // get the token from local storage
-                const token = localStorage.getItem('jwt')
-                // make the auth headers
-                const options = {
-                    headers: {
-                        'Authorization': token
-                    }
-                }
-        
-                // hit the auth locked endpoint
-                const authResponse = await axios.get(`${process.env.REACT_APP_SERVER_URL}/api-v1/users/auth-locked`, options)
+                
 
-                const userResponse = await axios.get(`${process.env.REACT_APP_SERVER_URL}/api-v1/users/${userId}`)
+                const userResponse = await axios.get(`${process.env.REACT_APP_SERVER_URL}/api/users/${userId}`)
                             // example POST with auth headers (options are always last argument)
                             // await axios.post(url, requestBody (form data), options)
                             // set the secret user message in state
-
-				setMsg(authResponse.data.msg)
                 setUserDetails(userResponse.data)
-
-
 			} catch (err) {
                 // if the error is a 401 -- that means that auth failed
                 console.warn(err)
@@ -59,7 +46,7 @@ export default function Profile({ currentUser, handleLogout }) {
     const deleteUser = async () => {
         try {
           // Deletes User
-          await axios.delete(`${process.env.REACT_APP_SERVER_URL}/api-v1/users/${userId}`)
+          await axios.delete(`${process.env.REACT_APP_SERVER_URL}/api/users/${userId}`)
           // Logout user from deleted account
           handleLogout()
           // Return Home
@@ -87,7 +74,7 @@ export default function Profile({ currentUser, handleLogout }) {
 
                 <section className='h-64 xl:h-80 w-full sm:w-4/5 sm:max-w-[55rem] bg-bloom-sage font-bloom-sans sm:rounded-bl-[3em] pt-10 pl-6 md:px-12 xl:px-24 ml-auto'>
                     <h1 className='text-5xl font-heavy mb-6'>Profile Details </h1>
-                    <h3 className='text-2xl my-2 md:text-3xl'>Username: {userDetails.name.charAt(0).toUpperCase() + userDetails.name.slice(1)}</h3>
+                    <h3 className='text-2xl my-2 md:text-3xl'>Username: {userDetails.username}</h3>
                     <h3 className='text-2xl my-2 md:text-3xl'>Email: {userDetails.email}</h3>
                     {/* <p>your email is {userDetails.email}</p> */}
                 </section>
