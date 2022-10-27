@@ -4,8 +4,8 @@ export default function About() {
             <h3>About the Dev Team!</h3>
             <div className=''>
 
-                <div className='row flex'>
-                    <div className="">
+                <div className='row top-row flex'>
+                    <div className="dev">
                         <h3>Valerie</h3>
                         <div className='flex'>
                             <a href='https://github.com/valerieyang00' target='_blank'>
@@ -17,7 +17,7 @@ export default function About() {
                         </div>
                     </div>
 
-                    <div>
+                    <div className="dev">
                         <h3>Sean</h3>
                         <div className='flex'>
                             <a href='https://github.com/mousesaver' target='_blank'>
@@ -30,8 +30,8 @@ export default function About() {
                     </div>
                 </div>
 
-                <div className='row flex'>
-                    <div>
+                <div className='row bottom-row flex'>
+                    <div className="dev">
                         <h3>Prija</h3>
                         <div className='flex'>
                             <a href='https://github.com/prijacash' target='_blank'>
@@ -43,7 +43,7 @@ export default function About() {
                         </div>
                     </div>
 
-                    <div>
+                    <div className="dev">
                         <h3>Devin</h3>
                         <div className='flex'>
                             <a href='https://github.com/devin-lynch' target='_blank'>
