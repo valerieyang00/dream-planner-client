@@ -2,7 +2,7 @@ import { useState, useEffect } from "react"
 import axios from "axios"
 import { Link } from 'react-router-dom'
 
-export default function Expenses({destinationid}) {
+export default function Expenses({destinationId}) {
 
     const [msg, setMsg] = useState("")
     const [expenses, setExpenses] = useState([])
@@ -12,7 +12,8 @@ export default function Expenses({destinationid}) {
         const getExpenses = async () => {
             try {
                 const response = await axios.get(`${process.env.REACT_APP_SERVER_URL}/api/expenses/`)
-                setExpenses(response.data)
+                const filterExpenses = response.data.filter(expense => expense.destination == destinationId)
+                 setExpenses(filterExpenses)
             }catch(err) {
                 console.warn(err)
                 if(err.response) {
@@ -22,19 +23,26 @@ export default function Expenses({destinationid}) {
         }
         getExpenses()
 
-    },[destinationid])
+    },[destinationId])
 
-    const filterExpenses = expenses.filter(expense => expense.destination == destinationid)
-
+    const renderExpenses = () => {
+        console.log(expenses)
+        expenses.map(expense => {
+            return(
+            <ul key={expense.id}>
+                <li>{expense.date}</li>
+                <li>{expense.merchant}</li>
+                <li>{expense.category}</li>
+                <li>{expense.amount}</li>
+                <li>{expense.description}</li>
+            </ul>
+            )
+        })
+    }
     return (
         <div>
-            {filterExpenses.map(expense => {
-                <ul>
-                    <li>
-                        {expense.amount}
-                    </li>
-                </ul>
-            })}
+            {msg}
+            {renderExpenses}
         </div>
     )
 }
