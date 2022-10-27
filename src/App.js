@@ -18,6 +18,7 @@ import Login from './components/pages/Login';
 import Profile from './components/pages/Profile';
 import EditProfile from './components/pages/EditProfile';
 import Navbar from './components/partials/NavBar';
+import MyDashboard from './components/partials/MyDashboard';
 
 export default function App() {
   // the currently logged in user will be stored up here in state
