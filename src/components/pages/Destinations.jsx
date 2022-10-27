@@ -11,11 +11,16 @@ export default function Destinations() {
 
         const getDestinations = async () => {
             try {
-                const response = await axios.get(`${process.env.REACT_APP_SERVER_URL}/api/destinations/`)
-                setDestinations(response.data)                
-                console.log(destinations)               
-
-
+                const response = await axios.get(`${process.env.REACT_APP_SERVER_URL}/api/users/`)
+                const users = response.data
+                const allDestinations = []
+                users.forEach((user) => {
+                    user.destinations.forEach((destination) => {
+                        destination["username"] = user["username"]
+                        allDestinations.push(destination)
+                    })
+                })
+                setDestinations(allDestinations)                           
             }catch(err) {
                 console.warn(err)
                 if(err.response) {
@@ -30,7 +35,7 @@ export default function Destinations() {
           return (
             <ul key={destination.id}>
                 <Link to={`/destinations/${destination.id}`}><h2>{destination.name}</h2></Link>
-                <small>{destination.user}</small>
+                <small>{destination.username}</small>
                 <img src={destination.photo} alt={destination.name} />
             </ul>
         )
