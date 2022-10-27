@@ -29,8 +29,7 @@ export default function Expenses({destinationId}) {
 
     const expensesToDisplay = expenses.map((expense, idx) => {
             return(
-            <div key={expense.id-idx}>
-            <MyDashboard expenses={expenses} destinationId={destinationId}/>
+            <div key={expense.id-idx}>        
             <ul>Expenses Details:
                 <li>{expense.date}</li>
                 <li>{expense.merchant}</li>
@@ -45,6 +44,7 @@ export default function Expenses({destinationId}) {
     return (
         <div>
             {msg}
+            <MyDashboard expenses={expenses} destinationId={destinationId}/>
             {expensesToDisplay}
         </div>
     )

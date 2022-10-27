@@ -10,8 +10,7 @@ export default function MyDashboard({expenses, destinationId}) {
     const [data, setData] = useState({
         labels: ['Transportation', 'Lodging', 'Food', 'Activities', 'Miscellaneous'],
         datasets: [],
-      })
-   
+      })   
     
       useEffect (() => {
 
@@ -55,8 +54,7 @@ export default function MyDashboard({expenses, destinationId}) {
             },
           ]
 
-        setData({...data, datasets: datasetChange})
-        
+        setData({...data, datasets: datasetChange})       
                  
 
     },[expenses, destinationId])
