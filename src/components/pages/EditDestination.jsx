@@ -75,7 +75,7 @@ export default function EditDestination() {
                 required           
                 
                 />
-                <label htmlFor="photo">Photo:</label>
+                <label htmlFor="photo">Photo URL:</label>
                 <input
                 type="text"
                 name="photo"
@@ -109,7 +109,7 @@ export default function EditDestination() {
 
             </form>
 
-            <button onClick={handleDelete}>Delete Destination</button>
+            <button onClick={handleDelete}>Delete Dream Destination</button>
         </div>
     )
 }
