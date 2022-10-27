@@ -124,6 +124,12 @@ export default function App() {
             path='/about'
             element={<About />}          
           />
+
+          <Route 
+            path='/mydashboard'
+            element={<MyDashboard />}          
+          />
+
         </Routes>
       </div>
 
