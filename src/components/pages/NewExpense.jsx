@@ -10,7 +10,7 @@ export default function NewExpense({currentUser}) {
         user: currentUser.userId,
         destination: destinationId,
         date: '',
-        category: '',
+        category: 'lodging',
         merchant: '',
         amount: 0,
         details: ''
@@ -27,6 +27,7 @@ export default function NewExpense({currentUser}) {
     const handleCreate = async (e) => {
         e.preventDefault()
         try {
+            console.log(form)
             await axios.post(`${process.env.REACT_APP_SERVER_URL}/api/expenses/`, form)
             navigate(`/destinations/${destinationId}`)
         }catch(err){
@@ -103,7 +104,7 @@ export default function NewExpense({currentUser}) {
                     <div className="mb-4">
                         <label htmlFor='category'>Select Category:</label>
                         <select value={form.category} name="category" onChange={handleChange}>
-                                <option value="lodging">Lodging</option>
+                                <option defaultValue="lodging">Lodging</option>
                                 <option value="transportation">Transportation</option>
                                 <option value="food">Food</option>
                                 <option value="activities">Activities</option>
