@@ -13,6 +13,7 @@ export default function Destinations() {
             try {
                 const response = await axios.get(`${process.env.REACT_APP_SERVER_URL}/api/destinations/`)
                 setDestinations(response.data)                
+                console.log(destinations)               
 
 
             }catch(err) {
