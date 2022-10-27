@@ -30,13 +30,14 @@ export default function Expenses({destinationId, budget}) {
     const expensesToDisplay = expenses.map((expense, idx) => {
             return(
             <div key={expense.id-idx}>        
-            <ul>Expenses Details:
+            <ul>
                 <li>{expense.date}</li>
                 <li>Merchant: {expense.merchant}</li>
                 <li>Type: {expense.category}</li>
                 <li>Total: ${expense.amount}</li>
                 <li>Details: {expense.details}</li>
             </ul>
+            <br></br>
             </div>
             )
     })
@@ -45,6 +46,7 @@ export default function Expenses({destinationId, budget}) {
         <div>
             {msg}
             {expenses.length > 0 ? <MyDashboard expenses={expenses} budget={budget}/> : ''}
+            {expenses.length > 0 ? "Expenses Details:" : ""}
             {expenses.length > 0 ? expensesToDisplay : "No Expenses Yet!"}
         </div>
     )
