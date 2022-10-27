@@ -26,7 +26,6 @@ export default function Destinations() {
     },[])
 
     const renderPage = destinations.map((destination) => {
-        console.log(destination.id)
           return (
             <ul key={destination.id}>
                 <Link to={`/destinations/${destination.id}`}><h2>{destination.name}</h2></Link>
