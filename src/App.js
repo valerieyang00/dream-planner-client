@@ -25,6 +25,8 @@ import EditProfile from './components/pages/EditProfile';
 import Navbar from './components/partials/NavBar';
 import MyDashboard from './components/partials/MyDashboard';
 import Hotels from './components/partials/Hotels';
+import MyDestinations from './components/partials/MyDestinations';
+import Completed from './components/partials/Completed';
 
 export default function App() {
   // the currently logged in user will be stored up here in state
@@ -132,6 +134,7 @@ export default function App() {
             element={<About />}          
           />
 
+          {/* --------PARTIALS----------- */}
           <Route 
             path='/mydashboard'
             element={<MyDashboard />}          
@@ -140,6 +143,16 @@ export default function App() {
           <Route 
             path='/hotels'
             element={<Hotels />}          
+          />
+
+          <Route 
+            path='/completed'
+            element={<Completed />}          
+          />
+
+          <Route 
+            path='/mydestinations'
+            element={<MyDestinations />}          
           />
         </Routes>
       </div>
