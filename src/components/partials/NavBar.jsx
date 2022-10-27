@@ -1,10 +1,10 @@
 import { Link } from 'react-router-dom'
 
 export default function Navbar({ currentUser, handleLogout }) {
-  let user_id = ''
+  let userId = ''
 
 	if(currentUser){
-		user_id = currentUser.id
+		userId = currentUser.userId
 	}
 
 	const loggedIn = (
@@ -15,7 +15,7 @@ export default function Navbar({ currentUser, handleLogout }) {
           Plan my Trip
         </Link>{" | "}
 
-        <Link to={`/users/${user_id}`} className=''>
+        <Link to={`/users/${userId}`} className=''>
           Profile
         </Link>{" | "}
 
