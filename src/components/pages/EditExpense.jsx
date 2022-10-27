@@ -25,7 +25,7 @@ export default function EditExpense(currentUser) {
     useEffect(() => {
         const getDestination = async () => {
             try {
-                const response = await axios.get(`${process.env.REACT_APP_SERVER_URL}/api/expenses/${expenseId}`)
+                const response = await axios.get(`${process.env.REACT_APP_SERVER_URL}/api/expenses/${expenseId}/`)
                 setForm(response.data)
             } catch (err) {
                 console.warn(err)
@@ -40,8 +40,8 @@ export default function EditExpense(currentUser) {
     const handleSubmit = async (e) => {
         e.preventDefault()
         try {
-            await axios.put(`${process.env.REACT_APP_SERVER_URL}/api/expenses/${expenseId}`, form)
-            navigate('/destination/:destinationId')
+            await axios.put(`${process.env.REACT_APP_SERVER_URL}/api/expenses/${expenseId}/`, form)
+            navigate(`/destinations/${destinationId}`)
         }catch(err){
             console.warn(err)
             if(err.response) {
