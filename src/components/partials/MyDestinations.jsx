@@ -32,9 +32,9 @@ export default function MyDestinations({currentUser}) {
             <div key={destination.id}>
             <ul>
                 <li>{destination.name}</li>
-                <li>{destination.budget}</li>
+                <li>Budget: ${destination.budget}</li>
                 <li><img src={destination.photo} /></li>
-                <li>{destination.description}</li>
+                <li>Details: {destination.description}</li>
                 <li>{destination.date}</li>
             </ul>
             </div>

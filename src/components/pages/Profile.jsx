@@ -80,7 +80,6 @@ export default function Profile({ currentUser, handleLogout }) {
             </div>
 
             <div>
-                <h1>My Destinations ():</h1>
                 <h1><MyDestinations currentUser={userId}/></h1>
             </div>
         </div>
