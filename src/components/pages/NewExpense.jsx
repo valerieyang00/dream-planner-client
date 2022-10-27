@@ -21,8 +21,8 @@ export default function NewExpense() {
 
     const handleChange = (e) => {
         setForm({...form, [e.target.name] : e.target.value})
-
     }
+
 
     const handleCreate = async (e) => {
         e.preventDefault()
@@ -56,36 +56,6 @@ export default function NewExpense() {
                         />
                     </div>
                     
-
-                    <div>
-                        <label htmlFor='category'>Select Category:</label>
-                        <select value={form.category} onChange={handleChange}>
-                                <option value="transportation">Transportation</option>
-                                <option value="lodging">Lodging</option>
-                                <option value="food">Food</option>
-                                <option value="activities">Activities</option>
-                                <option value="misc">Misc</option>
-                        </select>
-                        <br></br>
-                        <br></br>
-                    </div>
-
-
-                    {/* <div className="mb-4">
-                        <label htmlFor="category" className="block text-gray-700 text-sm font-bold mb-2">Category:</label>
-                        <input 
-                        className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
-                        type="select"
-
-                        name="category"
-                        id="category"
-                        placeholder="Select category..."
-                        value={form.category}
-                        onChange={handleChange}
-                        required
-                        />
-                    </div> */}
-
                     <div className="mb-4">
                         <label htmlFor="merchant" className="block text-gray-700 text-sm font-bold mb-2">Merchant:</label>
                         <input 
@@ -126,6 +96,19 @@ export default function NewExpense() {
                         onChange={handleChange}
                         required
                         />
+                    </div>
+
+                    <div className="mb-4">
+                        <label htmlFor='category'>Select Category:</label>
+                        <select value={form.category} name="category" onChange={handleChange}>
+                                <option value="lodging">Lodging</option>
+                                <option value="transportation">Transportation</option>
+                                <option value="food">Food</option>
+                                <option value="activities">Activities</option>
+                                <option value="misc">Misc</option>
+                        </select>
+                        <br></br>
+                        <br></br>
                     </div>
 
                     <button type="submit" className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline">Submit</button>
