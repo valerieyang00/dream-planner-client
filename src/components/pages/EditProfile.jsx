@@ -1,6 +1,6 @@
 import { useState } from 'react'
 import axios from 'axios'
-import { useNavigate } from 'react-router-dom'
+import { useNavigate, useParams } from 'react-router-dom'
 import jwt_decode from 'jwt-decode'
 
 export default function EditProfile({currentUser, setCurrentUser, handleLogout}) {
@@ -10,13 +10,16 @@ export default function EditProfile({currentUser, setCurrentUser, handleLogout})
     const [password, setPassword] = useState(decodedToken.password)
     const [newPassword, setNewPassword] = useState('')
     const [errorMessage, setErrorMessage] = useState('')
+    const { userId } = useParams()
 
     const navigate = useNavigate()
+
+    console.log(currentUser)
 
     const deleteAccount = async e => {
         try {
             e.preventDefault()
-            await axios.delete(`${process.env.REACT_APP_SERVER_URL}/api/users/${decodedToken.id}`)
+            await axios.delete(`${process.env.REACT_APP_SERVER_URL}/api/users/${userId}`)
             handleLogout()
             navigate('/register')
         }catch(err) {
@@ -35,7 +38,7 @@ export default function EditProfile({currentUser, setCurrentUser, handleLogout})
                 password,
                 newPassword
             }
-            const response = await axios.put(`${process.env.REACT_APP_SERVER_URL}/api/users/${decodedToken.id}`, reqBody)
+            const response = await axios.put(`${process.env.REACT_APP_SERVER_URL}/api/users/${userId}`, reqBody)
 
             const { token } = response.data
             localStorage.setItem('jwt', token)
@@ -65,7 +68,7 @@ export default function EditProfile({currentUser, setCurrentUser, handleLogout})
                         className=""
                         type="text"
                         id="username"
-                        placeholder={`${decodedToken.username}`}
+                        // placeholder={`${decodedToken.username}`}
                         onChange={e => setUsername(e.target.value)}
                         value={username}
                         required
@@ -76,7 +79,7 @@ export default function EditProfile({currentUser, setCurrentUser, handleLogout})
                         className=""
                         type="text"
                         id="email"
-                        placeholder={`${decodedToken.email}`}
+                        // placeholder={`${decodedToken.email}`}
                         onChange={e => setEmail(e.target.value)}
                         value={email}
                         required
