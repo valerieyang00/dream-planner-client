@@ -85,7 +85,7 @@ export default function App() {
 
           <Route
             path='/users/:userId'
-            element={<Profile currentUser={currentUser} setCurrentUser={setCurrentUser}/>}
+            element={<Profile currentUser={currentUser} setCurrentUser={setCurrentUser} handleLogout={handleLogout}/>}
           />
 
           <Route
