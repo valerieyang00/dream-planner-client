@@ -28,6 +28,7 @@ export default function Profile({ currentUser, handleLogout }) {
                             // await axios.post(url, requestBody (form data), options)
                             // set the secret user message in state
                 setUserDetails(userResponse.data)
+                console.log(currentUser)
 			} catch (err) {
                 // if the error is a 401 -- that means that auth failed
                 console.warn(err)
@@ -56,21 +57,19 @@ export default function Profile({ currentUser, handleLogout }) {
         }
     }
 
-    const userOptions = () => {
-        return (
+    const userOptions = (
+    
             <div className=''>
-            <Link className={``} to={`edit`}>Edit Profile</Link>
-
-            <Link className={``} to='/' onClick={deleteUser}>Delete Profile</Link>
+                <Link className={``} to={`edit`}>Edit Profile</Link>
+                <Link className={``} to='/' onClick={deleteUser}>Delete Profile</Link>
             </div>
         )
-    }
 
     // Output
 	return (
 		<div className='mx-auto' >
             <div className='flex flex-col-reverse sm:flex-row'>
-                {currentUser && currentUser.id === userId ? userOptions() : <h3></h3> }
+                {currentUser && currentUser.userId == userId ? userOptions : <h3></h3> }
 
                 <section className='h-64 xl:h-80 w-full sm:w-4/5 sm:max-w-[55rem] bg-bloom-sage font-bloom-sans sm:rounded-bl-[3em] pt-10 pl-6 md:px-12 xl:px-24 ml-auto'>
                     <h1 className='text-5xl font-heavy mb-6'>Profile Details </h1>
