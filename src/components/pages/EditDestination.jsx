@@ -4,16 +4,16 @@ import { useState, useEffect } from 'react'
 
 export default function EditDestination() {
     const [msg, setMsg] = useState("")
-    const { id } = useParams()
+    const { destinationId } = useParams()
     const [form, setForm] = useState({})
 
     const navigate = useNavigate()
 
     useEffect (() => {
-        console.log(id)
+
         const getDestination = async () => {
             try {
-                const response = await axios.get(`${process.env.REACT_APP_SERVER_URL}/api/destinations/${id}/`)
+                const response = await axios.get(`${process.env.REACT_APP_SERVER_URL}/api/destinations/${destinationId}/`)
                 setForm(response.data)
                 
             }catch(err) {
@@ -34,8 +34,8 @@ export default function EditDestination() {
     const handleEdit = async (e) => {
         e.preventDefault()
         try {
-            await axios.put(`${process.env.REACT_APP_SERVER_URL}/api/destinations/${id}/`, form)
-            navigate(`/destinations/${id}`)
+            await axios.put(`${process.env.REACT_APP_SERVER_URL}/api/destinations/${destinationId}/`, form)
+            navigate(`/destinations/${destinationId}`)
         }catch(err){
             console.warn(err)
             if(err.response) {

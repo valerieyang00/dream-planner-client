@@ -5,7 +5,7 @@ import Expenses from '../partials/Expenses'
 
 export default function Destination({currentUser}) {
     const [msg, setMsg] = useState("")
-    const { id } = useParams()
+    const { destinationId } = useParams()
     const [destination, setDestination] = useState([])
 
 
@@ -13,7 +13,7 @@ export default function Destination({currentUser}) {
 
         const getDestination = async () => {
             try {
-                const response = await axios.get(`${process.env.REACT_APP_SERVER_URL}/api/destinations/${id}/`)
+                const response = await axios.get(`${process.env.REACT_APP_SERVER_URL}/api/destinations/${destinationId}/`)
                 setDestination(response.data)
             }catch(err) {
                 console.warn(err)
@@ -31,7 +31,7 @@ export default function Destination({currentUser}) {
         <div>
             {/* import budget/expense tracker dashboard here */}
             <h4>All expenses:</h4>
-            <Expenses destinationid ={destination.id}/>
+            <Expenses destinationId ={destination.id}/>
         </div>
     )
     
