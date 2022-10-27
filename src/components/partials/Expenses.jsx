@@ -27,6 +27,18 @@ export default function Expenses({destinationId, budget}) {
 
     },[destinationId])
 
+    const deleteExpense = async (e, expenseId) => {
+        try {
+            e.preventDefault()
+            await axios.delete(`${process.env.REACT_APP_SERVER_URL}/api/expenses/${expenseId}/`)
+            const response = await axios.get(`${process.env.REACT_APP_SERVER_URL}/api/expenses/`)
+            const filterExpenses = response.data.filter(expense => expense.destination == destinationId)
+            setExpenses(filterExpenses)
+        }catch(err) {
+            console.warn(err)          
+        }
+    }
+
     const expensesToDisplay = expenses.map((expense, idx) => {
             return(
             <div key={expense.id-idx}>        
@@ -37,6 +49,8 @@ export default function Expenses({destinationId, budget}) {
                 <li>Total: ${expense.amount}</li>
                 <li>Details: {expense.details}</li>
             </ul>
+            <Link to={`/destinations/${destinationId}/expenses/${expense.id}/edit`}>Edit</Link>
+            <button onClick={(e) => {deleteExpense(e, expense.id)}}>Delete</button>
             <br></br>
             </div>
             )
