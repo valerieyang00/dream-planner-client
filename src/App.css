@@ -6,6 +6,11 @@
   text-align: center;
 }
 
+.about {
+  height: 50px;
+  width: 50px;
+}
+
 .App-logo {
   height: 40vmin;
   pointer-events: none;
