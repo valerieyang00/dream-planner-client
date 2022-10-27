@@ -1,21 +1,21 @@
 import axios from 'axios'
-import { useNavigate } from 'react-router-dom'
+import { useNavigate, useParams } from 'react-router-dom'
 import { useState } from 'react'
 
 
-export default function NewExpense() {
+export default function NewExpense({currentUser}) {
     const [msg, setMsg] = useState("")
+    const {destinationId} = useParams()
     const [form, setForm] = useState({
-        user: 1,
-        destination: 1,
+        user: currentUser.userId,
+        destination: destinationId,
         date: '',
         category: '',
         merchant: '',
         amount: 0,
         details: ''
-
-
     })
+
 
     const navigate = useNavigate()
 
@@ -28,7 +28,7 @@ export default function NewExpense() {
         e.preventDefault()
         try {
             await axios.post(`${process.env.REACT_APP_SERVER_URL}/api/expenses/`, form)
-            navigate('/destination/:id')
+            navigate(`/destinations/${destinationId}`)
         }catch(err){
             console.warn(err)
             if(err.response) {
@@ -38,7 +38,9 @@ export default function NewExpense() {
     }
 
     return (
+
         <div>
+            {msg}
             <h1>Add expenses for your dream destination</h1>
             <div className="w-full max-w-xs object-center">
                 <form onSubmit={handleCreate} className="bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4">
