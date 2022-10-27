@@ -44,8 +44,8 @@ export default function Expenses({destinationId, budget}) {
     return (
         <div>
             {msg}
-            <MyDashboard expenses={expenses} budget={budget}/>
-            {expensesToDisplay}
+            {expenses.length > 0 ? <MyDashboard expenses={expenses} budget={budget}/> : ''}
+            {expenses.length > 0 ? expensesToDisplay : "No Expenses Yet!"}
         </div>
     )
 }
