@@ -1,6 +1,8 @@
-// import axios from 'axios'
-// import { useNavigate } from 'react-router-dom'
-// import { useState } from 'react'
+
+import axios from 'axios'
+import { useNavigate, useParams } from 'react-router-dom'
+import { useState } from 'react'
+
 
 
 // export default function EditExpense() {
@@ -16,6 +18,9 @@
 
 
 //     })
+
+    const { expenseId } = useParams()
+    const navigate = useNavigate()
 
 
 //     const { expenseId } = useParams()
