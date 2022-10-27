@@ -33,7 +33,7 @@ export default function MyDestinations({currentUser}) {
             <ul>
                 <li>{destination.name}</li>
                 <li>{destination.budget}</li>
-                <li>{destination.photo}</li>
+                <li><img src={destination.photo} /></li>
                 <li>{destination.description}</li>
                 <li>{destination.date}</li>
             </ul>
