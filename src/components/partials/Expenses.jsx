@@ -50,25 +50,25 @@ export default function Expenses({ destinationId, budget }) {
                     <table className="min-w-full">
                         <thead className="bg-white border-b">
                             <tr>
-                                <th scope="col" className="text-sm font-medium text-gray-900 px-6 py-4 text-center">
+                                <th scope="col" className="text-base font-medium text-gray-900 px-6 py-4 text-center">
                                     Date
                                 </th>
-                                <th scope="col" className="text-sm font-medium text-gray-900 px-6 py-4 text-center">
+                                <th scope="col" className="text-base font-medium text-gray-900 px-6 py-4 text-center">
                                     Type
                                 </th>
-                                <th scope="col" className="text-sm font-medium text-gray-900 px-6 py-4 text-center">
+                                <th scope="col" className="text-base font-medium text-gray-900 px-6 py-4 text-center">
                                     Merchant
                                 </th>
-                                <th scope="col" className="text-sm font-medium text-gray-900 px-6 py-4 text-center">
+                                <th scope="col" className="text-base font-medium text-gray-900 px-6 py-4 text-center">
                                     Amount
                                 </th>
-                                <th scope="col" className="text-sm font-medium text-gray-900 px-6 py-4 text-center">
+                                <th scope="col" className="text-base font-medium text-gray-900 px-6 py-4 text-center">
                                     Description
                                 </th>
-                                <th scope="col" className="text-sm font-medium text-gray-900 px-6 py-4 text-center">
+                                <th scope="col" className="text-base font-medium text-gray-900 px-6 py-4 text-center">
                                     Edit
                                 </th>
-                                <th scope="col" className="text-sm font-medium text-gray-900 px-6 py-4 text-center">
+                                <th scope="col" className="text-base font-medium text-gray-900 px-6 py-4 text-center">
                                     Delete
                                 </th>
                             </tr>
@@ -77,20 +77,20 @@ export default function Expenses({ destinationId, budget }) {
                             return (
                                 <tbody key={`${expense.id}-${idx}`}>
                                     <tr className="bg-white border-b transition duration-300 ease-in-out hover:bg-gray-100">
-                                        <td className="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">{expense.date}</td>
-                                        <td className="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
+                                        <td className="px-6 py-4 whitespace-nowrap text-base font-medium text-gray-900">{expense.date}</td>
+                                        <td className="text-base text-gray-900 font-light px-6 py-4 whitespace-nowrap">
                                             {expense.category}
                                         </td>
-                                        <td className="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
+                                        <td className="text-base text-gray-900 font-light px-6 py-4 whitespace-nowrap">
                                             {expense.merchant}
                                         </td>
-                                        <td className="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
+                                        <td className="text-base text-gray-900 font-light px-6 py-4 whitespace-nowrap">
                                             ${expense.amount}
                                         </td>
-                                        <td className="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
+                                        <td className="text-base text-gray-900 font-light px-6 py-4 whitespace-nowrap">
                                             {expense.details}
                                         </td>
-                                        <td className="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
+                                        <td className="text-base text-gray-900 font-light px-6 py-4 whitespace-nowrap">
                                             <Link to={`/destinations/${destinationId}/expenses/${expense.id}/edit`}><button type="button" className="inline-block px-3 py-1 border-2 border-purple-600 text-purple-600 font-medium text-xs leading-tight uppercase rounded-full hover:bg-black hover:bg-opacity-5 focus:outline-none focus:ring-0 transition duration-150 ease-in-out">Edit</button></Link>
                                         </td>
                                         <td className="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
@@ -111,8 +111,8 @@ export default function Expenses({ destinationId, budget }) {
         <div>
             {msg}
             {expenses.length > 0 ? <MyDashboard expenses={expenses} budget={budget} /> : ''}
-            <Link to={`/destinations/${destinationId}/expenses/new`}><button type="button" className="inline-block px-6 py-2.5 bg-blue-600 text-white font-medium text-xs leading-tight uppercase rounded-full shadow-md hover:bg-blue-700 hover:shadow-lg focus:bg-blue-700 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-blue-800 active:shadow-lg transition duration-150 ease-in-out">Add New Expense</button></Link>
-            {expenses.length > 0 ? tableLayout : "No Expenses Yet!"}
+            <Link className="flex justify-start ml-8" to={`/destinations/${destinationId}/expenses/new`}><button type="button" className="inline-block px-6 py-2.5 bg-blue-600 text-white font-medium text-sm leading-tight uppercase rounded-full shadow-md hover:bg-blue-700 hover:shadow-lg focus:bg-blue-700 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-blue-800 active:shadow-lg transition duration-150 ease-in-out">Add New Expense</button></Link>
+            <p className="text-2xl">{expenses.length > 0 ? tableLayout : "No Expenses Yet!"}</p>
         </div>
     )
 }
