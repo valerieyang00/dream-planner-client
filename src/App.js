@@ -58,96 +58,100 @@ export default function App() {
   }
 
   return (
-    <Router>
-      <header>
-        <Navbar
-        currentUser={currentUser}
-        handleLogout={handleLogout}
-        />
-      </header>
-      <div className='App'>
-        <Routes>
-
-          <Route 
-          path='/'
-          element={<Home />}          
+    <div>
+      <br></br>
+      <br></br>
+      <Router>
+        <header>
+          <Navbar
+          currentUser={currentUser}
+          handleLogout={handleLogout}
           />
+        </header>
+        <div className='App'>
+          <Routes>
 
-          <Route
-            path='/register'
-            element={<Register />}
-          />
+            <Route 
+            path='/'
+            element={<Home />}          
+            />
 
-          <Route
-            path='/login'
-            element={<Login currentUser={currentUser} setCurrentUser={setCurrentUser}/>}
-          />
+            <Route
+              path='/register'
+              element={<Register />}
+            />
 
-          <Route
-            path='/users/:userId'
-            element={<Profile currentUser={currentUser} setCurrentUser={setCurrentUser} handleLogout={handleLogout}/>}
-          />
+            <Route
+              path='/login'
+              element={<Login currentUser={currentUser} setCurrentUser={setCurrentUser}/>}
+            />
 
-          <Route
-            path='/users/:userId/edit'
-            element={<EditProfile currentUser={currentUser} setCurrentUser={setCurrentUser} handleLogout={handleLogout}/>}
-          />
+            <Route
+              path='/users/:userId'
+              element={<Profile currentUser={currentUser} setCurrentUser={setCurrentUser} handleLogout={handleLogout}/>}
+            />
 
-    
-          <Route 
-            path='/destinations'
-            element={<Destinations currentUser={currentUser} setCurrentUser={setCurrentUser}/>}          
-          />
+            <Route
+              path='/users/:userId/edit'
+              element={<EditProfile currentUser={currentUser} setCurrentUser={setCurrentUser} handleLogout={handleLogout}/>}
+            />
 
-          <Route 
-            path='/destinations/:destinationId'
-            element={<Destination currentUser={currentUser} setCurrentUser={setCurrentUser}/>}          
-          />
+      
+            <Route 
+              path='/destinations'
+              element={<Destinations currentUser={currentUser} setCurrentUser={setCurrentUser}/>}          
+            />
 
-          <Route
-            path='/destinations/new'
-            element={<NewDestination currentUser={currentUser} setCurrentUser={setCurrentUser}/>}                    
-          />
+            <Route 
+              path='/destinations/:destinationId'
+              element={<Destination currentUser={currentUser} setCurrentUser={setCurrentUser}/>}          
+            />
 
-          <Route 
-            path='/destinations/:destinationId/edit'
-            element={<EditDestination currentUser={currentUser} setCurrentUser={setCurrentUser}/>}          
-          />
+            <Route
+              path='/destinations/new'
+              element={<NewDestination currentUser={currentUser} setCurrentUser={setCurrentUser}/>}                    
+            />
 
-          <Route
-            path='/destinations/:destinationId/expenses'
-            element={<Expenses currentUser={currentUser} setCurrentUser={setCurrentUser}/>}
-          />
+            <Route 
+              path='/destinations/:destinationId/edit'
+              element={<EditDestination currentUser={currentUser} setCurrentUser={setCurrentUser}/>}          
+            />
 
-          <Route 
-            path='/destinations/:destinationId/expenses/new'
-            element={<NewExpense currentUser={currentUser} setCurrentUser={setCurrentUser}/>}          
-          />
+            <Route
+              path='/destinations/:destinationId/expenses'
+              element={<Expenses currentUser={currentUser} setCurrentUser={setCurrentUser}/>}
+            />
 
-          <Route 
-            path='/destinations/:destinationId/expenses/:expenseId/edit'
-            element={<EditExpense currentUser={currentUser} setCurrentUser={setCurrentUser}/>}          
-          />
+            <Route 
+              path='/destinations/:destinationId/expenses/new'
+              element={<NewExpense currentUser={currentUser} setCurrentUser={setCurrentUser}/>}          
+            />
 
-          <Route 
-            path='/about'
-            element={<About />}          
-          />
+            <Route 
+              path='/destinations/:destinationId/expenses/:expenseId/edit'
+              element={<EditExpense currentUser={currentUser} setCurrentUser={setCurrentUser}/>}          
+            />
 
-          {/* --------PARTIALS----------- */}
+            <Route 
+              path='/about'
+              element={<About />}          
+            />
 
-
-          <Route 
-            path='/hotels'
-            element={<Hotels />}          
-          />
-
-        </Routes>
-      </div>
-
+            {/* --------PARTIALS----------- */}
 
 
-    </Router>
+            <Route 
+              path='/hotels'
+              element={<Hotels />}          
+            />
+
+          </Routes>
+        </div>
+
+
+
+      </Router>
+    </div>
   );
 }
 
