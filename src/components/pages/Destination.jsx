@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react"
 import axios from "axios"
-import { Link, useParams } from 'react-router-dom'
+import { Link, useParams, useNavigate } from 'react-router-dom'
 import Expenses from '../partials/Expenses'
 import MyDashboard from '../partials/MyDashboard'
 
@@ -8,9 +8,12 @@ export default function Destination({currentUser}) {
     const [msg, setMsg] = useState("")
     const { destinationId } = useParams()
     const [destination, setDestination] = useState([])
+    const [form, setForm] = useState({})
     if (!currentUser) {
         currentUser = {userId: ''}
     }
+
+    const navigate = useNavigate()
 
     useEffect (() => {
 
@@ -20,6 +23,10 @@ export default function Destination({currentUser}) {
                 const user = await axios.get(`${process.env.REACT_APP_SERVER_URL}/api/users/${response.data.user}/`)
                 response.data['username'] = user.data.username
                 setDestination(response.data)
+                const data = response.data
+                delete data["expenses"]
+                setForm(data)
+
             }catch(err) {
                 console.warn(err)
                 if(err.response) {
@@ -29,14 +36,38 @@ export default function Destination({currentUser}) {
         }
         getDestination()
 
-
     },[])
+
+    const userExpenses = (
+        <div>
+            <Link to={`/destinations/${destinationId}/edit`}><h4>Edit Destination</h4></Link>
+            <h4>All Expenses:</h4>
+            <Link to={`/destinations/${destinationId}/expenses/new`}><h4>Add New Expense</h4></Link>
+            <Expenses destinationId ={destination.id} budget = {destination.budget}/>
+        </div>
+    )
+
+    const markComplete = async () => {
+        try {
+            const changedForm = form
+            changedForm.completed = true
+            console.log(changedForm)
+            await axios.put(`${process.env.REACT_APP_SERVER_URL}/api/destinations/${destinationId}/`, changedForm)
+            navigate(`/destinations/${destinationId}`)
+            
+        }catch(err) {
+            console.warn(err)
+            if(err.response) {
+                setMsg(err.response.data.msg)
+            }
+        }
+    }
 
     const userDestination = (
         <div>
-            <h4>All expenses:</h4>
-            <Link to={`/destinations/${destinationId}/expenses/new`}><h4>Add New Expense</h4></Link>
-            <Expenses destinationId ={destination.id} budget = {destination.budget}/>
+            <Link to={`/destinations/${destinationId}/edit`}><h4>Edit Destination</h4></Link>
+            <button onClick={markComplete} style={{pointerEvents: destination.completed ? 'none' : 'auto'}}>{destination.completed ? 'Completed Trip' : 'Mark this dream completed'}</button>
+
         </div>
     )
     
@@ -45,10 +76,12 @@ export default function Destination({currentUser}) {
             {msg}
             <h1>{destination.username}'s Dream Vacation</h1>
             <h1>{destination.name}</h1>
-            <h3>{destination.budget}</h3>
+            {currentUser.userId == destination.user ? 
+            userDestination : ''}
+            <h3>${destination.budget}</h3>
             <img src={destination.photo} alt={destination.name}/>
             <h4>{destination.description}</h4>
-            {currentUser.userId == destination.user ? userDestination : ''}
+            {currentUser.userId == destination.user ? userExpenses : ''}
   
         </div>
     )
