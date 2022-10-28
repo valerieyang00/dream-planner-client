@@ -43,7 +43,7 @@ export default function Expenses({ destinationId, budget }) {
 
 
     const tableLayout = (
-        <div class="flex flex-col">
+        <div className="flex flex-col">
         <div className="overflow-x-auto sm:-mx-6 lg:-mx-8">
             <div className="py-2 inline-block min-w-full sm:px-6 lg:px-8">
                 <div className="overflow-hidden">
@@ -91,10 +91,10 @@ export default function Expenses({ destinationId, budget }) {
                                             {expense.details}
                                         </td>
                                         <td className="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
-                                            <Link to={`/destinations/${destinationId}/expenses/${expense.id}/edit`}>Edit</Link>
+                                            <Link to={`/destinations/${destinationId}/expenses/${expense.id}/edit`}><button type="button" className="inline-block px-3 py-1 border-2 border-purple-600 text-purple-600 font-medium text-xs leading-tight uppercase rounded-full hover:bg-black hover:bg-opacity-5 focus:outline-none focus:ring-0 transition duration-150 ease-in-out">Edit</button></Link>
                                         </td>
                                         <td className="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
-                                            <button onClick={(e) => { deleteExpense(e, expense.id) }}>Delete</button>
+                                            <button onClick={(e) => { deleteExpense(e, expense.id) }} type="button" className="inline-block px-3 py-1 border-2 border-red-600 text-red-600 font-medium text-xs leading-tight uppercase rounded-full hover:bg-black hover:bg-opacity-5 focus:outline-none focus:ring-0 transition duration-150 ease-in-out">Delete</button>
                                         </td>
                                     </tr>
                             </tbody>)
