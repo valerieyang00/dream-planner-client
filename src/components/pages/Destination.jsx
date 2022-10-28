@@ -2,18 +2,31 @@ import { useState, useEffect } from "react"
 import axios from "axios"
 import { Link, useParams, useNavigate } from 'react-router-dom'
 import Expenses from '../partials/Expenses'
-import MyDashboard from '../partials/MyDashboard'
+import Modal from 'react-modal';
 
 export default function Destination({currentUser}) {
     const [msg, setMsg] = useState("")
     const { destinationId } = useParams()
     const [destination, setDestination] = useState([])
     const [form, setForm] = useState({})
+    const [modalIsOpen, setModalIsOpen] = useState(false);
+    const [expectDate, setExpectDate] = useState('')
+    const [saveAmount, setSaveAmount] = useState(0)
+
     if (!currentUser) {
         currentUser = {userId: ''}
     }
 
     const navigate = useNavigate()
+
+    const setModalIsOpenToTrue = () => {
+		setModalIsOpen(true)
+	}
+
+	const setModalIsOpenToFalse = () => {
+		setModalIsOpen(false)
+        setExpectDate('')
+	}
 
     useEffect (() => {
 
@@ -63,10 +76,39 @@ export default function Destination({currentUser}) {
         }
     }
 
+    const handleDateChange = (e) => {
+        setExpectDate(e.target.value)
+    }
+
+    const handleEstimation = (e) => {
+        e.preventDefault()
+        setSaveAmount(100)
+    }
+
     const userDestination = (
         <div>
             <Link to={`/destinations/${destinationId}/edit`}><h4>Edit Destination</h4></Link>
             <button onClick={markComplete} style={{pointerEvents: destination.completed ? 'none' : 'auto'}}>{destination.completed ? 'Completed Trip' : 'Mark this dream completed'}</button>
+            <button onClick={setModalIsOpenToTrue}>Calculate how much to save per week</button>
+            <Modal isOpen={modalIsOpen} ariaHideApp={false} backdrop="static">
+				<form>
+                    <div className="mb-4">
+                        <label htmlFor="date" className="block text-gray-700 text-sm font-bold mb-2">Expected Travel Date:</label>
+                        <input 
+                        className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+                        type="date"
+                        name="date"
+                        id="date"
+                        value={expectDate}
+                        onChange={handleDateChange}
+                        required
+                        />
+                    </div>
+						<button onClick={handleEstimation}>Submit</button>
+                        <button onClick={setModalIsOpenToFalse}>close</button>
+						</form>
+                            <p>{saveAmount ? `Weekly Savings needed for ${expectDate}: $ ${saveAmount}` : ''}</p>
+					</Modal>
 
         </div>
     )
