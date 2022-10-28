@@ -34,9 +34,9 @@ export default function Destinations() {
     const renderPage = destinations.map((destination, idx) => {
           return (
             <ul key={`${destination.id}-${idx}`}>
-                <Link to={`/destinations/${destination.id}`}><h2>{destination.name}</h2></Link>
-                <small>{destination.username}</small>
-                <Link to={`/destinations/${destination.id}`}><img src={destination.photo} alt={destination.name} className='rounded-3xl border-4 border-gray-400	' width='700px'/></Link>
+                <Link to={`/destinations/${destination.id}`}><h2 className='font'>{destination.name}</h2></Link>
+                <small className='font'>{destination.username}</small>
+                <Link to={`/destinations/${destination.id}`}><img src={destination.photo} alt={destination.name} className='rounded-3xl border-4 destinations' width='400px'/></Link>
             </ul>
         )
 
@@ -44,7 +44,7 @@ export default function Destinations() {
 
     return (
 
-        <div className='flex items-center flex-col justify-center'>
+        <div className='grid grid-cols-4 gap-4'>
             {msg}
             {renderPage}
         </div>
