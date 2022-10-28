@@ -61,7 +61,7 @@ export default function MyDestinations({currentUser}) {
 
 
     return (
-        <div>
+        <div className='flex items-center flex-col justify-center'>
             <h1>My Destinations:</h1>
             
               {destinationsToDisplay}

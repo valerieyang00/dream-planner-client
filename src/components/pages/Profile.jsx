@@ -68,10 +68,11 @@ export default function Profile({ currentUser, handleLogout }) {
     // Output
 	return (
 		<div className='mx-auto' >
-            <div className='flex flex-col-reverse sm:flex-row'>
+            <div className='flex flex-col-reverse sm:flex-row justify-center'>
                 {currentUser && currentUser.userId == userId ? userOptions : <h3></h3> }
 
                 <section className='h-64 xl:h-80 w-full sm:w-4/5 sm:max-w-[55rem] bg-bloom-sage font-bloom-sans sm:rounded-bl-[3em] pt-10 pl-6 md:px-12 xl:px-24 ml-auto'>
+                {/* <section className='flex items-center flex-col justify-center'> */}
                     <h1 className='text-5xl font-heavy mb-6'>Profile Details </h1>
                     <h3 className='text-2xl my-2 md:text-3xl'>Username: {userDetails.username}</h3>
                     <h3 className='text-2xl my-2 md:text-3xl'>Email: {userDetails.email}</h3>
