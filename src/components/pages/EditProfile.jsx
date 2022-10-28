@@ -69,58 +69,52 @@ export default function EditProfile({currentUser, setCurrentUser, handleLogout})
     }
     return (
         <div>
-            <div>
-                <form onSubmit={updateAccount} className="">
-                    <h1 className="">Profile Settings</h1>
-
-                    <label htmlFor="username">Username:</label>
-                    <input
-                        className=""
+            <h3 className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline">Profile Settings</h3>
+            <div className="w-full max-w-xs object-center">
+                <form onSubmit={updateAccount} className="bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4">
+                    <div className="mb-6">
+                        <label htmlFor="username" className="block text-gray-700 text-sm font-bold mb-2">Username:</label>
+                        <input 
+                        className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
                         type="text"
+                        name="username"
                         id="username"
-                        // placeholder={`${decodedToken.username}`}
-                        onChange={e => setUsername(e.target.value)}
                         value={username}
+                        onChange={e => setUsername(e.target.value)}
                         required
-                    />
+                        />
+                    </div>
 
-                    <label htmlFor="email">Email:</label>
-                    <input
-                        className=""
-                        type="text"
+                    <div className="mb-6">
+                        <label htmlFor="email" className="block text-gray-700 text-sm font-bold mb-2">Email:</label>
+                        <input 
+                        className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+                        type="email"
+                        name="email"
                         id="email"
-                        // placeholder={`${decodedToken.email}`}
-                        onChange={e => setEmail(e.target.value)}
                         value={email}
+                        onChange={e => setEmail(e.target.value)}
                         required
-                    />
+                        />
+                    </div>
 
-                    {/* <label htmlFor="password">Current Password:</label>
-                    <input
-                        className=""
-                        type="password"
+                    <div className="mb-6">
+                        <label htmlFor="password" className="block text-gray-700 text-sm font-bold mb-2">Password:</label>
+                        <input 
+                        className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+                        type="text"
+                        name="password"
                         id="password"
                         placeholder="******"
-                        onChange={e => setPassword(e.target.value)}
                         value={password}
-                        required
-                    /> */}
-
-                    <label htmlFor="password">Password:</label>
-                    <input
-                        className=""
-                        type="password"
-                        id="password"
-                        placeholder='******'
                         onChange={e => setPassword(e.target.value)}
-                        value={password}
                         required
-                    />
-
-                    <button className="" type="submit">Submit Changes</button>
+                        />
+                    </div>
+                    <button className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline" type="submit">Submit Changes</button>
                 </form>
             </div>
-            <button className="" onClick={deleteAccount}>Delete Account</button>
+            <button className="bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline" onClick={deleteAccount}>Delete Account</button>
         </div>
     )
 }
