@@ -135,25 +135,13 @@ export default function App() {
           />
 
           {/* --------PARTIALS----------- */}
-          <Route 
-            path='/mydashboard'
-            element={<MyDashboard />}          
-          />
+
 
           <Route 
             path='/hotels'
             element={<Hotels />}          
           />
 
-          <Route 
-            path='/completed'
-            element={<Completed />}          
-          />
-
-          <Route 
-            path='/mydestinations'
-            element={<MyDestinations currentUser={currentUser}  />}          
-          />
         </Routes>
       </div>
 
