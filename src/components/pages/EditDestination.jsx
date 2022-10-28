@@ -1,5 +1,5 @@
 import axios from 'axios'
-import { useNavigate, useParams } from 'react-router-dom'
+import { useNavigate, useParams, Link } from 'react-router-dom'
 import { useState, useEffect } from 'react'
 
 export default function EditDestination() {
@@ -64,7 +64,7 @@ export default function EditDestination() {
 
     return (
         <div>
-            <h1 className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline">Create a new dream destination</h1>
+            <h1 className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline">Edit Destination</h1>
             <div className="w-full max-w-xs object-center">
                 <form onSubmit={handleEdit}>
                     <div className="mb-6">
@@ -122,6 +122,7 @@ export default function EditDestination() {
                         required
                         />
                     </div>
+                    <Link to={`/destinations/${destinationId}`}><button className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline">Cancel</button></Link>
                     <button type="submit" className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline">Submit Changes</button>
 
                 </form>
