@@ -75,7 +75,7 @@ export default function Destinations() {
 
     return (
 
-        <div className='grid grid-cols-4 gap-4 mx-3 my-5'>
+        <div className='grid grid-cols-4 gap-4 mx-4 my-5'>
             {msg}
             {renderPage}
         </div>
