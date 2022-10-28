@@ -50,7 +50,7 @@ export default function Navbar({ currentUser, handleLogout }) {
               {/* <div className=''> */}
               <Link to='/destinations' className=''> Destinations</Link>{" | "}
 
-              <Link to='/hotels' className=''> Hotels</Link>{" | "}
+              <Link to='/searchhotels' className=''> Hotels</Link>{" | "}
 
               <Link to='/about' className=''>About</Link>
 

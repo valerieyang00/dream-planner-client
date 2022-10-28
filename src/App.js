@@ -20,11 +20,11 @@ import Register from './components/pages/Register';
 import Login from './components/pages/Login';
 import Profile from './components/pages/Profile';
 import EditProfile from './components/pages/EditProfile';
+import Hotels from './components/pages/Hotels';
 
 // partials
 import Navbar from './components/partials/NavBar';
 import MyDashboard from './components/partials/MyDashboard';
-import Hotels from './components/partials/Hotels';
 import MyDestinations from './components/partials/MyDestinations';
 import Completed from './components/partials/Completed';
 
