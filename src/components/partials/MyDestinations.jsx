@@ -31,45 +31,81 @@ export default function MyDestinations({currentUser}) {
     }, []) // 
     
     
+    // const destinationsToDisplay = destinations.map((destination,idx) => {
+    //     return (
+    //         <div key={`${destination.id}-${idx}`}>
+    //         <Link to={`/destinations/${destination.id}`}><ul>
+    //             <li>{destination.name}</li>
+    //             <li>Budget: ${destination.budget}</li>
+    //             <li><img src={destination.photo} /></li>
+    //             <li>Details: {destination.description}</li>
+    //             <li>{destination.date}</li>
+    //         </ul></Link>
+    //         </div>
+    //     )
+    // })
+
     const destinationsToDisplay = destinations.map((destination,idx) => {
         return (
-            <div key={`${destination.id}-${idx}`}>
-            <Link to={`/destinations/${destination.id}`}><ul>
-                <li>{destination.name}</li>
-                <li>Budget: ${destination.budget}</li>
-                <li><img src={destination.photo} /></li>
-                <li>Details: {destination.description}</li>
-                <li>{destination.date}</li>
-            </ul></Link>
+            <div className="max-w-sm rounded overflow-hidden shadow-lg card transform transition duration-500 hover:scale-110">
+                <ul key={`${destination.id}-${idx}`}>
+                    <Link to={`/destinations/${destination.id}`}><img src={destination.photo} alt={destination.name} className='' width='400px'/></Link>
+                    <Link to={`/destinations/${destination.id}`}><div className="font-bold text-xl mb-2">{destination.name}</div></Link>
+                    {/* <small className="text-gray-700 text-base">{destination.username}'s Dream</small> */}
+                    <div><small className="text-gray-700 text-base">Budget: ${destination.budget}</small></div>
+                    <div><small className="text-gray-700 text-base">Details: {destination.description}</small></div>
+                    <small className="text-gray-700 text-base">{destination.date}</small>
+                    <br></br>
+                </ul>
             </div>
         )
     })
 
+    // const completedToDisplay = completed.map((destination,idx) => {
+    //     return (
+    //         <div key={`${destination.id}-${idx}`}>
+    //         <Link to={`/destinations/${destination.id}`}><ul>
+    //             <li>{destination.name}</li>
+    //             <li>Budget: ${destination.budget}</li>
+    //             <li><img src={destination.photo} /></li>
+    //             <li>Details: {destination.description}</li>
+    //             <li>{destination.date}</li>
+    //         </ul></Link>
+    //         </div>
+    //     )
+    // })
+
+
     const completedToDisplay = completed.map((destination,idx) => {
         return (
-            <div key={`${destination.id}-${idx}`}>
-            <Link to={`/destinations/${destination.id}`}><ul>
-                <li>{destination.name}</li>
-                <li>Budget: ${destination.budget}</li>
-                <li><img src={destination.photo} /></li>
-                <li>Details: {destination.description}</li>
-                <li>{destination.date}</li>
-            </ul></Link>
+            <div className="max-w-sm rounded overflow-hidden shadow-lg card transform transition duration-500 hover:scale-110">
+                <ul key={`${destination.id}-${idx}`}>
+                    <Link to={`/destinations/${destination.id}`}><img src={destination.photo} alt={destination.name} className='' width='400px'/></Link>
+                    <Link to={`/destinations/${destination.id}`}><div className="font-bold text-xl mb-2">{destination.name}</div></Link>
+                    {/* <small className="text-gray-700 text-base">{destination.username}'s Dream</small> */}
+                    <div><small className="text-gray-700 text-base">{destination.budget}</small></div>
+                    <div><small className="text-gray-700 text-base">{destination.description}</small></div>
+                    <small className="text-gray-700 text-base">{destination.date}</small>
+                </ul>
             </div>
         )
-    })
+    })    
 
 
     return (
         <div className='flex items-center flex-col justify-center'>
             <h1>My Destinations:</h1>
             
+            <div className='grid grid-cols-2 gap-8 mx-4 my-5 justify-items-center'>
               {destinationsToDisplay}
+            </div>
 
             <h1>My Completed Destinations:</h1>
             
+            <div className='grid grid-cols-2 gap-8 mx-4 my-5 justify-items-center'>
               {completedToDisplay}
-            
+            </div>
+
             <p>{errorMessage}</p>
         </div>
     )
