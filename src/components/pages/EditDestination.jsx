@@ -65,69 +65,71 @@ export default function EditDestination() {
     return (
         <div>
             <h1 className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline">Edit Destination</h1>
-            <div className="w-full max-w-xs object-center">
-                <form onSubmit={handleEdit}>
-                    <div className="mb-6">
-                            <label htmlFor="name" className="block text-gray-700 text-sm font-bold mb-2">Name:</label>
-                            <input
+            <div className="flex justify-center">
+                <div className="w-full max-w-xs object-center">
+                    <form onSubmit={handleEdit}>
+                        <div className="mb-6">
+                                <label htmlFor="name" className="block text-gray-700 text-sm font-bold mb-2">Name:</label>
+                                <input
+                                className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+                                type="text"
+                                name="name"
+                                id="name"
+                                placeholder="Name of your dream destination..."
+                                value={form.name}
+                                onChange={handleChange}
+                                required
+                                />
+                        </div>
+                        
+                        <div className="mb-6">
+                                <label htmlFor="photo" className="block text-gray-700 text-sm font-bold mb-2">Photo:</label>
+                                <input
+                                className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+                                type="text"
+                                name="photo"
+                                id="photo"
+                                placeholder="Photo URL..."
+                                value={form.photo}
+                                onChange={handleChange}
+                                required
+                                />
+                        </div>
+
+                        <div className="mb-6">
+                                <label htmlFor="budget" className="block text-gray-700 text-sm font-bold mb-2">Budget:</label>
+                                <input
+                                className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+                                type="number"
+                                name="budget"
+                                id="budget"
+                                placeholder="Set budget for your trip..."
+                                value={form.budget}
+                                onChange={handleChange}
+                                required
+                                />
+                        </div>
+
+                        <div className="mb-6">
+                            <label htmlFor="description" className="block text-gray-700 text-sm font-bold mb-2">Description:</label>
+                            <textarea
                             className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
                             type="text"
-                            name="name"
-                            id="name"
-                            placeholder="Name of your dream destination..."
-                            value={form.name}
+                            name="description"
+                            id="description"
+                            placeholder="Description of this trip"
+                            value={form.description}
                             onChange={handleChange}
                             required
                             />
-                    </div>
-                    
-                    <div className="mb-6">
-                            <label htmlFor="photo" className="block text-gray-700 text-sm font-bold mb-2">Photo:</label>
-                            <input
-                            className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
-                            type="text"
-                            name="photo"
-                            id="photo"
-                            placeholder="Photo URL..."
-                            value={form.photo}
-                            onChange={handleChange}
-                            required
-                            />
-                    </div>
+                        </div>
+                        <Link to={`/destinations/${destinationId}`}><button className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline">Cancel</button></Link>
+                        <button type="submit" className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline">Submit Changes</button>
 
-                    <div className="mb-6">
-                            <label htmlFor="budget" className="block text-gray-700 text-sm font-bold mb-2">Budget:</label>
-                            <input
-                            className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
-                            type="number"
-                            name="budget"
-                            id="budget"
-                            placeholder="Set budget for your trip..."
-                            value={form.budget}
-                            onChange={handleChange}
-                            required
-                            />
-                    </div>
-
-                    <div className="mb-6">
-                        <label htmlFor="description" className="block text-gray-700 text-sm font-bold mb-2">Description:</label>
-                        <textarea
-                        className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
-                        type="text"
-                        name="description"
-                        id="description"
-                        placeholder="Description of this trip"
-                        value={form.description}
-                        onChange={handleChange}
-                        required
-                        />
-                    </div>
-                    <Link to={`/destinations/${destinationId}`}><button className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline">Cancel</button></Link>
-                    <button type="submit" className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline">Submit Changes</button>
-
-                </form>
-                <button onClick={handleDelete} className="bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline">Delete Dream Destination</button>
+                    </form>
+                    <button onClick={handleDelete} className="bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline">Delete Dream Destination</button>
+                </div>
             </div>
-    </div>
+        </div>
     )
 }
