@@ -12,6 +12,7 @@ export default function Destination({currentUser}) {
     const [modalIsOpen, setModalIsOpen] = useState(false);
     const [expectDate, setExpectDate] = useState('')
     const [saveAmount, setSaveAmount] = useState(0)
+    const [modalMsg, setModalMsg] = useState('')
 
     if (!currentUser) {
         currentUser = {userId: ''}
@@ -27,6 +28,7 @@ export default function Destination({currentUser}) {
 		setModalIsOpen(false)
         setSaveAmount('')
         setExpectDate('')
+        setModalMsg('')
 	}
 
     useEffect (() => {
@@ -78,18 +80,26 @@ export default function Destination({currentUser}) {
     const handleDateChange = (e) => {
         setExpectDate(e.target.value)
         setSaveAmount('')
+        setModalMsg('')
     }
 
     const handleEstimation = (e) => {
         e.preventDefault()
+        let msg = ''
         let today = new Date().toISOString().slice(0, 10)
         let expectedDate = expectDate
         const diffInMs   = new Date(expectedDate) - new Date(today)
         const diffInDays = diffInMs / (1000 * 60 * 60 * 24);
-        const numWeeks = diffInDays / 7
-        const amountToSave = Math.round(destination.budget / numWeeks)
-        setSaveAmount(amountToSave)
-           
+        if (diffInDays == 1) {
+            setSaveAmount(destination.budget)
+        } else if (diffInDays <= 0){
+            setSaveAmount(-1)
+        } else {
+            const numWeeks = diffInDays / 7
+            const amountToSave = Math.round(destination.budget / numWeeks)
+            setSaveAmount(amountToSave)
+        }
+      
     }
 
     const userDestination = (
@@ -114,7 +124,8 @@ export default function Destination({currentUser}) {
 						<button onClick={handleEstimation}>Submit</button>
                         <button onClick={setModalIsOpenToFalse}>Close</button>
 						</form>
-                            <p>{saveAmount ? `Weekly Savings needed for ${expectDate}: $ ${saveAmount}` : ''}</p>
+                            <p>{saveAmount && saveAmount != -1 ? `Weekly Savings needed for ${expectDate}: $ ${saveAmount}` : ''}</p>
+                            <p>{saveAmount == -1 ? 'Please select a future date' : ''}</p>
 					</Modal>
 
         </div>
