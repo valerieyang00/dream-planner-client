@@ -4,7 +4,7 @@ import { Link, useParams, useNavigate } from 'react-router-dom'
 import Expenses from '../partials/Expenses'
 import Modal from 'react-modal';
 
-export default function Destination({currentUser}) {
+export default function Destination({ currentUser }) {
     const [msg, setMsg] = useState("")
     const { destinationId } = useParams()
     const [destination, setDestination] = useState([])
@@ -12,26 +12,26 @@ export default function Destination({currentUser}) {
     const [modalIsOpen, setModalIsOpen] = useState(false);
     const [expectDate, setExpectDate] = useState('')
     const [saveAmount, setSaveAmount] = useState(0)
-    const [modalMsg, setModalMsg] = useState('')
+
 
     if (!currentUser) {
-        currentUser = {userId: ''}
+        currentUser = { userId: '' }
     }
 
     const navigate = useNavigate()
 
     const setModalIsOpenToTrue = () => {
-		setModalIsOpen(true)
-	}
+        setModalIsOpen(true)
+    }
 
-	const setModalIsOpenToFalse = () => {
-		setModalIsOpen(false)
+    const setModalIsOpenToFalse = () => {
+        setModalIsOpen(false)
         setSaveAmount('')
         setExpectDate('')
-        setModalMsg('')
-	}
 
-    useEffect (() => {
+    }
+
+    useEffect(() => {
 
         const getDestination = async () => {
             try {
@@ -43,22 +43,22 @@ export default function Destination({currentUser}) {
                 delete data["expenses"]
                 setForm(data)
 
-            }catch(err) {
+            } catch (err) {
                 console.warn(err)
-                if(err.response) {
+                if (err.response) {
                     setMsg(err.response.data.msg)
                 }
             }
         }
         getDestination()
 
-    },[])
+    }, [])
 
     const userExpenses = (
         <div>
-            <h4>All Expenses:</h4>
-            <Link to={`/destinations/${destinationId}/expenses/new`}><h4>Add New Expense</h4></Link>
-            <Expenses destinationId ={destination.id} budget = {destination.budget}/>
+            <h4>Expenses:</h4>
+            <Link to={`/destinations/${destinationId}/expenses/new`}><button>Add New Expense</button></Link>
+            <Expenses destinationId={destination.id} budget={destination.budget} />
         </div>
     )
 
@@ -68,10 +68,10 @@ export default function Destination({currentUser}) {
             changedForm.completed = !changedForm.completed
             await axios.put(`${process.env.REACT_APP_SERVER_URL}/api/destinations/${destinationId}/`, changedForm)
             navigate(`/destinations/${destinationId}`)
-            
-        }catch(err) {
+
+        } catch (err) {
             console.warn(err)
-            if(err.response) {
+            if (err.response) {
                 setMsg(err.response.data.msg)
             }
         }
@@ -80,69 +80,122 @@ export default function Destination({currentUser}) {
     const handleDateChange = (e) => {
         setExpectDate(e.target.value)
         setSaveAmount('')
-        setModalMsg('')
     }
 
     const handleEstimation = (e) => {
         e.preventDefault()
-        let msg = ''
+
         let today = new Date().toISOString().slice(0, 10)
         let expectedDate = expectDate
-        const diffInMs   = new Date(expectedDate) - new Date(today)
+        const diffInMs = new Date(expectedDate) - new Date(today)
         const diffInDays = diffInMs / (1000 * 60 * 60 * 24);
         if (diffInDays == 1) {
             setSaveAmount(destination.budget)
-        } else if (diffInDays <= 0){
+        } else if (diffInDays <= 0) {
             setSaveAmount(-1)
         } else {
             const numWeeks = diffInDays / 7
             const amountToSave = Math.round(destination.budget / numWeeks)
             setSaveAmount(amountToSave)
         }
-      
+
     }
+
+
+
 
     const userDestination = (
         <div>
-            <Link to={`/destinations/${destinationId}/edit`}><h4>Edit Destination</h4></Link>
-            <button onClick={markComplete}>{destination.completed ? 'Completed Trip' : 'Mark as Completed'}</button>
-            <button onClick={setModalIsOpenToTrue}>Calculate how much to save per week</button>
-            <Modal isOpen={modalIsOpen} ariaHideApp={false} backdrop="static">
-				<form>
-                    <div className="mb-4">
-                        <label htmlFor="date" className="block text-gray-700 text-sm font-bold mb-2">Expected Travel Date:</label>
-                        <input 
-                        className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
-                        type="date"
-                        name="date"
-                        id="date"
-                        value={expectDate}
-                        onChange={handleDateChange}
-                        required
-                        />
-                    </div>
-						<button onClick={handleEstimation}>Submit</button>
+            <div className="flex space-x-2 justify-center">
+                <Link to={`/destinations/${destinationId}/edit`}><button type="button" className="inline-block px-6 py-2.5 bg-blue-600 text-white font-medium text-xs leading-tight uppercase rounded-full shadow-md hover:bg-blue-700 hover:shadow-lg focus:bg-blue-700 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-blue-800 active:shadow-lg transition duration-150 ease-in-out">Edit Destination</button></Link>
+                <button type="button" className="inline-block px-6 py-2.5 bg-purple-600 text-white font-medium text-xs leading-tight uppercase rounded-full shadow-md hover:bg-purple-700 hover:shadow-lg focus:bg-purple-700 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-purple-800 active:shadow-lg transition duration-150 ease-in-out" onClick={markComplete} style={{ backgroundColor: destination.completed ? "green" : '' }}>{destination.completed ? 'Completed Trip' : 'Mark as Completed'}</button>
+            </div>
+
+
+
+
+            <div className="flex space-x-2 justify-center">
+                {!destination.completed ? <button type="button" className="inline-block px-6 py-2 border-2 border-blue-400 text-white font-medium text-xs leading-tight uppercase rounded hover:bg-black hover:bg-opacity-5 focus:outline-none focus:ring-0 transition duration-150 ease-in-out" onClick={setModalIsOpenToTrue} style={{ marginTop: "1rem" }}>Estimate how much to save per week</button> : ''}
+                <Modal isOpen={modalIsOpen} ariaHideApp={false} backdrop="static">
+
+                    <h5 className="text-xl font-medium leading-normal text-gray-800" id="exampleModalCenteredScrollableLabel">
+                        Estimate How Much to Save per Week
+                    </h5>
+                    <form style={{ marginTop: "2rem" }}>
+                        <div className="mb-4">
+                            <label htmlFor="date" className="block text-gray-700 text-sm font-bold mb-2">Expected Travel Date:</label>
+                            <input
+                                className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+                                type="date"
+                                name="date"
+                                id="date"
+                                value={expectDate}
+                                onChange={handleDateChange}
+                                required
+                            />
+                        </div>
+                    <p>{saveAmount && saveAmount != -1 ? `Weekly Savings needed for ${expectDate}: $ ${saveAmount}` : ''}</p>
+                    <p>{saveAmount == -1 ? 'Please select a future date' : ''}</p>
+                        <button onClick={handleEstimation}>Submit</button>
                         <button onClick={setModalIsOpenToFalse}>Close</button>
-						</form>
-                            <p>{saveAmount && saveAmount != -1 ? `Weekly Savings needed for ${expectDate}: $ ${saveAmount}` : ''}</p>
-                            <p>{saveAmount == -1 ? 'Please select a future date' : ''}</p>
-					</Modal>
+                    </form>
+                </Modal>
+            </div>
 
         </div>
+
     )
-    
+
     return (
         <div>
             {msg}
-            <h1>{destination.username}'s Dream Vacation</h1>
-            <h1>{destination.name}</h1>
-            {currentUser.userId == destination.user ? 
-            userDestination : ''}
-            <h3>${destination.budget}</h3>
-            <img src={destination.photo} alt={destination.name}/>
-            <h4>{destination.description}</h4>
+            <div className="flex space-x-2 justify-center">
+                <div className="p-12 text-center relative overflow-hidden bg-no-repeat bg-cover rounded-lg" style={{ backgroundImage: `url(${destination.photo})`, width: "100vw", height: "67vh" }}>
+                    <div className="absolute top-0 right-0 bottom-0 left-0 w-full h-full overflow-hidden bg-fixed" style={{ backgroundColor: "rgba(0, 0, 0, 0.65)" }}>
+                        <div className="flex justify-center items-center h-full">
+                            <div className="text-white">
+                                <h2 className="font-semibold text-4xl mb-4">{destination.name}</h2>
+                                <h4 className="font-semibold text-xl mb-6">{destination.username}'s Dream Destination</h4>
+                                <h4 className="font-semibold text-xl mb-6">Budget: ${destination.budget}</h4>
+                                <h4 className="font-semibold text-xl mb-6">{destination.description}</h4>
+                                {currentUser.userId == destination.user ? userDestination : ''}
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
             {currentUser.userId == destination.user ? userExpenses : ''}
-  
         </div>
+
     )
 }
+
+
+{/* <div
+  class="p-12 text-center relative overflow-hidden bg-no-repeat bg-cover rounded-lg"
+  style="
+    background-image: url('https://mdbcdn.b-cdn.net/img/new/slides/041.webp');
+    height: 400px;
+  "
+>
+  <div
+    class="absolute top-0 right-0 bottom-0 left-0 w-full h-full overflow-hidden bg-fixed"
+    style="background-color: rgba(0, 0, 0, 0.6)"
+  >
+    <div class="flex justify-center items-center h-full">
+      <div class="text-white">
+        <h2 class="font-semibold text-4xl mb-4">Heading</h2>
+        <h4 class="font-semibold text-xl mb-6">Subheading</h4>
+        <a
+          class="inline-block px-7 py-3 mb-1 border-2 border-gray-200 text-gray-200 font-medium text-sm leading-snug uppercase rounded hover:bg-black hover:bg-opacity-5 focus:outline-none focus:ring-0 transition duration-150 ease-in-out"
+          href="#!"
+          role="button"
+          data-mdb-ripple="true"
+          data-mdb-ripple-color="light"
+          >Call to action</a
+        >
+      </div>
+    </div>
+  </div>
+</div> */}
