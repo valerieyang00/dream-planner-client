@@ -7,8 +7,8 @@ export default function Home() {
 
     return (
         <div>
-            Home Page 🏡      
-            <div id="carouselExampleIndicators" className="carousel slide flex-auto" data-bs-ride="carousel">
+                
+            <div id="carouselExampleIndicators" className="carousel slide flex my-20 justify-center" data-bs-ride="carousel">
                 <div className="carousel-indicators absolute right-0 bottom-0 left-0 flex justify-center p-0 mb-4">
                     <button
                     type="button"
