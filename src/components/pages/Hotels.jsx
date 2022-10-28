@@ -30,7 +30,7 @@ export default function Hotels() {
             </form>
             <iframe 
                 src={`https://hatlastravel.com/widget/hotels?place=${search}&partner=1261`}
-                style={{height:"400px", width:"100%", margin:"auto", display:"block", overflow:"hidden", border:"none", marginTop:"10rem"}}></iframe> 
+                style={{height:"700px", width:"100%", margin:"auto", display:"block", overflow:"hidden", border:"none", marginTop:"10rem"}}></iframe> 
         </div>
     )
 }
