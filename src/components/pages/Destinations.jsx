@@ -67,7 +67,7 @@ export default function Destinations() {
               <ul key={`${destination.id}-${idx}`}>
                   <Link to={`/destinations/${destination.id}`}><img src={destination.photo} alt={destination.name} className='' width='400px'/></Link>
                   <Link to={`/destinations/${destination.id}`}><div className="font-bold text-xl mb-2">{destination.name}</div></Link>
-                  <small className="text-gray-700 text-base">{destination.username}</small>
+                  <small className="text-gray-700 text-base">{destination.username}'s Dream</small>
               </ul>
           </div>
         )
