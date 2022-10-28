@@ -56,8 +56,8 @@ export default function Destination({ currentUser }) {
 
     const userExpenses = (
         <div>
-            <div className="flex justify-start" style={{marginLeft: "2rem"}}>
-            <h4 className="text-3xl">Summary of Expenses:</h4>
+            <div className="flex justify-start" style={{ marginLeft: "2rem" }}>
+                <h4 className="text-3xl mt-8">Summary of Expenses:</h4>
             </div>
             <Expenses destinationId={destination.id} budget={destination.budget} />
         </div>
@@ -118,13 +118,12 @@ export default function Destination({ currentUser }) {
             <div className="flex space-x-2 justify-center">
                 {!destination.completed ? <button type="button" className="inline-block px-6 py-2 border-2 border-blue-400 text-white font-medium text-base leading-tight uppercase rounded hover:bg-black hover:bg-opacity-5 focus:outline-none focus:ring-0 transition duration-150 ease-in-out" onClick={setModalIsOpenToTrue} style={{ marginTop: "1rem" }}>Estimate how much to save per week</button> : ''}
                 <Modal isOpen={modalIsOpen} ariaHideApp={false} backdrop="static">
-
-                    <h5 className="text-xl font-medium leading-normal text-gray-800" id="exampleModalCenteredScrollableLabel">
-                        Estimate How Much to Save per Week
-                    </h5>
-                    <form style={{ marginTop: "2rem" }}>
-                        <div className="mb-4">
-                            <label htmlFor="date" className="block text-gray-700 text-base font-bold mb-2">Expected Travel Date:</label>
+                    <div className="grid place-items-center h-screen">
+                        <form>
+                            <h5 className="text-xl text-center font-medium leading-normal text-gray-800 mb-10">
+                                Estimate How Much to Save Per Week
+                            </h5>
+                            <label htmlFor="date" className="block text-gray-700 text-base font-bold mb-4">Expected Travel Date:</label>
                             <input
                                 className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
                                 type="date"
@@ -134,15 +133,16 @@ export default function Destination({ currentUser }) {
                                 onChange={handleDateChange}
                                 required
                             />
-                        </div>
-                    <p className='text-base'>{saveAmount && saveAmount != -1 ? `Weekly Savings needed for ${expectDate}: $ ${saveAmount}` : ''}</p>
-                    <p>{saveAmount == -1 ? 'Please select a future date' : ''}</p>
-                        <button onClick={handleEstimation}>Submit</button>
-                        <button onClick={setModalIsOpenToFalse}>Close</button>
-                    </form>
+                            <p className='text-xl mt-8'>{saveAmount && saveAmount != -1 ? `Weekly Savings needed for ${expectDate}: $ ${saveAmount}` : ''}</p>
+                            <div className="flex space-x-2 justify-center mt-8">
+                                <p>{saveAmount == -1 ? 'Please select a future date' : ''}</p>
+                                <button type="button" className="inline-block px-6 py-2.5 bg-blue-600 text-white font-medium text-sm leading-tight uppercase rounded-full shadow-md hover:bg-blue-700 hover:shadow-lg focus:bg-blue-700 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-blue-800 active:shadow-lg transition duration-150 ease-in-out  bg-[#5094d4] hover:bg-[#b7d8f1]" onClick={handleEstimation}>Submit</button>
+                                <button type="button" className="inline-block px-6 py-2.5 bg-blue-600 text-white font-medium text-sm leading-tight uppercase rounded-full shadow-md hover:bg-blue-700 hover:shadow-lg focus:bg-blue-700 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-blue-800 active:shadow-lg transition duration-150 ease-in-out  bg-[#b7d8f1] hover:bg-[#5094d4]" onClick={setModalIsOpenToFalse}>Close</button>
+                            </div>
+                        </form>
+                    </div>
                 </Modal>
             </div>
-
         </div>
 
     )
@@ -151,7 +151,7 @@ export default function Destination({ currentUser }) {
         <div>
             {msg}
             <div className="flex space-x-2 justify-center">
-                <div className="p-12 text-center relative overflow-hidden bg-no-repeat bg-cover rounded-lg" style={{ backgroundImage: `url(${destination.photo})`, width: "100%", height: currentUser.userId == destination.user ?"67vh" : "100vh"}}>
+                <div className="p-12 text-center relative overflow-hidden bg-no-repeat bg-cover rounded-lg" style={{ backgroundImage: `url(${destination.photo})`, width: "100%", height: currentUser.userId == destination.user ? "67vh" : "100vh" }}>
                     <div className="absolute top-0 right-0 bottom-0 left-0 w-full h-full overflow-hidden bg-fixed" style={{ backgroundColor: "rgba(0, 0, 0, 0.65)" }}>
                         <div className="flex justify-center items-center h-full">
                             <div className="text-white">
