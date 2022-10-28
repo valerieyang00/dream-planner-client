@@ -25,6 +25,7 @@ export default function Destination({currentUser}) {
 
 	const setModalIsOpenToFalse = () => {
 		setModalIsOpen(false)
+        setSaveAmount('')
         setExpectDate('')
 	}
 
@@ -53,7 +54,6 @@ export default function Destination({currentUser}) {
 
     const userExpenses = (
         <div>
-            <Link to={`/destinations/${destinationId}/edit`}><h4>Edit Destination</h4></Link>
             <h4>All Expenses:</h4>
             <Link to={`/destinations/${destinationId}/expenses/new`}><h4>Add New Expense</h4></Link>
             <Expenses destinationId ={destination.id} budget = {destination.budget}/>
@@ -63,8 +63,7 @@ export default function Destination({currentUser}) {
     const markComplete = async () => {
         try {
             const changedForm = form
-            changedForm.completed = true
-            console.log(changedForm)
+            changedForm.completed = !changedForm.completed
             await axios.put(`${process.env.REACT_APP_SERVER_URL}/api/destinations/${destinationId}/`, changedForm)
             navigate(`/destinations/${destinationId}`)
             
@@ -78,17 +77,25 @@ export default function Destination({currentUser}) {
 
     const handleDateChange = (e) => {
         setExpectDate(e.target.value)
+        setSaveAmount('')
     }
 
     const handleEstimation = (e) => {
         e.preventDefault()
-        setSaveAmount(100)
+        let today = new Date().toISOString().slice(0, 10)
+        let expectedDate = expectDate
+        const diffInMs   = new Date(expectedDate) - new Date(today)
+        const diffInDays = diffInMs / (1000 * 60 * 60 * 24);
+        const numWeeks = diffInDays / 7
+        const amountToSave = Math.round(destination.budget / numWeeks)
+        setSaveAmount(amountToSave)
+           
     }
 
     const userDestination = (
         <div>
             <Link to={`/destinations/${destinationId}/edit`}><h4>Edit Destination</h4></Link>
-            <button onClick={markComplete} style={{pointerEvents: destination.completed ? 'none' : 'auto'}}>{destination.completed ? 'Completed Trip' : 'Mark this dream completed'}</button>
+            <button onClick={markComplete}>{destination.completed ? 'Completed Trip' : 'Mark as Completed'}</button>
             <button onClick={setModalIsOpenToTrue}>Calculate how much to save per week</button>
             <Modal isOpen={modalIsOpen} ariaHideApp={false} backdrop="static">
 				<form>
@@ -105,7 +112,7 @@ export default function Destination({currentUser}) {
                         />
                     </div>
 						<button onClick={handleEstimation}>Submit</button>
-                        <button onClick={setModalIsOpenToFalse}>close</button>
+                        <button onClick={setModalIsOpenToFalse}>Close</button>
 						</form>
                             <p>{saveAmount ? `Weekly Savings needed for ${expectDate}: $ ${saveAmount}` : ''}</p>
 					</Modal>
