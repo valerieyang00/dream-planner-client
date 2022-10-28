@@ -44,7 +44,7 @@ export default function Destinations() {
 
     return (
 
-        <div>
+        <div className='flex items-center flex-col justify-center'>
             {msg}
             {renderPage}
         </div>
