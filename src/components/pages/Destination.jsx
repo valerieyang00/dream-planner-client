@@ -112,15 +112,12 @@ export default function Destination({ currentUser }) {
                 <button type="button" className="inline-block px-6 py-2.5 bg-purple-600 text-white font-medium text-sm leading-tight uppercase rounded-full shadow-md hover:bg-purple-700 hover:shadow-lg focus:bg-purple-700 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-purple-800 active:shadow-lg transition duration-150 ease-in-out" onClick={markComplete} style={{ backgroundColor: destination.completed ? "green" : '' }}>{destination.completed ? 'Completed Trip' : 'Mark as Completed'}</button>
             </div>
 
-
-
-
             <div className="flex space-x-2 justify-center">
                 {!destination.completed ? <button type="button" className="inline-block px-6 py-2 border-2 border-blue-400 text-white font-medium text-base leading-tight uppercase rounded hover:bg-black hover:bg-opacity-5 focus:outline-none focus:ring-0 transition duration-150 ease-in-out" onClick={setModalIsOpenToTrue} style={{ marginTop: "1rem" }}>Estimate how much to save per week</button> : ''}
                 <Modal isOpen={modalIsOpen} ariaHideApp={false} backdrop="static">
                     <div className="grid place-items-center h-screen">
                         <form>
-                            <h5 className="text-xl text-center font-medium leading-normal text-gray-800 mb-10">
+                            <h5 className="text-2xl text-center font-medium leading-normal text-gray-800 mb-10">
                                 Estimate How Much to Save Per Week
                             </h5>
                             <label htmlFor="date" className="block text-gray-700 text-base font-bold mb-4">Expected Travel Date:</label>
@@ -133,7 +130,7 @@ export default function Destination({ currentUser }) {
                                 onChange={handleDateChange}
                                 required
                             />
-                            <p className='text-xl mt-8'>{saveAmount && saveAmount != -1 ? `Weekly Savings needed for ${expectDate}: $ ${saveAmount}` : ''}</p>
+                            {saveAmount && saveAmount != -1 ? <p className='text-xl mt-8 text-center'>Weekly Savings needed for {expectDate}: <br></br> <p className="text-center mt-3 text-2xl ">${saveAmount} </p></p>: ''}
                             <div className="flex space-x-2 justify-center mt-8">
                                 <p>{saveAmount == -1 ? 'Please select a future date' : ''}</p>
                                 <button type="button" className="inline-block px-6 py-2.5 bg-blue-600 text-white font-medium text-sm leading-tight uppercase rounded-full shadow-md hover:bg-blue-700 hover:shadow-lg focus:bg-blue-700 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-blue-800 active:shadow-lg transition duration-150 ease-in-out  bg-[#5094d4] hover:bg-[#b7d8f1]" onClick={handleEstimation}>Submit</button>
