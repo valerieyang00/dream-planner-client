@@ -31,10 +31,20 @@ import Completed from './components/partials/Completed';
 export default function App() {
   // the currently logged in user will be stored up here in state
   const [currentUser, setCurrentUser] = useState(localStorage.getItem('jwt')? { userId: jwt_decode(localStorage.getItem('jwt')).user_id }: null)
+  const [theme, setTheme] = useState('light');
+
+  const toggleTheme = () => {
+    if (theme === 'light') {
+      setTheme('dark');
+    } else {
+      setTheme('light');
+    }
+  };
 
 
   // useEffect -- if the user navigates away form the page, we will log them back in
   useEffect(() => {
+        document.body.className = theme;
     // check to see if token is in storage
         const token = localStorage.getItem('jwt')
         if (token) {
@@ -44,7 +54,7 @@ export default function App() {
         } else {
           setCurrentUser(null)
         }
-    }, []) // happen only once
+    }, [theme]) // happen only once
 
   // event handler to log the user out when needed
   const handleLogout = () => {
@@ -58,9 +68,10 @@ export default function App() {
   }
 
   return (
-    <div>
+    <div className={`App ${theme}`}>
       <br></br>
       <br></br>
+      <button onClick={toggleTheme}>Toggle Theme</button>
       <Router>
         <header>
           <Navbar
