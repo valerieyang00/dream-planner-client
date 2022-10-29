@@ -6,8 +6,11 @@ export default function Destinations() {
 
     const [msg, setMsg] = useState("")
     const [destinations, setDestinations] = useState([])
+    const [windowSize, setWindowSize] = useState(window.innerWidth)
 
     useEffect(() => {
+
+        
 
         const getDestinations = async () => {
             try {
@@ -29,7 +32,19 @@ export default function Destinations() {
             }
         }
         getDestinations()
+
+        const handleResize = () => setWindowSize(window.innerWidth)
+  
+        window.addEventListener('resize', handleResize)
+  
+        return _ => window.removeEventListener('resize', handleResize)
     },[])
+
+    const isWide = windowSize > 1536
+    const isThird = windowSize > 1280
+    const isHalf = windowSize > 1024
+    const isSmall = windowSize > 768
+    const isPhone = windowSize > 640
 
 
     const renderPage = destinations.map((destination, idx) => {
