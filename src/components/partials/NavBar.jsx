@@ -1,13 +1,38 @@
 import { Link } from 'react-router-dom'
 import { useState } from 'react';
 
-export default function Navbar({ currentUser, handleLogout }) {
+export default function Navbar({ currentUser, handleLogout, toggleTheme, theme }) {
   let userId = ''
   const [isNavOpen, setIsNavOpen] = useState(false);
 
   if (currentUser) {
     userId = currentUser.userId
   }
+
+  const darkMode = (
+    <div className={`App ${theme}`}>
+    <div className='darkMode mt-1 mr-4'>
+      <span><img src='https://i.imgur.com/wWbhlxf.png' className='nightIcon inline-flex'/></span>
+      {/* <span className="ml-3 text-sm font-medium text-gray-900 dark:text-gray-300">Night Mode </span> */}
+      <label htmlFor="small-toggle" className="inline-flex relative mb-5 cursor-pointer ">
+        <input type="checkbox" onClick={toggleTheme} id="small-toggle" className="sr-only peer" />
+        <div className="w-9 h-5 bg-gray-200 peer-focus:outline-none peer-focus:ring-4 peer-focus:ring-blue-300 dark:peer-focus:ring-blue-800 rounded-full peer dark:bg-gray-700 peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-4 after:w-4 after:transition-all dark:border-gray-600 peer-checked:bg-blue-600"></div>
+      </label>
+    </div>
+    </div>
+  )
+  const darkModeMobile = (
+    <div className={`App ${theme}`}>
+    <div className='darkMode' style={{marginRight: "4.5rem"}}>
+      <span><img src='https://i.imgur.com/wWbhlxf.png' className='nightIcon inline-flex'/></span>
+      {/* <span className="ml-3 text-sm font-medium text-gray-900 dark:text-gray-300">Night Mode </span> */}
+      <label htmlFor="small-toggle" className="inline-flex relative mb-5 cursor-pointer ">
+        <input type="checkbox" onClick={toggleTheme} id="small-toggle" className="sr-only peer" />
+        <div className="w-9 h-5 bg-gray-200 peer-focus:outline-none peer-focus:ring-4 peer-focus:ring-blue-300 dark:peer-focus:ring-blue-800 rounded-full peer dark:bg-gray-700 peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-4 after:w-4 after:transition-all dark:border-gray-600 peer-checked:bg-blue-600"></div>
+      </label>
+    </div>
+    </div>
+  )
 
   const loggedIn = (
     <ul className="flex flex-row px-1">
@@ -25,6 +50,8 @@ export default function Navbar({ currentUser, handleLogout }) {
         <span onClick={handleLogout}>Logout</span>
       </Link></li>
 
+      <li className="ml-12">{darkMode}</li>
+
     </ul>
   )
 
@@ -33,13 +60,15 @@ export default function Navbar({ currentUser, handleLogout }) {
 
     <ul className="flex flex-row px-1">
       {/* if the user is not logged in... */}
-      <li className="px-3"><Link to="/register" className=''>{' | '}
+      <li className="px-3"><Link to="/register" className=''>
         Register
-      </Link></li>
+      </Link></li>{' | '}
 
       <li className="px-3"><Link to="/login" className=''>
         Login
       </Link></li>
+
+      <li className="ml-12">{darkMode}</li>
     </ul>
   )
 
@@ -84,10 +113,12 @@ export default function Navbar({ currentUser, handleLogout }) {
       <Link to="/" className='font-bold italic'>Dream Planner</Link>
       <nav>
         <section className="MOBILE-MENU flex lg:hidden">
+        {darkModeMobile}
           <div
             className="HAMBURGER-ICON space-y-2"
             onClick={() => setIsNavOpen((prev) => !prev)}
           >
+            
             <span className="block h-0.5 w-8 animate-pulse bg-gray-600"></span>
             <span className="block h-0.5 w-8 animate-pulse bg-gray-600"></span>
             <span className="block h-0.5 w-8 animate-pulse bg-gray-600"></span>
