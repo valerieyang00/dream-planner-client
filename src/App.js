@@ -5,6 +5,7 @@ import jwt_decode from 'jwt-decode'
 import axios from 'axios'
 import { Chart as ChartJS, ArcElement, Tooltip, Legend } from 'chart.js';
 import { Doughnut } from 'react-chartjs-2';
+import 'chartjs-plugin-datalabels';
 
 // pages
 import About from './components/pages/About'

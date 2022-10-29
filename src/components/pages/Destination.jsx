@@ -155,7 +155,7 @@ export default function Destination({ currentUser }) {
                             <div className="text-white">
                                 <h2 className="font-semibold text-4xl mb-4">{destination.name}</h2>
                                 <h4 className="font-semibold text-xl mb-6">{destination.username}'s Dream Destination</h4>
-                                <h4 className="font-semibold text-xl mb-6">Budget: $<Numeral value={destination.budget} format={"0,0"}/></h4>
+                                <h4 className="font-semibold text-xl mb-6">Budget: $<Numeral value={destination.budget} format={"0,0.00"}/></h4>
                                 <h4 className="font-semibold text-xl mb-6">{destination.description}</h4>
                                 {currentUser.userId == destination.user ? userDestination : ''}
 
