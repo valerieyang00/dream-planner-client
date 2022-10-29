@@ -116,11 +116,11 @@ export default function NewExpense({currentUser}) {
 
                                 </div>
                                 <div className="flex justify-center">
-                                    <div>
-                                        <button type="submit" className="w-[vw0.5] text-black bg-[#b7d8f1] hover:bg-[#5094d4] hover:font-stone-50 focus:ring-4 focus:outline-none focus:ring-primary-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-primary-600 dark:hover:bg-primary-700 dark:focus:ring-primary-800">Submit</button>
+                                     <div>
+                                        <Link to={`/destinations/${destinationId}`}><button type="submit" className="w-[vw0.5] text-black bg-[#b7d8f1] hover:bg-[#5094d4] hover:font-stone-50 focus:ring-4 focus:outline-none focus:ring-primary-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-primary-600 dark:hover:bg-primary-700 dark:focus:ring-primary-800">Cancel</button></Link>
                                     </div>
                                     <div>
-                                        <Link to={`/destinations/${destinationId}`}><button type="submit" className="w-[vw0.5] text-black bg-[#b7d8f1] hover:bg-[#5094d4] hover:font-stone-50 focus:ring-4 focus:outline-none focus:ring-primary-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-primary-600 dark:hover:bg-primary-700 dark:focus:ring-primary-800 ml-2">Cancel</button></Link>
+                                        <button type="submit" className="w-[vw0.5] text-black bg-[#b7d8f1] hover:bg-[#5094d4] hover:font-stone-50 focus:ring-4 focus:outline-none focus:ring-primary-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-primary-600 dark:hover:bg-primary-700 dark:focus:ring-primary-800 ml-2">Submit</button>
                                     </div>
                                 </div>
                             </form>
