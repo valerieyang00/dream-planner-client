@@ -1,5 +1,5 @@
 import axios from 'axios'
-import { useNavigate, useParams } from 'react-router-dom'
+import { useNavigate, useParams, Link } from 'react-router-dom'
 import { useState, useEffect } from 'react'
 
 
@@ -52,12 +52,16 @@ export default function EditExpense(currentUser) {
 
     return (
         <div>
-            <h1>Edit your expense</h1>
-            <div className="flex justify-center"> 
-                <div className="w-full max-w-xs object-center">
-                    <form onSubmit={handleSubmit} className="bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4">
+            <section className="bg-gray-50 dark:bg-gray-900">
+				<div className="flex flex-col items-center justify-center px-6 py-8 mx-auto md:h-screen lg:py-0">
+					<div className="w-full bg-white rounded-lg shadow dark:border md:mt-0 sm:max-w-md xl:p-0 dark:bg-gray-800 dark:border-gray-700">
+						<div className="p-6 space-y-4 md:space-y-6 sm:p-8">
+							<h1 className="text-xl font-bold leading-tight tracking-tight text-gray-900 md:text-2xl dark:text-white">
+                                Edit Expense
+							</h1>
+                    <form onSubmit={handleSubmit} className="space-y-4 md:space-y-6" action="#">
                         <div className="mb-4">
-                            <label htmlFor="date" className="block text-gray-700 text-sm font-bold mb-2">Date:</label>
+                            <label htmlFor="date" className="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Date:</label>
                             <input 
                             className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
                             type="date"
@@ -71,7 +75,7 @@ export default function EditExpense(currentUser) {
                         </div>
                         
                         <div className="mb-4">
-                            <label htmlFor="merchant" className="block text-gray-700 text-sm font-bold mb-2">Merchant:</label>
+                            <label htmlFor="merchant" className="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Merchant:</label>
                             <input 
                             className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
                             type="text"
@@ -85,7 +89,7 @@ export default function EditExpense(currentUser) {
                         </div>
 
                         <div className="mb-4">
-                            <label htmlFor="amount" className="block text-gray-700 text-sm font-bold mb-2">Amount:</label>
+                            <label htmlFor="amount" className="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Amount:</label>
                             <input 
                             className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
                             type="number"
@@ -99,7 +103,7 @@ export default function EditExpense(currentUser) {
                         </div>
 
                         <div className="mb-6">
-                            <label htmlFor="details" className="block text-gray-700 text-sm font-bold mb-2">Details:</label>
+                            <label htmlFor="details" className="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Details:</label>
                             <input 
                             className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
                             type="text"
@@ -113,22 +117,28 @@ export default function EditExpense(currentUser) {
                         </div>
 
                         <div className="mb-4">
-                            <label htmlFor='category'>Select Category:</label>
-                            <select value={form.category} name="category" onChange={handleChange}>
+                            <label htmlFor='category' className="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Select Category:</label>
+                            <select value={form.category} name="category" onChange={handleChange} className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline">
                                     <option value="lodging">Lodging</option>
                                     <option value="transportation">Transportation</option>
                                     <option value="food">Food</option>
                                     <option value="activities">Activities</option>
                                     <option value="misc">Misc</option>
                             </select>
-                            <br></br>
-                            <br></br>
                         </div>
-
-                        <button type="submit" className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline">Submit</button>
+                        <div className="flex justify-center">
+                                    <div>
+                                        <Link to={`/destinations/${destinationId}/`}><button type="submit" className="w-[vw0.5] text-black bg-[#b7d8f1] hover:bg-[#5094d4] hover:font-stone-50 focus:ring-4 focus:outline-none focus:ring-primary-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-primary-600 dark:hover:bg-primary-700 dark:focus:ring-primary-800 ">Cancel</button></Link>
+                                    </div>
+                                    <div>
+                                        <button type="submit" className="w-[vw0.5] text-black bg-[#b7d8f1] hover:bg-[#5094d4] hover:font-stone-50 focus:ring-4 focus:outline-none focus:ring-primary-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-primary-600 dark:hover:bg-primary-700 dark:focus:ring-primary-800 ml-2">Update</button>
+                                    </div>
+                        </div>
                     </form>
                 </div>
-            </div>    
-        </div>
+            </div>  
+            </div>  
+        </section> 
+    </div>
     )
 }
