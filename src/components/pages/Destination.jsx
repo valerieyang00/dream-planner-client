@@ -3,6 +3,7 @@ import axios from "axios"
 import { Link, useParams, useNavigate } from 'react-router-dom'
 import Expenses from '../partials/Expenses'
 import Modal from 'react-modal';
+import Numeral from 'react-numeral';
 
 export default function Destination({ currentUser }) {
     const [msg, setMsg] = useState("")
@@ -130,7 +131,7 @@ export default function Destination({ currentUser }) {
                                 onChange={handleDateChange}
                                 required
                             />
-                            {saveAmount && saveAmount != -1 ? <p className='text-xl mt-8 text-center text-white'>Weekly Savings needed for {expectDate}: <br></br> <p className=" text-white text-center mt-3 text-2xl ">${saveAmount} </p></p>: ''}
+                            {saveAmount && saveAmount != -1 ? <p className='text-xl mt-8 text-center text-white'>Weekly Savings needed for {expectDate}: <br></br> <p className=" text-white text-center mt-3 text-2xl ">$<Numeral value={saveAmount} format={"0,0"} /></p></p>: ''}
                             <div className="flex space-x-2 justify-center mt-8">
                                 <p>{saveAmount == -1 ? 'Please select a future date' : ''}</p>
                                 <button type="button" className="inline-block px-6 py-2.5 bg-blue-600 text-white font-medium text-sm leading-tight uppercase rounded-full shadow-md hover:bg-blue-700 hover:shadow-lg focus:bg-blue-700 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-blue-800 active:shadow-lg transition duration-150 ease-in-out  bg-[#5094d4] hover:bg-[#b7d8f1]" onClick={handleEstimation}>Submit</button>
@@ -154,7 +155,7 @@ export default function Destination({ currentUser }) {
                             <div className="text-white">
                                 <h2 className="font-semibold text-4xl mb-4">{destination.name}</h2>
                                 <h4 className="font-semibold text-xl mb-6">{destination.username}'s Dream Destination</h4>
-                                <h4 className="font-semibold text-xl mb-6">Budget: ${destination.budget}</h4>
+                                <h4 className="font-semibold text-xl mb-6">Budget: $<Numeral value={destination.budget} format={"0,0"}/></h4>
                                 <h4 className="font-semibold text-xl mb-6">{destination.description}</h4>
                                 {currentUser.userId == destination.user ? userDestination : ''}
 

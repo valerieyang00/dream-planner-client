@@ -2,6 +2,7 @@ import { useState, useEffect } from "react"
 import axios from "axios"
 import { Link } from 'react-router-dom'
 import MyDashboard from "./MyDashboard"
+import Numeral from 'react-numeral';
 
 export default function Expenses({ destinationId, budget }) {
 
@@ -85,7 +86,7 @@ export default function Expenses({ destinationId, budget }) {
                                             {expense.merchant}
                                         </td>
                                         <td className="text-base font-light px-6 py-4 whitespace-nowrap">
-                                            ${expense.amount}
+                                            $<Numeral value={expense.amount} format={"0,0"}/>
                                         </td>
                                         <td className="text-base font-light px-6 py-4 whitespace-nowrap">
                                             {expense.details}
