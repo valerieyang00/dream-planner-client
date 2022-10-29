@@ -42,11 +42,6 @@ export default function Home() {
       }, [windowSize])
   
       const isWide = windowSize > 1536
-      const isThird = windowSize > 1280
-      const isHalf = windowSize > 1024
-      const isSmall = windowSize > 768
-      const isPhone = windowSize > 640
-
     // CARDS
     const renderPage = destinations.map((destination, idx) => {
         return (
@@ -68,7 +63,7 @@ export default function Home() {
                 Most Popular Destinations
             </div>
             <div className="flex justify-center">
-                <div className={`flex justify-center w-7/12 grid ${isPhone ? 'grid-cols-4' : 'grid-cols-1'} gap-4 mx-4 my-5 justify-items-center`}>
+                <div className={`flex justify-center w-7/12 grid ${windowSize < 400? 'grid-cols-1' : windowSize < 800? 'grid-cols-2' : windowSize < 1200? 'grid-cols-3' :'grid-cols-4'} gap-4 mx-4 my-5 justify-items-center`}>
                     {renderPage}
                 </div>
             </div>
