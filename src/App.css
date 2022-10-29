@@ -4,7 +4,15 @@
   
 }
 
+.dark {
+  background-color: rgb(17, 24, 34);
+  color: white;
+}
 
+.light {
+  background-color: white;
+  color: black;
+}
 
  /* .card {
   background-color: rgba(255, 255, 255, 0.348);
