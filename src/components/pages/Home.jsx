@@ -36,7 +36,6 @@ export default function Home() {
     // CARDS
     const renderPage = destinations.map((destination, idx) => {
         return (
-
             <div key={`${idx}-${destination.id}`}className="max-w-sm rounded overflow-hidden shadow-lg card transform transition duration-500 hover:scale-110 mx-1 my-1" >
                 <ul className="mb-3">
                     <Link to={`/destinations/${destination.id}`}><img src={destination.photo} alt={destination.name} className='' width='350px'/></Link>
@@ -47,7 +46,6 @@ export default function Home() {
 
         )
     })   
-
 
     return (
         <div>
@@ -80,7 +78,7 @@ export default function Home() {
                     <div className="carousel-inner relative w-full overflow-hidden">
                         <div className="carousel-item active relative float-left w-full">
                             <img
-                                src="https://www.savoredjourneys.com/wp-content/uploads/2017/03/osaka-castle.jpg"
+                                src="https://i.imgur.com/IqpIf8N.jpg"
                                 // className="block w-full h-96 object-cover align-middle"
                                 className="aspect-video block w-full object-cover align-middle"
                                 alt="..."
@@ -89,7 +87,7 @@ export default function Home() {
 
                         <div className="carousel-item relative float-left w-full">
                             <img
-                                src="https://www.savoredjourneys.com/wp-content/uploads/2017/03/osaka-castle.jpg"
+                                src="https://i.imgur.com/pUY87ZV.png"
                                 className="aspect-video block w-full object-cover align-middle"
                                 alt="..."
                             />
@@ -97,7 +95,7 @@ export default function Home() {
 
                         <div className="carousel-item relative float-left w-full">
                             <img
-                                src="https://travelpassionate.com/wp-content/uploads/2019/03/Scenic-summer-view-of-the-Old-Town-architecture-with-Elbe-river-embankment-in-Dresden-Saxony-Germany-Image-min-800x534.jpg"
+                                src="https://i.imgur.com/4dHKOHA.png"
                                 // className="block w-full h-96 object-cover align-middle"
                                 className="aspect-video block w-full object-cover align-middle"
                                 alt="..."
@@ -127,12 +125,9 @@ export default function Home() {
    
             </div>
 
-
-
-
-                <div className="text-xl mt-5 ">
-                    Most Popular Destinations
-                </div>
+            <div className="text-xl mt-5 ">
+                Most Popular Destinations
+            </div>
 
             <div className="flex justify-center">
                 <div className="flex justify-center w-7/12 grid grid-cols-4 gap-4 mx-4 my-5 justify-items-center">
