@@ -48,27 +48,27 @@ export default function Expenses({ destinationId, budget }) {
             <div className="py-2 inline-block min-w-full sm:px-6 lg:px-8">
                 <div className="overflow-hidden">
                     <table className="min-w-full">
-                        <thead className="bg-white border-b">
+                        <thead className=" border-b">
                             <tr>
-                                <th scope="col" className="text-base font-medium text-gray-900 px-6 py-4 text-center">
+                                <th scope="col" className="text-base font-medium px-6 py-4 text-center">
                                     Date
                                 </th>
-                                <th scope="col" className="text-base font-medium text-gray-900 px-6 py-4 text-center">
+                                <th scope="col" className="text-base font-medium px-6 py-4 text-center">
                                     Type
                                 </th>
-                                <th scope="col" className="text-base font-medium text-gray-900 px-6 py-4 text-center">
+                                <th scope="col" className="text-base font-medium px-6 py-4 text-center">
                                     Merchant
                                 </th>
-                                <th scope="col" className="text-base font-medium text-gray-900 px-6 py-4 text-center">
+                                <th scope="col" className="text-base font-medium px-6 py-4 text-center">
                                     Amount
                                 </th>
-                                <th scope="col" className="text-base font-medium text-gray-900 px-6 py-4 text-center">
+                                <th scope="col" className="text-base font-medium px-6 py-4 text-center">
                                     Description
                                 </th>
-                                <th scope="col" className="text-base font-medium text-gray-900 px-6 py-4 text-center">
+                                <th scope="col" className="text-base font-medium px-6 py-4 text-center">
                                     Edit
                                 </th>
-                                <th scope="col" className="text-base font-medium text-gray-900 px-6 py-4 text-center">
+                                <th scope="col" className="text-base font-medium px-6 py-4 text-center">
                                     Delete
                                 </th>
                             </tr>
@@ -76,24 +76,24 @@ export default function Expenses({ destinationId, budget }) {
                     {expenses.map((expense, idx) => {
                             return (
                                 <tbody key={`${expense.id}-${idx}`}>
-                                    <tr className="bg-white border-b transition duration-300 ease-in-out hover:bg-gray-100">
-                                        <td className="px-6 py-4 whitespace-nowrap text-base font-medium text-gray-900">{expense.date}</td>
-                                        <td className="text-base text-gray-900 font-light px-6 py-4 whitespace-nowrap">
+                                    <tr className=" border-b transition duration-300 ease-in-out hover:bg-gray-100">
+                                        <td className="px-6 py-4 whitespace-nowrap text-base font-medium">{expense.date}</td>
+                                        <td className="text-base font-light px-6 py-4 whitespace-nowrap">
                                             {expense.category.charAt(0).toUpperCase() + expense.category.slice(1)}
                                         </td>
-                                        <td className="text-base text-gray-900 font-light px-6 py-4 whitespace-nowrap">
+                                        <td className="text-base font-light px-6 py-4 whitespace-nowrap">
                                             {expense.merchant}
                                         </td>
-                                        <td className="text-base text-gray-900 font-light px-6 py-4 whitespace-nowrap">
+                                        <td className="text-base font-light px-6 py-4 whitespace-nowrap">
                                             ${expense.amount}
                                         </td>
-                                        <td className="text-base text-gray-900 font-light px-6 py-4 whitespace-nowrap">
+                                        <td className="text-base font-light px-6 py-4 whitespace-nowrap">
                                             {expense.details}
                                         </td>
-                                        <td className="text-base text-gray-900 font-light px-6 py-4 whitespace-nowrap">
+                                        <td className="text-base font-light px-6 py-4 whitespace-nowrap">
                                             <Link to={`/destinations/${destinationId}/expenses/${expense.id}/edit`}><button type="button" className="inline-block px-3 py-1 border-2 border-purple-600 text-purple-600 font-medium text-xs leading-tight uppercase rounded-full hover:bg-black hover:bg-opacity-5 focus:outline-none focus:ring-0 transition duration-150 ease-in-out">Edit</button></Link>
                                         </td>
-                                        <td className="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
+                                        <td className="text-sm font-light px-6 py-4 whitespace-nowrap">
                                             <button onClick={(e) => { deleteExpense(e, expense.id) }} type="button" className="inline-block px-3 py-1 border-2 border-red-600 text-red-600 font-medium text-xs leading-tight uppercase rounded-full hover:bg-black hover:bg-opacity-5 focus:outline-none focus:ring-0 transition duration-150 ease-in-out">Delete</button>
                                         </td>
                                     </tr>
