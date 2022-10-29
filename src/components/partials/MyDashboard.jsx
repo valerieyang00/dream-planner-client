@@ -119,7 +119,7 @@ export default function MyDashboard({ expenses, budget, destinationId }) {
 
     return (
         <div className="flex justify-center">
-            <div className="rounded-lg shadow-lg bg-stone-50 max-w-lg" style={{margin: "1vw"}} >
+            <div className="rounded-lg shadow-lg bg-stone-100 max-w-lg" style={{margin: "1vw"}} >
                 <div className="p-6">
                     <h5 className="text-gray-900 text-xl font-medium mb-2">Expenses by Type</h5>
                     <div style={{width: "27rem"}}>
@@ -127,7 +127,7 @@ export default function MyDashboard({ expenses, budget, destinationId }) {
                     </div>
                 </div>
             </div>
-            <div className="rounded-lg shadow-lg bg-stone-50 max-w-lg" style={{margin: "1vw"}}>
+            <div className="rounded-lg shadow-lg bg-stone-100 max-w-lg" style={{margin: "1vw"}}>
                 <div className="p-6">
                     <h5 className="text-gray-900 text-xl font-medium mb-2">Total Expenses vs Budget</h5>
                     <div style={{marginTop: "5rem", width: "27rem"}}>

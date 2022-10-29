@@ -42,8 +42,10 @@ export default function About() {
                                 <h3 className="text-2xl font-bold tracking-tight text-gray-900 dark:text-white">
                                     <a href="#">Sean</a>
                                 </h3>
-                                <span className="text-gray-500 dark:text-gray-400">Full Stack Software Engineer</span>
-                                <p className="mt-3 mb-4 font-light text-gray-500 dark:text-gray-400">BackEnd . BugKiller . TeamPlayer . Everything</p>
+                                
+                                <span class="text-gray-500 dark:text-gray-400">Full Stack Software Engineer</span>
+                                <p class="mt-3 mb-4 font-light text-gray-500 dark:text-gray-400">BackEnd . BugKiller . TeamPlayer</p>
+
                                 
                                 <ul className="flex space-x-2 justify-center sm:mt-0">
                                     <li>

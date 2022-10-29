@@ -145,7 +145,7 @@ export default function Destination({ currentUser }) {
     )
 
     return (
-        <div className="bg-stone-50">
+        <div>
             {msg}
             <div className="flex space-x-2 justify-center">
                 <div className="p-12 text-center relative overflow-hidden bg-no-repeat bg-cover rounded-lg" style={{ backgroundImage: `url(${destination.photo})`, width: "100%", height: currentUser.userId == destination.user ? "67vh" : "100vh" }}>
