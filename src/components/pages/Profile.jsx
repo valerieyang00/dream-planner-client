@@ -58,11 +58,11 @@ export default function Profile({ currentUser, handleLogout }) {
                 <div className="p-6 space-y-4 md:space-y-6 sm:p-8">
 
                             <div>
-                                <h1 className="text-lrg font-bold leading-tight tracking-tight text-gray-900 md:text-2xl dark:text-white">
+                                <h1 className="text-lrg font-bold leading-tight tracking-tight  md:text-2xl ">
                                     Profile Details
                                 </h1>
-                                <p className="block text-lg font-medium text-gray-900 dark:text-white">Username: {userDetails.username}</p>
-                                <p className="block mb-2 text-lg font-medium text-gray-900 dark:text-white">Email: {userDetails.email}</p>
+                                <p className="block text-lg font-medium  ">Username: {userDetails.username}</p>
+                                <p className="block mb-2 text-lg font-medium  ">Email: {userDetails.email}</p>
                                 {currentUser && currentUser.userId == userId ? userOptions : <h3></h3> }
                             </div>
 
