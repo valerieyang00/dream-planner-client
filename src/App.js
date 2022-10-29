@@ -24,9 +24,7 @@ import Hotels from './components/pages/Hotels';
 
 // partials
 import Navbar from './components/partials/NavBar';
-import MyDashboard from './components/partials/MyDashboard';
-import MyDestinations from './components/partials/MyDestinations';
-import Completed from './components/partials/Completed';
+
 
 export default function App() {
   // the currently logged in user will be stored up here in state
