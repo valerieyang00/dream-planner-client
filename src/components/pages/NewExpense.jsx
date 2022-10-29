@@ -27,7 +27,6 @@ export default function NewExpense({currentUser}) {
     const handleCreate = async (e) => {
         e.preventDefault()
         try {
-            console.log(form)
             await axios.post(`${process.env.REACT_APP_SERVER_URL}/api/expenses/`, form)
             navigate(`/destinations/${destinationId}`)
         }catch(err){

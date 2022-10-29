@@ -9,7 +9,6 @@ export default function MyDestinations({currentUser}) {
     const [completed, setCompleted] = useState([])
     // state for messages from the backend
     const [errorMessage, setErrorMessage] = useState('')
-    // console.log('server url', process.env.REACT_APP_SERVER_URL)
 
     useEffect(() => {
         const getDestinations = async () => {
@@ -31,19 +30,6 @@ export default function MyDestinations({currentUser}) {
     }, []) // 
     
     
-    // const destinationsToDisplay = destinations.map((destination,idx) => {
-    //     return (
-    //         <div key={`${destination.id}-${idx}`}>
-    //         <Link to={`/destinations/${destination.id}`}><ul>
-    //             <li>{destination.name}</li>
-    //             <li>Budget: ${destination.budget}</li>
-    //             <li><img src={destination.photo} /></li>
-    //             <li>Details: {destination.description}</li>
-    //             <li>{destination.date}</li>
-    //         </ul></Link>
-    //         </div>
-    //     )
-    // })
 
     const destinationsToDisplay = destinations.map((destination,idx) => {
         return (
@@ -51,7 +37,6 @@ export default function MyDestinations({currentUser}) {
                 <ul key={`${destination.id}-${idx}`}>
                     <Link to={`/destinations/${destination.id}`}><img src={destination.photo} alt={destination.name} className='' width='400px'/></Link>
                     <Link to={`/destinations/${destination.id}`}><div className="font-bold text-xl mb-2">{destination.name}</div></Link>
-                    {/* <small className="text-gray-700 text-base">{destination.username}'s Dream</small> */}
                     <div><small className="text-gray-700 text-base">Budget: ${destination.budget}</small></div>
                     <div><small className="text-gray-700 text-base">Details: {destination.description}</small></div>
                     <small className="text-gray-700 text-base">{destination.date}</small>
@@ -61,19 +46,6 @@ export default function MyDestinations({currentUser}) {
         )
     })
 
-    // const completedToDisplay = completed.map((destination,idx) => {
-    //     return (
-    //         <div key={`${destination.id}-${idx}`}>
-    //         <Link to={`/destinations/${destination.id}`}><ul>
-    //             <li>{destination.name}</li>
-    //             <li>Budget: ${destination.budget}</li>
-    //             <li><img src={destination.photo} /></li>
-    //             <li>Details: {destination.description}</li>
-    //             <li>{destination.date}</li>
-    //         </ul></Link>
-    //         </div>
-    //     )
-    // })
 
 
     const completedToDisplay = completed.map((destination,idx) => {
@@ -82,7 +54,6 @@ export default function MyDestinations({currentUser}) {
                 <ul key={`${destination.id}-${idx}`}>
                     <Link to={`/destinations/${destination.id}`}><img src={destination.photo} alt={destination.name} className='' width='400px'/></Link>
                     <Link to={`/destinations/${destination.id}`}><div className="font-bold text-xl mb-2">{destination.name}</div></Link>
-                    {/* <small className="text-gray-700 text-base">{destination.username}'s Dream</small> */}
                     <div><small className="text-gray-700 text-base">{destination.budget}</small></div>
                     <div><small className="text-gray-700 text-base">{destination.description}</small></div>
                     <small className="text-gray-700 text-base">{destination.date}</small>

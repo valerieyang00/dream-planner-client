@@ -21,6 +21,7 @@ export default function MyDashboard({ expenses, budget, destinationId }) {
                 borderWidth: 2,
             },
         },
+  
         responsive: true,
         plugins: {
             legend: {

@@ -15,7 +15,7 @@ export default function Hotels() {
     }
     return (
         <div>
-            <div class="flex justify-center">
+            <div className="flex justify-center">
 
             <div className="mt-10 xl:w-96">
                 <p className="text-lg" style={{marginBottom: "1rem"}}>Enter a Destination City to see Hotel Deals</p>

@@ -37,6 +37,7 @@ export default function Register() {
 
 	return (
 		<div>
+            {msg}
 			<section className="bg-gray-50 dark:bg-gray-900">
 				<div className="flex flex-col items-center justify-center px-6 py-8 mx-auto md:h-screen lg:py-0">
 
@@ -112,8 +113,6 @@ export default function Register() {
 										className="font-medium text-primary-600 hover:underline dark:text-primary-500 px-1"
 										> Login Here
 									</Link>
-{/* 
-									<a href="#" className="font-medium text-primary-600 hover:underline dark:text-primary-500">Login here</a> */}
 								</p>
 							</form>
 						</div>
