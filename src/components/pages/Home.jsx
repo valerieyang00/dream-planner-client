@@ -60,7 +60,7 @@ export default function Home() {
     return (
         <div>
             <Carousel isWide={isWide} />
-            <div className="text-xl">
+            <div className="text-xl mt-5">
                 Most Popular Destinations
             </div>
             <div className="flex justify-center">
