@@ -42,11 +42,13 @@ export default function About() {
                                 <h3 className="text-2xl font-bold tracking-tight text-gray-900 dark:text-white">
                                     <a href="#">Sean</a>
                                 </h3>
+
                                 
                                 <span className="text-gray-500 dark:text-gray-400">Full Stack Software Engineer</span>
                                 <p className="mt-3 mb-4 font-light text-gray-500 dark:text-gray-400">BackEnd . BugKiller . TeamPlayer</p>
 
                                 
+
                                 <ul className="flex space-x-2 justify-center sm:mt-0">
                                     <li>
                                         <a href='https://github.com/mousesaver' target='_blank'>
@@ -101,7 +103,9 @@ export default function About() {
                                         <a href='https://github.com/devin-lynch' target='_blank'>
                                             <img src='https://i.imgur.com/Hmzo2zq.png' className='about' alt='github icon'/>
                                         </a>
+
   
+
                                     </li>
                                     <li>
                                         <a href='https://www.linkedin.com/in/lynch-devin/' target='_blank'>
