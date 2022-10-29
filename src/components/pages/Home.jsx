@@ -37,8 +37,8 @@ export default function Home() {
     const renderPage = destinations.map((destination, idx) => {
         return (
 
-            <div className="max-w-sm rounded overflow-hidden shadow-lg card transform transition duration-500 hover:scale-110 mx-1 my-1" >
-                <ul key={`${destination.id}-${idx}`} className="mb-3">
+            <div key={`${idx}-${destination.id}`}className="max-w-sm rounded overflow-hidden shadow-lg card transform transition duration-500 hover:scale-110 mx-1 my-1" >
+                <ul className="mb-3">
                     <Link to={`/destinations/${destination.id}`}><img src={destination.photo} alt={destination.name} className='' width='350px'/></Link>
                     <Link to={`/destinations/${destination.id}`}><div className="font-bold text-xl mt-2">{destination.name}</div></Link>
                     <small className="text-gray-700 italic text-base">{destination.username}'s Dream</small>
