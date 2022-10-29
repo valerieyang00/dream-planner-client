@@ -18,6 +18,7 @@ export default function MyDashboard({ expenses, budget, destinationId }) {
     })
 
     const optionsBar = {
+        // maintainAspectRatio : false,
         indexAxis: 'y',
         elements: {
             bar: {
@@ -43,6 +44,7 @@ export default function MyDashboard({ expenses, budget, destinationId }) {
         },
     };
     const options = {
+        // maintainAspectRatio : false,
         responsive: true,
         plugins: {
             datalabels: {
