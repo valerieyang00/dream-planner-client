@@ -60,26 +60,27 @@ export default function Profile({ currentUser, handleLogout }) {
     const userOptions = (
     
             <div className=''>
-                <Link className={``} to={`edit`}>Edit Profile</Link>
-                <Link className={``} to='/' onClick={deleteUser}>Delete Profile</Link>
+                <Link className={``} to={`edit`}><button className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline">Edit Profile</button></Link>
             </div>
         )
 
     // Output
 	return (
 		<div className='mx-auto' >
-            {currentUser && currentUser.userId == userId ? userOptions : <h3></h3> }
             <div className='flex flex-col-reverse sm:flex-row justify-center'>
-
-                <div className='h-64 xl:h-80 w-full sm:w-4/5 sm:max-w-[55rem] bg-bloom-sage font-bloom-sans sm:rounded-bl-[3em] pt-10 pl-6 md:px-12 xl:px-24 ml-auto'>
-                {/* <section className='flex items-center flex-col justify-center'> */}
-                    <h1 className='text-5xl font-heavy mb-6'>Profile Details </h1>
-                    <h3 className='text-2xl my-2 md:text-3xl'>Username: {userDetails.username}</h3>
-                    <h3 className='text-2xl my-2 md:text-3xl'>Email: {userDetails.email}</h3>
-                    {/* <p>your email is {userDetails.email}</p> */}
+                <div className='flex flex-col justify-center'>
+                    <div class="max-w-sm rounded overflow-hidden shadow-lg ">
+                        <div class="px-6 py-4">
+                            <div class="font-bold text-xl mb-2">Profile Details</div>
+                            <br></br>
+                            <p class="text-gray-700 text-base">Username: {userDetails.username}</p>
+                            <p class="text-gray-700 text-base">Email: {userDetails.email}</p>
+                            <br></br>
+                            {currentUser && currentUser.userId == userId ? userOptions : <h3></h3> }
+                        </div>
+                    </div>
                 </div>
             </div>
-
             <div>
                 <h1><MyDestinations currentUser={userId}/></h1>
             </div>

@@ -94,13 +94,14 @@ export default function MyDestinations({currentUser}) {
 
     return (
         <div className='flex items-center flex-col justify-center'>
-            <h1>My Destinations:</h1>
+            <br></br>
+            <p className='text-xl font-bold'>My Destinations:</p>
             
             <div className='grid grid-cols-2 gap-8 mx-4 my-5 justify-items-center'>
               {destinationsToDisplay}
             </div>
 
-            <h1>My Completed Destinations:</h1>
+            <p className='text-xl font-bold'>My Completed Destinations:</p>
             
             <div className='grid grid-cols-2 gap-8 mx-4 my-5 justify-items-center'>
               {completedToDisplay}
