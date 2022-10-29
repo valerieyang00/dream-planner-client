@@ -2,6 +2,8 @@ import { useState, useEffect } from 'react';
 import { Chart as ChartJS, ArcElement, Tooltip, Legend, CategoryScale, LinearScale, BarElement, Title } from 'chart.js';
 import { Doughnut } from 'react-chartjs-2';
 import { Bar } from 'react-chartjs-2';
+import 'chartjs-plugin-datalabels';
+
 
 
 
@@ -24,6 +26,9 @@ export default function MyDashboard({ expenses, budget, destinationId }) {
   
         responsive: true,
         plugins: {
+            datalabels: {
+                display: true,
+            },
             legend: {
                 position: 'top',
             },
@@ -36,6 +41,9 @@ export default function MyDashboard({ expenses, budget, destinationId }) {
     const options = {
         responsive: true,
         plugins: {
+            datalabels: {
+                display: true,
+            },
             legend: {
                 position: 'left',
             },

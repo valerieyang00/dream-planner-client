@@ -86,7 +86,7 @@ export default function Expenses({ destinationId, budget }) {
                                             {expense.merchant}
                                         </td>
                                         <td className="text-base font-light px-6 py-4 whitespace-nowrap">
-                                            $<Numeral value={expense.amount} format={"0,0"}/>
+                                            $<Numeral value={expense.amount} format={"0,0.00"}/>
                                         </td>
                                         <td className="text-base font-light px-6 py-4 whitespace-nowrap">
                                             {expense.details}

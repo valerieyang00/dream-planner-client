@@ -107,6 +107,7 @@ export default function EditDestination() {
                                         type="number"
                                         name="budget"
                                         id="budget"
+                                        step="0.01"
                                         placeholder="Set budget for your trip..."
                                         value={form.budget}
                                         onChange={handleChange}

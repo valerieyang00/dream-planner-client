@@ -38,7 +38,7 @@ export default function MyDestinations({currentUser}) {
                 <ul>
                     <Link to={`/destinations/${destination.id}`}><img src={destination.photo} alt={destination.name} className='' width='400px'/></Link>
                     <Link to={`/destinations/${destination.id}`}><div className="font-bold text-xl mb-2">{destination.name}</div></Link>
-                    <div><small className="text-gray-700 text-base">Budget: $<Numeral value={destination.budget} format={"0,0"} /></small></div>
+                    <div><small className="text-gray-700 text-base">Budget: $<Numeral value={destination.budget} format={"0,0.00"} /></small></div>
                     <div><small className="text-gray-700 text-base">{destination.description}</small></div>
                     <small className="text-gray-700 text-base">{destination.date}</small>
                     <br></br>
@@ -55,7 +55,7 @@ export default function MyDestinations({currentUser}) {
                 <ul>
                     <Link to={`/destinations/${destination.id}`}><img src={destination.photo} alt={destination.name} className='' width='400px'/></Link>
                     <Link to={`/destinations/${destination.id}`}><div className="font-bold text-xl mb-2">{destination.name}</div></Link>
-                    <div><small className="text-gray-700 text-base">Budget: $<Numeral value={destination.budget} format={"0,0"} /></small></div>
+                    <div><small className="text-gray-700 text-base">Budget: $<Numeral value={destination.budget} format={"0,0.00"} /></small></div>
                     <div><small className="text-gray-700 text-base">{destination.description}</small></div>
                     <small className="text-gray-700 text-base">{destination.date}</small>
                 </ul>
