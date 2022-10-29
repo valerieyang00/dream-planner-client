@@ -17,7 +17,7 @@ export default function About() {
                                     <a href="#">Valerie</a>
                                 </h3>
                                 <span class="text-gray-500 dark:text-gray-400">Full Stack Software Engineer</span>
-                                <p class="mt-3 mb-4 font-light text-gray-500 dark:text-gray-400">Dashboard . CatLover . Wine . Coding</p>  
+                                <p class="mt-3 mb-4 font-light text-gray-500 dark:text-gray-400">Dashboard . CatLover . Wine . FullStack</p>  
                                 <ul class="flex justify-center sm:mt-0 mt-2">
                                     <li>
                                         <a href='https://github.com/valerieyang00' target='_blank'>
