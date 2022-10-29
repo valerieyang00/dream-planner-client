@@ -12,15 +12,11 @@ export default function EditProfile({currentUser, setCurrentUser, handleLogout})
 
     const navigate = useNavigate()
 
-    console.log(currentUser)
-
     useEffect(() => {
         const getUser = async () => {
             try {
-                // e.preventDefault()
                 const response = await axios.get(`${process.env.REACT_APP_SERVER_URL}/api/users/${userId}/`)
                 const user = response.data
-                console.log(user)
                 setEmail(user.email)
                 setUsername(user.username)
             }catch(err) {

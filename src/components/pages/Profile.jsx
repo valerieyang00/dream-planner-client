@@ -28,7 +28,6 @@ export default function Profile({ currentUser, handleLogout }) {
                             // await axios.post(url, requestBody (form data), options)
                             // set the secret user message in state
                 setUserDetails(userResponse.data)
-                console.log(currentUser)
 			} catch (err) {
                 // if the error is a 401 -- that means that auth failed
                 console.warn(err)
@@ -43,19 +42,6 @@ export default function Profile({ currentUser, handleLogout }) {
 		fetchData()
 	}, []) // only fire on the first render of this component
 
-    // Handlers
-    const deleteUser = async () => {
-        try {
-          // Deletes User
-          await axios.delete(`${process.env.REACT_APP_SERVER_URL}/api/users/${userId}/`)
-          // Logout user from deleted account
-          handleLogout()
-          // Return Home
-          navigate('/')
-        } catch (err) {
-          console.log(err)
-        }
-    }
 
     const userOptions = (
     
@@ -69,12 +55,12 @@ export default function Profile({ currentUser, handleLogout }) {
 		<div className='mx-auto' >
             <div className='flex flex-col-reverse sm:flex-row justify-center'>
                 <div className='flex flex-col justify-center'>
-                    <div class="max-w-sm rounded overflow-hidden shadow-lg ">
-                        <div class="px-6 py-4">
-                            <div class="font-bold text-xl mb-2">Profile Details</div>
+                    <div className="max-w-sm rounded overflow-hidden shadow-lg ">
+                        <div className="px-6 py-4">
+                            <div className="font-bold text-xl mb-2">Profile Details</div>
                             <br></br>
-                            <p class="text-gray-700 text-base">Username: {userDetails.username}</p>
-                            <p class="text-gray-700 text-base">Email: {userDetails.email}</p>
+                            <p className="text-gray-700 text-base">Username: {userDetails.username}</p>
+                            <p className="text-gray-700 text-base">Email: {userDetails.email}</p>
                             <br></br>
                             {currentUser && currentUser.userId == userId ? userOptions : <h3></h3> }
                         </div>

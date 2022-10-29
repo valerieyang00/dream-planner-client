@@ -31,36 +31,7 @@ export default function Destinations() {
         getDestinations()
     },[])
 
-    // ORIGINAL LAYOUT
-    // const renderPage = destinations.map((destination, idx) => {
-    //       return (
-    //         <ul key={`${destination.id}-${idx}`}>
-    //             <Link to={`/destinations/${destination.id}`}><h2 className='font'>{destination.name}</h2></Link>
-    //             <small className='font'>{destination.username}</small>
-    //             <Link to={`/destinations/${destination.id}`}><img src={destination.photo} alt={destination.name} className='rounded-3xl border-4 destinations' width='400px'/></Link>
-    //         </ul>
-    //     )
 
-    // })
-
-    // RESPONSIVE CARD HOVER
-    // const renderPage = destinations.map((destination, idx) => {
-    //     return (
-    //         <div className='container'>
-    //             <div className="box">
-    //                 <div className="imgBox">
-    //                     <img src={destination.photo} alt={destination.name}/>
-    //                 </div>
-    //                 <div className="content">
-    //                     <h2>{destination.name}<br></br>
-    //                     <span>{destination.username}</span></h2>
-    //                 </div>
-    //             </div>
-    //         </div>
-    //     )
-    // })
-
-    // CARDS
     const renderPage = destinations.map((destination, idx) => {
         return (
   

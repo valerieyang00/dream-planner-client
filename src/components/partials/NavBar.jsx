@@ -47,14 +47,14 @@ export default function Navbar({ currentUser, handleLogout }) {
           {/* user always sees this section */}
           <div className="flex items-end gap-3 ">
               <Link to="/" className='font-bold italic'>Dream Planner</Link>{" | "}
-              {/* <div className=''> */}
+
               <Link to='/destinations' className=''> Destinations</Link>{" | "}
 
               <Link to='/hotels' className=''> Hotels</Link>{" | "}
 
               <Link to='/about' className=''>About</Link>
 
-              {/* </div> */}
+
           </div>
       {currentUser ? loggedIn : loggedOut}
 

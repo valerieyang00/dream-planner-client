@@ -113,7 +113,7 @@ export default function Expenses({ destinationId, budget }) {
             {msg}
             {expenses.length > 0 ? <MyDashboard expenses={expenses} budget={budget} /> : ''}
             <Link className="flex justify-start ml-8" to={`/destinations/${destinationId}/expenses/new`}><button type="button" className="inline-block px-6 py-2.5 bg-blue-600 text-white font-medium text-sm leading-tight uppercase rounded-full shadow-md hover:bg-blue-700 hover:shadow-lg focus:bg-blue-700 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-blue-800 active:shadow-lg transition duration-150 ease-in-out  bg-[#5094d4] hover:bg-[#b7d8f1]">Add New Expense</button></Link>
-            <p className="text-2xl">{expenses.length > 0 ? tableLayout : "No Expenses Yet!"}</p>
+            <div className="text-2xl">{expenses.length > 0 ? tableLayout : "No Expenses Yet!"}</div>
         </div>
     )
 }
