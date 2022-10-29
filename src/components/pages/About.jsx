@@ -43,7 +43,7 @@ export default function About() {
                                     <a href="#">Sean</a>
                                 </h3>
                                 <span class="text-gray-500 dark:text-gray-400">Full Stack Software Engineer</span>
-                                <p class="mt-3 mb-4 font-light text-gray-500 dark:text-gray-400">BackEnd . BugKiller . TeamPlayer . Everything</p>
+                                <p class="mt-3 mb-4 font-light text-gray-500 dark:text-gray-400">BackEnd . BugKiller . TeamPlayer</p>
                                 
                                 <ul class="flex space-x-2 justify-center sm:mt-0">
                                     <li>
