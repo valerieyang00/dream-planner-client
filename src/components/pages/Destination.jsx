@@ -114,13 +114,13 @@ export default function Destination({ currentUser }) {
 
             <div className="flex space-x-2 justify-center">
                 {!destination.completed ? <button type="button" className="inline-block px-6 py-2 border-2 border-blue-400 text-white font-medium text-base leading-tight uppercase rounded hover:bg-black hover:bg-opacity-5 focus:outline-none focus:ring-0 transition duration-150 ease-in-out" onClick={setModalIsOpenToTrue} style={{ marginTop: "1rem" }}>Estimate how much to save per week</button> : ''}
-                <Modal isOpen={modalIsOpen} ariaHideApp={false} backdrop="static">
-                    <div className="grid place-items-center h-screen">
+                <Modal isOpen={modalIsOpen} ariaHideApp={false} backdrop="static" >
+                    <div className="grid place-items-center h-screen" style={{backgroundColor: "rgb(17, 24, 34)" }} >
                         <form>
-                            <h5 className="text-2xl text-center font-medium leading-normal text-gray-800 mb-10">
+                            <h5 className="text-2xl text-center text-white font-medium leading-normal  mb-10">
                                 Estimate How Much to Save Per Week
                             </h5>
-                            <label htmlFor="date" className="block text-gray-700 text-base font-bold mb-4">Expected Travel Date:</label>
+                            <label htmlFor="date" className="block text-white text-base font-bold mb-4">Expected Travel Date:</label>
                             <input
                                 className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
                                 type="date"
@@ -130,7 +130,7 @@ export default function Destination({ currentUser }) {
                                 onChange={handleDateChange}
                                 required
                             />
-                            {saveAmount && saveAmount != -1 ? <p className='text-xl mt-8 text-center'>Weekly Savings needed for {expectDate}: <br></br> <p className="text-center mt-3 text-2xl ">${saveAmount} </p></p>: ''}
+                            {saveAmount && saveAmount != -1 ? <p className='text-xl mt-8 text-center text-white'>Weekly Savings needed for {expectDate}: <br></br> <p className=" text-white text-center mt-3 text-2xl ">${saveAmount} </p></p>: ''}
                             <div className="flex space-x-2 justify-center mt-8">
                                 <p>{saveAmount == -1 ? 'Please select a future date' : ''}</p>
                                 <button type="button" className="inline-block px-6 py-2.5 bg-blue-600 text-white font-medium text-sm leading-tight uppercase rounded-full shadow-md hover:bg-blue-700 hover:shadow-lg focus:bg-blue-700 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-blue-800 active:shadow-lg transition duration-150 ease-in-out  bg-[#5094d4] hover:bg-[#b7d8f1]" onClick={handleEstimation}>Submit</button>
@@ -145,7 +145,7 @@ export default function Destination({ currentUser }) {
     )
 
     return (
-        <div>
+        <div className="bg-stone-50">
             {msg}
             <div className="flex space-x-2 justify-center">
                 <div className="p-12 text-center relative overflow-hidden bg-no-repeat bg-cover rounded-lg" style={{ backgroundImage: `url(${destination.photo})`, width: "100%", height: currentUser.userId == destination.user ? "67vh" : "100vh" }}>
