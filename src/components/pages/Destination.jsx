@@ -108,7 +108,7 @@ export default function Destination({ currentUser }) {
     const userDestination = (
         <div>
             <div className="flex space-x-2 justify-center">
-                <Link to={`/destinations/${destinationId}/edit`}><button type="button" className="inline-block px-6 py-2.5 bg-blue-600 text-white font-medium text-sm leading-tight uppercase rounded-full shadow-md hover:bg-blue-700 hover:shadow-lg focus:bg-blue-700 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-blue-800 active:shadow-lg transition duration-150 ease-in-out">Edit Destination</button></Link>
+                <Link to={`/destinations/${destinationId}/edit`}><button type="button" className="inline-block px-6 py-2.5 bg-blue-600 text-white font-medium text-sm leading-tight uppercase rounded-full shadow-md hover:bg-blue-700 hover:shadow-lg focus:bg-blue-700 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-blue-800 active:shadow-lg transition duration-150 ease-in-out" style={{display: destination.completed ? "none" : "inline-block"}}>Edit Destination</button></Link>
                 <button type="button" className="inline-block px-6 py-2.5 bg-purple-600 text-white font-medium text-sm leading-tight uppercase rounded-full shadow-md hover:bg-purple-700 hover:shadow-lg focus:bg-purple-700 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-purple-800 active:shadow-lg transition duration-150 ease-in-out" onClick={markComplete} style={{ backgroundColor: destination.completed ? "green" : '' }}>{destination.completed ? 'Completed Trip' : 'Mark as Completed'}</button>
             </div>
 
