@@ -46,29 +46,31 @@ export default function Profile({ currentUser, handleLogout }) {
     const userOptions = (
     
             <div className=''>
-                <Link className={``} to={`edit`}><button className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline">Edit Profile</button></Link>
+                <Link className={``} to={`edit`}><button className="bw-half text-white bg-[#5094d4] hover:bg-[#b7d8f1] hover:font-stone-50 focus:ring-4 focus:outline-none focus:ring-primary-300 font-medium rounded-lg text-base px-5 py-2.5 text-center dark:bg-primary-600 dark:hover:bg-primary-700 dark:focus:ring-primary-800">Edit Profile</button></Link>
             </div>
         )
 
     // Output
 	return (
-		<div className='mx-auto' >
-            <div className='flex flex-col-reverse sm:flex-row justify-center'>
-                <div className='flex flex-col justify-center'>
-                    <div className="max-w-sm rounded overflow-hidden shadow-lg ">
-                        <div className="px-6 py-4">
-                            <div className="font-bold text-xl mb-2">Profile Details</div>
-                            <br></br>
-                            <p className="text-gray-700 text-base">Username: {userDetails.username}</p>
-                            <p className="text-gray-700 text-base">Email: {userDetails.email}</p>
-                            <br></br>
-                            {currentUser && currentUser.userId == userId ? userOptions : <h3></h3> }
-                        </div>
-                    </div>
+        <div>
+            <div className='mx-auto' >
+                <div className='flex flex-col-reverse sm:flex-row justify-center'>
+                <div className="p-6 space-y-4 md:space-y-6 sm:p-8">
+
+                            <div>
+                                <h1 className="text-lrg font-bold leading-tight tracking-tight text-gray-900 md:text-2xl dark:text-white">
+                                    Profile Details
+                                </h1>
+                                <p className="block text-lg font-medium text-gray-900 dark:text-white">Username: {userDetails.username}</p>
+                                <p className="block mb-2 text-lg font-medium text-gray-900 dark:text-white">Email: {userDetails.email}</p>
+                                {currentUser && currentUser.userId == userId ? userOptions : <h3></h3> }
+                            </div>
+
+						</div>
                 </div>
-            </div>
-            <div>
-                <h1><MyDestinations currentUser={userId}/></h1>
+                <div>
+                    <h1><MyDestinations currentUser={userId}/></h1>
+                </div>
             </div>
         </div>
 	)
