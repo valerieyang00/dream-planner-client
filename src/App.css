@@ -4,6 +4,12 @@
   
 }
 
+.darkMode {
+  position: absolute;
+  right: 0
+  
+}
+
 .dark {
   background-color: rgb(17, 24, 34);
   color: white;
