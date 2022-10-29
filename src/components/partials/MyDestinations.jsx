@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react'
 import axios from 'axios'
 import { Link } from 'react-router-dom'
+import Numeral from 'react-numeral';
 
 export default function MyDestinations({currentUser}) {
     
@@ -37,8 +38,8 @@ export default function MyDestinations({currentUser}) {
                 <ul>
                     <Link to={`/destinations/${destination.id}`}><img src={destination.photo} alt={destination.name} className='' width='400px'/></Link>
                     <Link to={`/destinations/${destination.id}`}><div className="font-bold text-xl mb-2">{destination.name}</div></Link>
-                    <div><small className="text-gray-700 text-base">Budget: ${destination.budget}</small></div>
-                    <div><small className="text-gray-700 text-base">Details: {destination.description}</small></div>
+                    <div><small className="text-gray-700 text-base">Budget: $<Numeral value={destination.budget} format={"0,0"} /></small></div>
+                    <div><small className="text-gray-700 text-base">{destination.description}</small></div>
                     <small className="text-gray-700 text-base">{destination.date}</small>
                     <br></br>
                 </ul>
@@ -54,7 +55,7 @@ export default function MyDestinations({currentUser}) {
                 <ul>
                     <Link to={`/destinations/${destination.id}`}><img src={destination.photo} alt={destination.name} className='' width='400px'/></Link>
                     <Link to={`/destinations/${destination.id}`}><div className="font-bold text-xl mb-2">{destination.name}</div></Link>
-                    <div><small className="text-gray-700 text-base">{destination.budget}</small></div>
+                    <div><small className="text-gray-700 text-base">Budget: $<Numeral value={destination.budget} format={"0,0"} /></small></div>
                     <div><small className="text-gray-700 text-base">{destination.description}</small></div>
                     <small className="text-gray-700 text-base">{destination.date}</small>
                 </ul>
