@@ -92,7 +92,7 @@ export default function About() {
                                     <a href="#">Devin</a>
                                 </h3>
                                 <span class="text-gray-500 dark:text-gray-400">Full Stack Software Engineer</span>
-                                <p class="mt-3 mb-4 font-light text-gray-500 dark:text-gray-400">FrontEnd . Tailwind . Spurs . Texas . Code</p>
+                                <p class="mt-3 mb-4 font-light text-gray-500 dark:text-gray-400">FrontEnd . Tailwind . Spurs . Drums . Code</p>
 
                                 <ul class="flex space-x-2 justify-center sm:mt-0">
                                     <li>
