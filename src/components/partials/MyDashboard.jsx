@@ -2,13 +2,14 @@ import { useState, useEffect } from 'react';
 import { Chart as ChartJS, ArcElement, Tooltip, Legend, CategoryScale, LinearScale, BarElement, Title } from 'chart.js';
 import { Doughnut } from 'react-chartjs-2';
 import { Bar } from 'react-chartjs-2';
-import 'chartjs-plugin-datalabels';
+import ChartDataLabels from 'chartjs-plugin-datalabels';
+import Numeral from 'react-numeral'
 
 
 
 
 ChartJS.register(ArcElement, Tooltip, Legend, CategoryScale, LinearScale, BarElement, Title);
-
+ChartJS.register(ChartDataLabels);
 
 export default function MyDashboard({ expenses, budget, destinationId }) {
     const [data, setData] = useState({
@@ -23,11 +24,14 @@ export default function MyDashboard({ expenses, budget, destinationId }) {
                 borderWidth: 2,
             },
         },
-  
+
         responsive: true,
         plugins: {
             datalabels: {
                 display: true,
+                formatter: function (value) {
+                    return '$' + value.toLocaleString('en-US');
+                }
             },
             legend: {
                 position: 'top',
@@ -42,6 +46,19 @@ export default function MyDashboard({ expenses, budget, destinationId }) {
         responsive: true,
         plugins: {
             datalabels: {
+                formatter: function (value, ctx) {
+                    let sum = 0;
+                    let dataArr = ctx.chart.data.datasets[0].data;
+                    dataArr.map(data => {
+                        sum += data;
+                    });
+                    let percentage = (value * 100 / sum).toFixed(2)
+                    if (percentage >= 1) {
+                        return percentage + "%";
+                    } else {
+                        return ''
+                    }
+                },
                 display: true,
             },
             legend: {
@@ -128,18 +145,18 @@ export default function MyDashboard({ expenses, budget, destinationId }) {
 
     return (
         <div className="flex justify-center">
-            <div className="rounded-lg shadow-lg bg-stone-100 max-w-lg" style={{margin: "1vw"}} >
+            <div className="rounded-lg shadow-lg bg-stone-100 max-w-lg" style={{ margin: "1vw" }} >
                 <div className="p-6">
                     <h5 className="text-gray-900 text-xl font-medium mb-2">Expenses by Type</h5>
-                    <div style={{width: "27rem"}}>
+                    <div style={{ width: "27rem" }}>
                         <Doughnut options={options} data={data} />
                     </div>
                 </div>
             </div>
-            <div className="rounded-lg shadow-lg bg-stone-100 max-w-lg" style={{margin: "1vw"}}>
+            <div className="rounded-lg shadow-lg bg-stone-100 max-w-lg" style={{ margin: "1vw" }}>
                 <div className="p-6">
                     <h5 className="text-gray-900 text-xl font-medium mb-2">Total Expenses vs Budget</h5>
-                    <div style={{marginTop: "5rem", width: "27rem"}}>
+                    <div style={{ marginTop: "5rem", width: "27rem" }}>
                         <Bar options={optionsBar} data={totalData} />
                     </div>
                 </div>
