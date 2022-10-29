@@ -62,12 +62,8 @@ export default function Home() {
     })   
 
     return (
-        <div className={`relative flex flex-col overflow-x-hidden`}>
-            <div className={`flex ${!isWide ? 'flex-col-reverse' : ''} pt-16`}>
-              <div className={`relative w-screen ${isWide ? 'mt-40 self-end' : `mt-[-4rem] pb-[2rem] justify-center`} px-[${isThird && !isWide ? `mx-auto` : '0rem'}]`}>
-                <Carousel isWide={isWide} />
-              </div>
-            </div>
+        <div>
+            <Carousel isWide={isWide} />
             <div className="text-xl">
                 Most Popular Destinations
             </div>
