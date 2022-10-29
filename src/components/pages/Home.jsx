@@ -42,6 +42,7 @@ export default function Home() {
       }, [windowSize])
   
       const isWide = windowSize > 1536
+
     // CARDS
     const renderPage = destinations.map((destination, idx) => {
         return (
