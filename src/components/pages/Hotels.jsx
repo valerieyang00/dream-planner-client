@@ -17,9 +17,9 @@ export default function Hotels() {
         <div>
             <div class="flex justify-center">
 
-            <div className="mt-5 xl:w-96">
+            <div className="mt-10 xl:w-96">
+                <p className="text-lg" style={{marginBottom: "1rem"}}>Enter a Destination City to see Hotel Deals</p>
                 <div className="input-group flex flex-wrap items-stretch w-full mb-4">
-                    <label className="text-lg mt-1 mr-2" htmlFor="search">Search City:</label>
                     <input className="form-control relative flex-auto min-w-0 block w-full px-3 py-1.5 text-base font-normal text-gray-700 bg-white bg-clip-padding border border-solid border-gray-300 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none"
                         type="text"
                         name="search"
@@ -37,11 +37,11 @@ export default function Hotels() {
                         </svg>
                     </button>
                 </div>
-            </div>
+              </div>
             </div>
             <iframe
                 src={`https://hatlastravel.com/widget/hotels?place=${search}&partner=1261`}
-                style={{ height: "700px", width: "100%", margin: "auto", display: "block", overflow: "hidden", border: "none", marginTop: "10rem" }}></iframe>
+                style={{ height: "700px", width: "100%", margin: "auto", display: "block", overflow: "hidden", border: "none", marginTop: "4rem" }}></iframe>
         </div>
     )
 }

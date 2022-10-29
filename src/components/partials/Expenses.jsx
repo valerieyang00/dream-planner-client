@@ -100,6 +100,7 @@ export default function Expenses({ destinationId, budget }) {
                             </tbody>)
                         })}
                     </table>
+                    <footer style={{margin: "15rem"}}></footer>
                 </div>
             </div>
         </div>
