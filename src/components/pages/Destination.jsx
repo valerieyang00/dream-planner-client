@@ -131,9 +131,9 @@ export default function Destination({ currentUser }) {
                                 onChange={handleDateChange}
                                 required
                             />
-                            {saveAmount && saveAmount != -1 ? <p className='text-xl mt-8 text-center text-white'>Weekly Savings needed for {expectDate}: <br></br> <p className=" text-white text-center mt-3 text-2xl ">$<Numeral value={saveAmount} format={"0,0"} /></p></p>: ''}
+                            {saveAmount && saveAmount != -1 ? <div className='text-base mt-8 text-center text-white'>Weekly Savings needed for {expectDate}: <br></br> <p className=" text-white text-center mt-3 text-2xl ">$<Numeral value={saveAmount} format={"0,0"} /></p></div>: ''}
+                            <p style={{color:'white'}}>{saveAmount == -1 ? 'Please select a future date' : ''}</p>
                             <div className="flex space-x-2 justify-center mt-8">
-                                <p>{saveAmount == -1 ? 'Please select a future date' : ''}</p>
                                 <button type="button" className="inline-block px-6 py-2.5 bg-blue-600 text-white font-medium text-sm leading-tight uppercase rounded-full shadow-md hover:bg-blue-700 hover:shadow-lg focus:bg-blue-700 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-blue-800 active:shadow-lg transition duration-150 ease-in-out  bg-[#5094d4] hover:bg-[#b7d8f1]" onClick={handleEstimation}>Submit</button>
                                 <button type="button" className="inline-block px-6 py-2.5 bg-blue-600 text-white font-medium text-sm leading-tight uppercase rounded-full shadow-md hover:bg-blue-700 hover:shadow-lg focus:bg-blue-700 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-blue-800 active:shadow-lg transition duration-150 ease-in-out  bg-[#b7d8f1] hover:bg-[#5094d4]" onClick={setModalIsOpenToFalse}>Close</button>
                             </div>
