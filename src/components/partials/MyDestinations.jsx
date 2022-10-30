@@ -34,7 +34,7 @@ export default function MyDestinations({currentUser}) {
 
     const destinationsToDisplay = destinations.map((destination,idx) => {
         let sumCalc = destination.expenses.reduce((amount, expense) => amount + expense.amount, 0)
-        let sumExpenses = <Numeral value={destination.budget} format={"0,0.00"} />
+        let sumExpenses = <Numeral value={sumCalc} format={"0,0.00"} />
         return (
             <div className="max-w-sm rounded overflow-hidden shadow-lg card transform transition duration-500 hover:scale-110" key={`${destination.id}-${idx}`}>
                 <ul>
@@ -53,7 +53,7 @@ export default function MyDestinations({currentUser}) {
 
     const completedToDisplay = completed.map((destination,idx) => {
         let sumCalc = destination.expenses.reduce((amount, expense) => amount + expense.amount, 0)
-        let sumExpenses = <Numeral value={destination.budget} format={"0,0.00"} />
+        let sumExpenses = <Numeral value={sumCalc} format={"0,0.00"} />
         return (
             <div className="max-w-sm rounded overflow-hidden shadow-lg card transform transition duration-500 hover:scale-110" key={`${destination.id}-${idx}`}>
                 <ul>
