@@ -26,7 +26,7 @@ REACT_APP_SERVER_URL=http://localhost:8000
 * You're all set! Run the command ```npm run start``` in your terminal and your client is ready to go.
 * Enjoy planning your dreams!
 
-<!-- ## Snapshot 
+<!-- ## Snapshot  
 ![Main Layout](/img/dreammain.png)
 ![Sign Layout](/img/destinations.png)
 ![Dashboard Layout](/img/dashboard.png)
