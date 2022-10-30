@@ -128,4 +128,6 @@ Day6
 
 
 ## Major Hurdles 
-TBD - post project review
+* Django user auth
+* Tailwind/Carousel
+* Mobile responsiveness
