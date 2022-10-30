@@ -27,9 +27,9 @@ REACT_APP_SERVER_URL=http://localhost:8000
 * Enjoy planning your dreams!
 
 ## Snapshot 
-![Main Layout](/img/main.png)
-![Sign Layout](/img/signin.png)
-![Profile Layout](/img/dream.png)
+![Main Layout](/img/dreammain.png)
+![Sign Layout](/img/destinations.png)
+![Dashboard Layout](/img/dashboard.png)
 
 ## Wireframes
 ![Route](/img/hierarchy1.png) 
@@ -67,37 +67,6 @@ REACT_APP_SERVER_URL=http://localhost:8000
 | PUT | `/destinations/:destinationId/expense/:expenseId/edit` | UPDATE | Update an expense | 
 | DELETE | `/destinations/:destinationId/` | DESTROY | Delete an expense  |
 
-
-## Daily Sprints
-Day 1 
-- Set up both server and client repos
-- Set up User auth and database models on django/psql
-
-Day 2
-- Set up all backend and frontend routes and API calls
-- Initial setup of all components on Client side
-- Research dashboard options
-- Research API's
-
-
-Day 3
-- Client side views
-- Dashboards
-- Seeder info
-
-Day 4
-- Styling with tailwind
-- Finalize all functionalities included in MVP
-- Stretch goals (if possible)
-
-Day 5
-- Continue Styling
-- Test/Debug
-- Stretch goals (if possible)
-
-Day6
-- Deployment
-- Test/Debug
 
 ## Tech Stack Used
 - Django
