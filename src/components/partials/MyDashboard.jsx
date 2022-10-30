@@ -146,19 +146,19 @@ export default function MyDashboard({ expenses, budget, destinationId }) {
     }, [expenses, destinationId])
 
     return (
-        <div className="flex justify-center">
+        <div className="justify-center p-2">
             <div className="rounded-lg shadow-lg bg-stone-100 max-w-lg" style={{ margin: "1vw" }} >
-                <div className="p-6">
+                <div className="p-4">
                     <h5 className="text-gray-900 text-xl font-medium mb-2">Expenses by Type</h5>
-                    <div style={{ width: "27rem" }}>
+                    <div style={{ width: "w-5/6" }}>
                         <Doughnut options={options} data={data} />
                     </div>
                 </div>
             </div>
             <div className="rounded-lg shadow-lg bg-stone-100 max-w-lg" style={{ margin: "1vw" }}>
-                <div className="p-6">
+                <div className="p-4">
                     <h5 className="text-gray-900 text-xl font-medium mb-2">Total Expenses vs Budget</h5>
-                    <div style={{ marginTop: "5rem", width: "27rem" }}>
+                    <div style={{ marginTop: "5rem", width: "w-5/6" }}>
                         <Bar options={optionsBar} data={totalData} />
                     </div>
                 </div>
