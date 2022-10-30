@@ -17,7 +17,6 @@ export default function NewDestination({currentUser}) { //pass currentUser as pr
 
     const handleChange = (e) => {
         setForm({...form, [e.target.name] : e.target.value})
-        console.log(form)
 
     }
 
