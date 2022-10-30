@@ -7,7 +7,7 @@ Everyone has a dream vacation in their bucketlist.  We're here to bring those dr
 - VSPD - Valerie, Sean, Prija, Devin
 
 ## User Stories
-* User can create, read, update, and delete their profile
+* User can create, read, update, and delete their profile.
 * User can create, read, update, and delete their destination details.
 * User can create, read, update, and delete an expense from a destination.
 * User can estimate how much to save weekly based on budget and expected travel date.
