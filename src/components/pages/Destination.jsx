@@ -115,8 +115,8 @@ export default function Destination({ currentUser }) {
 
             <div className="flex space-x-2 justify-center">
                 {!destination.completed ? <button type="button" className="inline-block px-6 py-2 border-2 border-blue-400 text-white font-medium text-base leading-tight uppercase rounded hover:bg-black hover:bg-opacity-5 focus:outline-none focus:ring-0 transition duration-150 ease-in-out" onClick={setModalIsOpenToTrue} style={{ marginTop: "1rem" }}>Estimate how much to save per week</button> : ''}
-                <Modal isOpen={modalIsOpen} ariaHideApp={false} backdrop="static" >
-                    <div className="grid place-items-center h-screen" style={{backgroundColor: "rgb(17, 24, 34)" }} >
+                <Modal isOpen={modalIsOpen} ariaHideApp={false} className="sm:max-sm" >
+                    <div className="grid place-items-center h-screen w-screen px-5"  style={{backgroundColor: "rgb(17, 24, 34)" }} >
                         <form>
                             <h5 className="text-2xl text-center text-white font-medium leading-normal  mb-10">
                                 Estimate How Much to Save Per Week
