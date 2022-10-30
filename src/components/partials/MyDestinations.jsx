@@ -33,14 +33,15 @@ export default function MyDestinations({currentUser}) {
     
 
     const destinationsToDisplay = destinations.map((destination,idx) => {
-
+        let sumCalc = destination.expenses.reduce((amount, expense) => amount + expense.amount, 0)
+        let sumExpenses = <Numeral value={destination.budget} format={"0,0.00"} />
         return (
             <div className="max-w-sm rounded overflow-hidden shadow-lg card transform transition duration-500 hover:scale-110" key={`${destination.id}-${idx}`}>
                 <ul>
                     <Link to={`/destinations/${destination.id}`}><img src={destination.photo} alt={destination.name} className='' width='400px'/></Link>
                     <Link to={`/destinations/${destination.id}`}><div className="font-bold text-xl mb-2">{destination.name}</div></Link>
                     <div><small className="text-gray-700 text-base">Budget: $<Numeral value={destination.budget} format={"0,0.00"} /></small></div>
-                    <div><small className="text-gray-700 text-base">Total Expenses: $<Numeral value={destination.expenses.reduce((amount, expense) => amount + expense.amount, 0)} format={"0,0.00"}/></small></div>
+                    <div><small className="text-gray-700 text-base">Total Expenses: ${sumCalc ? sumExpenses : "0.00"}</small></div>
                     <small className="text-gray-700 text-base">{destination.date}</small>
                     <br></br>
                 </ul>
@@ -51,13 +52,15 @@ export default function MyDestinations({currentUser}) {
 
 
     const completedToDisplay = completed.map((destination,idx) => {
+        let sumCalc = destination.expenses.reduce((amount, expense) => amount + expense.amount, 0)
+        let sumExpenses = <Numeral value={destination.budget} format={"0,0.00"} />
         return (
             <div className="max-w-sm rounded overflow-hidden shadow-lg card transform transition duration-500 hover:scale-110" key={`${destination.id}-${idx}`}>
                 <ul>
                     <Link to={`/destinations/${destination.id}`}><img src={destination.photo} alt={destination.name} className='' width='400px'/></Link>
                     <Link to={`/destinations/${destination.id}`}><div className="font-bold text-xl mb-2">{destination.name}</div></Link>
                     <div><small className="text-gray-700 text-base">Budget: $<Numeral value={destination.budget} format={"0,0.00"} /></small></div>
-                    <div><small className="text-gray-700 text-base">Total Expenses: $<Numeral value={destination.expenses.reduce((amount, expense) => amount + expense.amount, 0)} format={"0,0.00"}/></small></div>
+                    <div><small className="text-gray-700 text-base">Total Expenses: ${sumCalc ? sumExpenses : "0.00"}</small></div>
                     <small className="text-gray-700 text-base">{destination.date}</small>
                 </ul>
             </div>
