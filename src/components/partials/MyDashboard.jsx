@@ -17,6 +17,8 @@ export default function MyDashboard({ expenses, budget, destinationId }) {
         datasets: [],
     })
 
+    const [windowSize, setWindowSize] = useState(window.innerWidth)
+
     const optionsBar = {
         // maintainAspectRatio : false,
         indexAxis: 'y',
@@ -125,6 +127,8 @@ export default function MyDashboard({ expenses, budget, destinationId }) {
             },
         ]
 
+        
+
         const totalDataChange = [{
             label: 'Total Expenses',
             data: labels.map(() => totalExp),
@@ -145,8 +149,18 @@ export default function MyDashboard({ expenses, budget, destinationId }) {
 
     }, [expenses, destinationId])
 
+
+    useEffect(() => {
+        const handleResize = () => setWindowSize(window.innerWidth)
+        window.addEventListener('resize', handleResize)
+        return _ => window.removeEventListener('resize', handleResize)
+      }, [windowSize])
+  
+    const isWide = windowSize > 480
+
+
     return (
-        <div className="justify-center p-2">
+        <div className={`${isWide ? "flex justify-center" : "justify-center p-2"}`}>
             <div className="rounded-lg shadow-lg bg-stone-100 max-w-lg" style={{ margin: "1vw" }} >
                 <div className="p-4">
                     <h5 className="text-gray-900 text-xl font-medium mb-2">Expenses by Type</h5>
