@@ -1,7 +1,7 @@
 # Dream Planner
-Everyone has a dream vacation in their bucketlist.  We're here to bring those dreams closer to reality with a budget tracker.  Users can post and share their dream vacation and calculate how much they need to save each week.  Once the user goes on their vacation, they can add actual expenses to the trips.
+Everyone has a dream vacation in their bucketlist.  We're here to bring those dreams closer to reality with a budget tracker.  Users can post and share their dream vacation and calculate how much they need to save each week.  Once the user goes on their vacation, they can add actual expenses to the trips and monitor their expenses against their budget.
 
-Users can share their expenses to others to help other see how much it really costs.  
+ 
 
 ## Team Members
 - VSPD - Valerie, Sean, Prija, Devin
@@ -10,7 +10,7 @@ Users can share their expenses to others to help other see how much it really co
 * User can create, read, update, and delete their profile
 * User can create, read, update, and delete their destination details.
 * User can create, read, update, and delete an expense from a destination.
-* User can estimate how much to save weekly based on budged and expected travel date.
+* User can estimate how much to save weekly based on budget and expected travel date.
 * User can mark/unmark trip as completed.
 * User can access the app on any device.
 
@@ -111,17 +111,20 @@ Day6
 - Axios
 
 ## MVP goals
-- [x] User can create, read update, delete profile
-- [x] User can create, read, update, delete destination details.
-- [x] User can create, read, update, delete expense from a destination.
+- [x] User can create, read update, and delete their profile.
+- [x] User can create, read, update, and delete their destination details.
+- [x] User can create, read, update, and delete an expense from their destination.
 - [x] Learn Django for react
 - [x] Wire Framing
 - [x] Task Tracking
 - [x] CSS - Tailwind 
 
 ## Stretch Goals
-- [ ] API 
+- [x] Dark Mode
 - [x] Expense Dashboard
+- [x] Mobile Responsive
+- [x] Weekly Saving Estimate (based on budget and expected travel date)
+- [ ] API 
 - [ ] Social Page (view friends)
 - [ ] Profile Photo
 - [ ] Comments
