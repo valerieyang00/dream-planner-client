@@ -44,29 +44,28 @@ REACT_APP_SERVER_URL=http://localhost:8000
 ### User
 | HTTP METHOD | URL              | CRUD    | Response                              |
 | ----------- | ---------------- | ------- | ------------------------------------- |
-| GET | `/users/:userId` | READ | return a specific user profile |
-| POST | `/users/register` | CREATE | create a user profile |
-| PUT | `/users/:userId` | UPDATE | update a user profile in the database |
-| DELETE | `/users/:userId` | DESTROY | delete a user profile |
+| GET | `/users/:userId` | READ | Return a specific user profile |
+| POST | `/users/register` | CREATE | Create a user profile |
+| PUT | `/users/:userId` | UPDATE | Update a user profile in the database |
+| DELETE | `/users/:userId` | DESTROY | Delete a user profile |
 
 
 ### Dream Destination
 | HTTP METHOD | URL              | CRUD    | Response                              |
 | ----------- | ---------------- | ------- | ------------------------------------- |
-| GET | `/users/:userId/destinations` | READ | see a specific destination |
-| POST | `/users/:userId/destinations/:destinationId` | CREATE | add destination to profile |
-| PUT | `/users/:userId/destinations/:destinationId` | UPDATE | ability to edit destination |
-| DELETE | `/users/:userId/destinations/:destinationId` | DESTROY | delete destination details |
+| GET | `/destinations` | READ | See a specific destination |
+| POST | `/destinations/:destinationId` | CREATE | Add destination to profile |
+| PUT | `/destinations/:destinationId/edit` | UPDATE | Ability to edit destination |
+| DELETE | `/destinations/:destinationId/edit` | DESTROY | Delete destination details |
 
 
 ### Expense
 | HTTP METHOD | URL              | CRUD    | Response                              |
 | ----------- | ---------------- | ------- | ------------------------------------- |
-| GET | `/destinations/:destinationId/expense` | READ | return all expenses for a destination |
-| GET | `/:destinationId/expense/:expenseId` | READ | return a specific expense |
-| POST | `/destinations/:destinationId/expense` | CREATE | create a expense |
-| PUT | `/destinations/:destinationId/expense/:expenseId` | UPDATE | update an expense | 
-| DELETE | `/destinations/:destinationId/courses/:expenseId` | DESTROY | delete an expense  |
+| GET | `/destinations/:destinationId` | READ | Return expenses for a destination |
+| POST | `/destinations/:destinationId/expenses/new` | CREATE | Create an expense |
+| PUT | `/destinations/:destinationId/expense/:expenseId/edit` | UPDATE | Update an expense | 
+| DELETE | `/destinations/:destinationId/` | DESTROY | Delete an expense  |
 
 
 ## Daily Sprints
