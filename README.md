@@ -26,10 +26,10 @@ REACT_APP_SERVER_URL=http://localhost:8000
 * You're all set! Run the command ```npm run start``` in your terminal and your client is ready to go.
 * Enjoy planning your dreams!
 
-## Snapshot 
-![Main Layout](/img/main.png)
-![Sign Layout](/img/signin.png)
-![Profile Layout](/img/dream.png)
+## Snapshot  
+![Main Layout](/img/dreammain.png)
+![Sign Layout](/img/destinations.png)
+![Dashboard Layout](/img/dashboard.png)
 
 ## Wireframes
 ![Route](/img/hierarchy1.png) 
@@ -67,37 +67,13 @@ REACT_APP_SERVER_URL=http://localhost:8000
 | PUT | `/destinations/:destinationId/expense/:expenseId/edit` | UPDATE | Update an expense | 
 | DELETE | `/destinations/:destinationId/` | DESTROY | Delete an expense  |
 
+## Our Approach Used
+We used the Miro to create the User Stories and mapped out the RESTful Routes.  We implemented a SCRUM dashboard using sticky notes.  
 
-## Daily Sprints
-Day 1 
-- Set up both server and client repos
-- Set up User auth and database models on django/psql
+We set up the backend and designed a rough draft of how we wanted our site to look.  Then we tackled the front end routes to reach MVP.  After we got the site functional, we styled it with Tailwind.
 
-Day 2
-- Set up all backend and frontend routes and API calls
-- Initial setup of all components on Client side
-- Research dashboard options
-- Research API's
+We had daily stand ups with a checklist of Big Milestones and daily goals.  We ranked each item from high to low priority.  We tested and dedugged daily to polish the site until we were satisfied. 
 
-
-Day 3
-- Client side views
-- Dashboards
-- Seeder info
-
-Day 4
-- Styling with tailwind
-- Finalize all functionalities included in MVP
-- Stretch goals (if possible)
-
-Day 5
-- Continue Styling
-- Test/Debug
-- Stretch goals (if possible)
-
-Day6
-- Deployment
-- Test/Debug
 
 ## Tech Stack Used
 - Django
