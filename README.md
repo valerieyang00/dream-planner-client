@@ -7,9 +7,24 @@ Users can share their expenses to others to help other see how much it really co
 - VSPD - Valerie, Sean, Prija, Devin
 
 ## User Stories
-* User can create, read, update, delete profile
-* User can create, read, update, delete destination details.
-* User can create, read, update, delete expense from a destination.
+* User can create, read, update, and delete their profile
+* User can create, read, update, and delete their destination details.
+* User can create, read, update, and delete an expense from a destination.
+* User can estimate how much to save weekly based on budged and expected travel date.
+* User can mark/unmark trip as completed.
+* User can access the app on any device
+
+## Installation
+* Fork and clone this repository
+* Nagivate to the cloned repository in your terminal. Run the command ```npm i``` to install all of the packages needed to run this app.
+* You will need to add a local file for functionality. In your terminal in the same location as above, run the following command: ```touch .env.local```
+* In the ```.gitignore``` file, add ```.env.local```
+* In the ```.env.local``` file, you need to set your router variable. Enter the following:
+```
+REACT_APP_SERVER_URL=http://localhost:8000
+```
+* You're all set! Run the command ```npm run start``` in your terminal and your client is ready to go.
+* Enjoy planning your dreams!
 
 ## Snapshot 
 ![Main Layout](/img/main.png)
@@ -97,17 +112,17 @@ Day6
 - Axios
 
 ## MVP goals
-- [ ] User can create, read update, delete profile
-- [ ] User can create, read, update, delete destination details.
-- [ ] User can create, read, update, delete expense from a destination.
-- [ ] Learn Django for react
-- [ ] Wire Framing
-- [ ] Task Tracking
-- [ ] CSS - Tailwind 
+- [x] User can create, read update, delete profile
+- [x] User can create, read, update, delete destination details.
+- [x] User can create, read, update, delete expense from a destination.
+- [x] Learn Django for react
+- [x] Wire Framing
+- [x] Task Tracking
+- [x] CSS - Tailwind 
 
 ## Stretch Goals
 - [ ] API 
-- [ ] Expense Dashboard
+- [x] Expense Dashboard
 - [ ] Social Page (view friends)
 - [ ] Profile Photo
 - [ ] Comments
