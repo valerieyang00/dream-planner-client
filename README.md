@@ -12,7 +12,7 @@ Users can share their expenses to others to help other see how much it really co
 * User can create, read, update, and delete an expense from a destination.
 * User can estimate how much to save weekly based on budged and expected travel date.
 * User can mark/unmark trip as completed.
-* User can access the app on any device
+* User can access the app on any device.
 
 ## Installation
 * Fork and clone this repository
